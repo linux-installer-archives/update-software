@@ -14,12 +14,14 @@ import org.apache.commons.io.IOUtils;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
+    public static final String LIAR_SOFTWARE = ".liar_software";
+
     private final String softwareResource;
     private SoftwareUpdateOptions updateOptions = SoftwareUpdateOptions.withDefault();
 
     public SoftwareUpdateServiceImpl()
     {
-        this(System.getProperty("user.home") + "/" + ".liar_software");
+        this(System.getProperty("user.home") + "/" + LIAR_SOFTWARE);
     }
 
     public SoftwareUpdateServiceImpl(final String softwareResource)

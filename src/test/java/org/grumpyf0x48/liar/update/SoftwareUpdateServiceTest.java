@@ -64,7 +64,7 @@ public class SoftwareUpdateServiceTest
     {
         final File testDir = new File("src/test/resources");
         final File initialSoftwareFile = new File(testDir, ".liar_software");
-        final File updatedSoftwareFile = new File(testDir, ".liar_software.updated");
+        final File updatedSoftwareFile = new File(testDir, initialSoftwareFile.getName() + ".updated");
         copyFile(initialSoftwareFile, updatedSoftwareFile);
 
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath());
@@ -73,7 +73,7 @@ public class SoftwareUpdateServiceTest
 
         Assert.assertTrue(updated);
         Assert.assertFalse(contentEquals(initialSoftwareFile, updatedSoftwareFile));
-        final File expectedSoftwareFile = new File(testDir, ".liar_software.expected");
+        final File expectedSoftwareFile = new File(testDir,  initialSoftwareFile.getName() + ".expected");
         Assert.assertTrue(contentEquals(expectedSoftwareFile, updatedSoftwareFile));
     }
 
