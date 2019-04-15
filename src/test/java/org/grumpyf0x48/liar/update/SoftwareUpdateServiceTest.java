@@ -6,13 +6,11 @@ import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 import org.grumpyf0x48.misc.NetworkUtils;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Properties;
 
 import static org.apache.commons.io.FileUtils.contentEquals;
@@ -157,51 +155,5 @@ public class SoftwareUpdateServiceTest
             }
         }
         Assert.assertEquals("Bad number of updatable software", 20, count);
-    }
-
-    @Ignore
-    public void guessNextExistingURLAllTest()
-    {
-        for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
-        {
-            guessNextExistingURL(softwareDefinition);
-        }
-    }
-
-    @Ignore
-    public void guessNextExistingURLHalfTest()
-    {
-        for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
-        {
-            final int softwareValue = softwareDefinition.ordinal() % 2;
-            final int dateValue = LocalDate.now().getDayOfWeek().getValue() % 2;
-            if (softwareValue == dateValue)
-            {
-                guessNextExistingURL(softwareDefinition);
-            }
-        }
-    }
-
-    private void guessNextExistingURL(final SoftwareDefinition softwareDefinition)
-    {
-        try
-        {
-            System.out.println("Checking nextUrl for: " + softwareDefinition);
-            final SoftwareUrl url = nextExistingUpdateService.getUrl(softwareDefinition);
-            final SoftwareUrl nextUrl = nextExistingUpdateService.getNextUrl(softwareDefinition);
-            if (!nextUrl.getUrl().equals(url.getUrl()))
-            {
-                System.out.println(softwareDefinition + " URL needs to be updated");
-                System.out.println(softwareDefinition.name().toLowerCase() + "=" + nextUrl.getUrl());
-            }
-        }
-        catch (final IOException e)
-        {
-            System.out.println("Failed to guess nextUrl for: " + softwareDefinition + ", " + e.getMessage());
-        }
-        catch (final SoftwareException e)
-        {
-            System.out.println("Failed to guess nextUrl for: " + softwareDefinition + ", " + e.getMessage() + " after " + e.getMaxTries() + " tries");
-        }
     }
 }
