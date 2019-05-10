@@ -42,7 +42,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
@@ -78,4 +77,36 @@
             </plugins>
         </pluginManagement>
     </build>
+    <profiles>
+        <profile>
+            <id>native</id>
+            <activation>
+                <property>
+                    <name>native</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.oracle.substratevm</groupId>
+                        <artifactId>native-image-maven-plugin</artifactId>
+                        <version>1.0.0-rc15</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>native-image</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <mainClass>org.grumpyf0x48.liar.update.SoftwareUpdateRepository</mainClass>
+                            <imageName>SoftwareUpdateRepository.native</imageName>
+                            <buildArgs>-H:EnableURLProtocols=http,https</buildArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
