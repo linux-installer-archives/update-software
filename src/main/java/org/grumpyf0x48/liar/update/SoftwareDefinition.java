@@ -16,7 +16,6 @@ public enum SoftwareDefinition {
     PYCHARM_COMMUNITY,
     PYCHARM_PROFESSIONAL,
     RUBYMINE,
-    SBT,
     SCALA,
     TORBROWSER,
     VISUALVM,
