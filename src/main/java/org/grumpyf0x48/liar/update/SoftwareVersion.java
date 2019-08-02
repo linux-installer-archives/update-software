@@ -16,8 +16,8 @@ public class SoftwareVersion implements SoftwareIncrementable<SoftwareVersion>
     private static final String MINOR = "minor";
     private static final String PATCH = "patch";
 
-    private static final String VERSION_REGEXP = "(?<" + MAJOR + ">\\d*)\\.(?<" + MINOR + ">\\d*)";
-    private static final String VERSION_WITH_PATCH_REGEXP = VERSION_REGEXP + "\\.(?<" + PATCH + ">\\d*)";
+    private static final String VERSION_REGEXP = "(?<" + MAJOR + ">\\d+)\\.(?<" + MINOR + ">\\d+)";
+    private static final String VERSION_WITH_PATCH_REGEXP = VERSION_REGEXP + "\\.(?<" + PATCH + ">\\d+)";
 
     private final SoftwareVersionIncrementPolicy versionIncrementPolicy;
 

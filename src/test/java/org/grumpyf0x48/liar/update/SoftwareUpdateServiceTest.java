@@ -90,13 +90,6 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
-    public void getSoftwareListTest() throws IOException
-    {
-        final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(35, softwareList.length);
-    }
-
-    @Test
     public void getUrlTest() throws IOException, SoftwareException
     {
         for (final SoftwareDefinition software : SoftwareDefinition.values())
@@ -112,6 +105,14 @@ public class SoftwareUpdateServiceTest
         final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.GOLAND, "https://download.jetbrains.com/go/goland-2018.3.2.tar.gz");
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("https://download.jetbrains.com/go/goland-2018.3.3.tar.gz", nextUrl.getUrl());
+    }
+
+    @Test
+    public void getNextUrlIdeaTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.IDEA_COMMUNITY, "https://download.jetbrains.com/idea/ideaIC-2019.2.tar.gz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://download.jetbrains.com/idea/ideaIC-2019.3.tar.gz", nextUrl.getUrl());
     }
 
     @Test
@@ -154,6 +155,6 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 20, count);
+        Assert.assertEquals("Bad number of updatable software", 19, count);
     }
 }

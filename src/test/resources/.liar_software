@@ -40,7 +40,7 @@ jdk10 jdk11 jdk12 jdk_ri7 jdk_ri8 jdk_ri9 jdk_ri10 jdk_ri11 \
 marp maven \
 pycharm_community pycharm_professional \
 robo3t rubymine \
-sbt scala sublimetext \
+scala sublimetext \
 torbrowser \
 visualvm \
 webstorm \
@@ -71,7 +71,6 @@ pycharm_community=https://download.jetbrains.com/python/pycharm-community-2019.1
 pycharm_professional=https://download.jetbrains.com/python/pycharm-professional-2019.1.1.tar.gz
 robo3t=https://download.robomongo.org/1.2.1/linux/robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
 rubymine=https://download.jetbrains.com/ruby/RubyMine-2018.3.5.tar.gz
-sbt=https://piccolo.link/sbt-1.2.10.zip
 scala=https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz
 sublimetext=https://download.sublimetext.com/sublime_text_3_build_3200_x64.tar.bz2
 torbrowser=https://dist.torproject.org/torbrowser/8.0.8/tor-browser-linux64-8.0.8_fr.tar.xz
