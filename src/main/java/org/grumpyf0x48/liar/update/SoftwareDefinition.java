@@ -12,7 +12,7 @@ public enum SoftwareDefinition {
     ICECAT,
     IDEA_COMMUNITY,
     IDEA_ULTIMATE,
-    MARP,
+    MARP_CLI,
     PYCHARM_COMMUNITY,
     PYCHARM_PROFESSIONAL,
     RUBYMINE,
