@@ -109,11 +109,27 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
+    public void getNextUrlGraalVmTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.GRAALVM, "https://github.com/oracle/graal/releases/download/vm-19.2.0/graalvm-ce-linux-amd64-19.2.0.tar.gz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz", nextUrl.getUrl());
+    }
+
+    @Test
     public void getNextUrlIdeaTest() throws SoftwareException
     {
         final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.IDEA_COMMUNITY, "https://download.jetbrains.com/idea/ideaIC-2019.2.tar.gz");
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("https://download.jetbrains.com/idea/ideaIC-2019.3.tar.gz", nextUrl.getUrl());
+    }
+
+    @Test
+    public void getNextUrlXsvTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.XSV, "https://github.com/BurntSushi/xsv/releases/download/0.13.0/xsv-0.13.0-x86_64-unknown-linux-musl.tar.gz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://github.com/BurntSushi/xsv/releases/download/0.13.1/xsv-0.13.1-x86_64-unknown-linux-musl.tar.gz", nextUrl.getUrl());
     }
 
     @Test
@@ -156,6 +172,6 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 19, count);
+        Assert.assertEquals("Bad number of updatable software", 20, count);
     }
 }
