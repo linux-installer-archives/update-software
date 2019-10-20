@@ -137,9 +137,9 @@ public class SoftwareUpdateServiceTest
     {
         final SoftwareUrl initialAntUrl = new SoftwareUrl(SoftwareDefinition.ANT, "http://mirrors.standaloneinstaller.com/apache/ant/binaries/apache-ant-1.10.1-bin.zip");
         final SoftwareUrl nextAntUrl = nextExistingUpdateService.getNextUrl(initialAntUrl);
-        Assert.assertEquals("http://mirrors.standaloneinstaller.com/apache/ant/binaries/apache-ant-1.10.5-bin.zip", nextAntUrl.getUrl());
+        Assert.assertEquals("http://mirrors.standaloneinstaller.com/apache/ant/binaries/apache-ant-1.10.6-bin.zip", nextAntUrl.getUrl());
         Assert.assertEquals(SoftwareDefinition.ANT, nextAntUrl.getSoftware());
-        Assert.assertEquals("1.10.5", nextAntUrl.getVersion().toString());
+        Assert.assertEquals("1.10.6", nextAntUrl.getVersion().toString());
 
         final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
         final SoftwareUrl nextAtomUrl = nextExistingUpdateService.getNextUrl(initialAtomUrl);
