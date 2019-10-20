@@ -1,4 +1,4 @@
-LIAR_SOFTWARE=${LIAR_REPOSITORY_HOME}/.liar_software
+LIAR_SOFTWARE=${LIAR_REPOSITORY}/.liar_software
 
 update: install
 	mvn exec:java \
@@ -20,6 +20,13 @@ install_native: clean
 clean:
 	mvn clean
 
-ifndef LIAR_REPOSITORY_HOME
-$(error Please set LIAR_REPOSITORY_HOME !)
+ifndef LIAR_REPOSITORY
+$(error Please set LIAR_REPOSITORY !)
 endif
+
+# To install Graalvm:
+#
+# liar install graalvm https://github.com/oracle/graal/releases/download/vm-1.0.0-rc16/graalvm-ce-1.0.0-rc16-linux-amd64.tar.gz
+# sudo apt-get install zlib1g-dev
+# GRAAL_VM_HOME=~/Programs/graalvm_rc16/graalvm-ce-1.0.0-rc16/
+#
