@@ -1,8 +1,6 @@
 package org.grumpyf0x48.liar.update;
 
-import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
-import org.grumpyf0x48.liar.update.exceptions.SoftwareVersionNotIncrementableException;
-import org.grumpyf0x48.liar.update.exceptions.SofwareNotFoundException;
+import org.grumpyf0x48.liar.update.exceptions.*;
 import org.grumpyf0x48.misc.StringUtils;
 
 import java.io.*;
@@ -54,7 +52,11 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
             }
             catch (final SoftwareVersionNotIncrementableException e)
             {
-                // Ignore
+                System.err.println("Gave up while searching next URL for: " + softwareDefinition);
+            }
+            catch (final SoftwareUrlNotParsableException e)
+            {
+                System.err.println("Don't know how to parse URL for: " + softwareDefinition);
             }
         }
         if (updated)
