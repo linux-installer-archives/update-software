@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # To be called in crontab
-# 45 7 * * Tue,Fri ~/Sources/liar-update-software/liar-update-software.sh ~/Sources/liar/
+# 45 7 * * Tue,Fri ~/Sources/liar-update-software/liar-update-software ~/Sources/liar/
 
 # If maven is installed in user mode
 PATH=~/bin:$PATH
