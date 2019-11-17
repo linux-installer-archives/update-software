@@ -3,12 +3,14 @@ package org.grumpyf0x48.liar.update;
 public enum SoftwareDefinition {
     ANT,
     ATOM,
+    // EVANS, Cannot parse because of digits in URL
     FIREFOX,
     GO,
     GOLAND,
     GRAALVM,
     GRADLE,
     GROOVY,
+    GRPCURL,
     HUGO,
     ICECAT,
     IDEA_COMMUNITY,

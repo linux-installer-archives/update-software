@@ -48,12 +48,14 @@ webstorm \
 
 ant=http://mirrors.standaloneinstaller.com/apache/ant/binaries/apache-ant-1.10.5-bin.zip
 atom=https://github.com/atom/atom/releases/download/v1.35.1/atom-amd64.tar.gz
+evans=https://github.com/ktr0731/evans/releases/download/0.8.4/evans_linux_amd64.tar.gz
 firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/66.0.2/linux-x86_64/fr/firefox-66.0.2.tar.bz2
 go=https://dl.google.com/go/go1.12.2.linux-amd64.tar.gz
 goland=https://download.jetbrains.com/go/goland-2018.3.6.tar.gz
 graalvm=https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-5.3.1-bin.zip
 groovy=https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.6.zip
+grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.4.0/grpcurl_1.4.0_linux_x86_64.tar.gz
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.tar.gz
 icecat=https://ftp.gnu.org/gnu/gnuzilla/60.3.0/icecat-60.3.0.en-US.gnulinux-x86_64.tar.bz2
 idea_community=https://download.jetbrains.com/idea/ideaIC-2018.3.6.tar.gz
