@@ -46,7 +46,7 @@ visualvm \
 webstorm \
 "
 
-ant=http://mirrors.standaloneinstaller.com/apache/ant/binaries/apache-ant-1.10.6-bin.zip
+ant=https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.6-bin.zip
 atom=https://github.com/atom/atom/releases/download/v1.35.2/atom-amd64.tar.gz
 evans=https://github.com/ktr0731/evans/releases/download/0.8.4/evans_linux_amd64.tar.gz
 firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/66.0.3/linux-x86_64/fr/firefox-66.0.3.tar.bz2
