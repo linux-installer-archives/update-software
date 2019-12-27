@@ -125,6 +125,14 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
+    public void getNextUrlNodeTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.NODE, "https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.xz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-x64.tar.xz", nextUrl.getUrl());
+    }
+
+    @Test
     public void getNextUrlXsvTest() throws SoftwareException
     {
         final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.XSV, "https://github.com/BurntSushi/xsv/releases/download/0.13.0/xsv-0.13.0-x86_64-unknown-linux-musl.tar.gz");
@@ -135,13 +143,12 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getNextExistingURLTest() throws SoftwareException
     {
-        /*
-        final SoftwareUrl initialAntUrl = new SoftwareUrl(SoftwareDefinition.ANT, "https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.7-bin.zip");
+        final SoftwareUrl initialAntUrl = new SoftwareUrl(SoftwareDefinition.ANT, "https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip");
         final SoftwareUrl nextAntUrl = nextExistingUpdateService.getNextUrl(initialAntUrl);
-        Assert.assertEquals("https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.8-bin.zip", nextAntUrl.getUrl());
+        Assert.assertEquals("https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.6-bin.zip", nextAntUrl.getUrl());
         Assert.assertEquals(SoftwareDefinition.ANT, nextAntUrl.getSoftware());
         Assert.assertEquals("1.10.6", nextAntUrl.getVersion().toString());
-        */
+
         final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
         final SoftwareUrl nextAtomUrl = nextExistingUpdateService.getNextUrl(initialAtomUrl);
         Assert.assertNotEquals(nextAtomUrl.getUrl(), initialAtomUrl);
@@ -173,6 +180,6 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 21, count);
+        Assert.assertEquals("Bad number of updatable software", 22, count);
     }
 }
