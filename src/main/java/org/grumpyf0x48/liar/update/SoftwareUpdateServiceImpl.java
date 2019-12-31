@@ -48,6 +48,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
                 {
                     updateSoftwareDefinition(softwareDefinition, nextUrl, lines);
                     updated = true;
+                    System.out.println("Updated URL for: " + softwareDefinition);
                 }
             }
             catch (final SoftwareVersionNotIncrementableException e)
