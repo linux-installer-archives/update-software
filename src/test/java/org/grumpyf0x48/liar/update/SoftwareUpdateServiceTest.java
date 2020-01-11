@@ -96,7 +96,7 @@ public class SoftwareUpdateServiceTest
         for (final SoftwareDefinition software : SoftwareDefinition.values())
         {
             final SoftwareUrl url = nextUpdateService.getUrl(software);
-            Assert.assertTrue("URL for software: " + software + " does not exist", NetworkUtils.urlExists(url.getUrl()));
+            Assert.assertTrue("URL " + url + " for software: " + software + " does not exist", NetworkUtils.urlExists(url.getUrl()));
         }
     }
 
