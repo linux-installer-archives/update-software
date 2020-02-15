@@ -9,6 +9,11 @@ public class SoftwareException extends Exception
         super(message);
     }
 
+    public SoftwareException(final String message, final Throwable cause)
+    {
+        super(message, cause);
+    }
+
     public int getMaxTries()
     {
         return maxTries;

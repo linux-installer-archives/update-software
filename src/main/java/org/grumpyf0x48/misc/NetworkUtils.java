@@ -1,5 +1,7 @@
 package org.grumpyf0x48.misc;
 
+import java.io.IOException;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -9,12 +11,12 @@ public class NetworkUtils
     {
     }
 
-    public static boolean urlExists(final String url)
+    public static boolean urlExists(final String url) throws ConnectException
     {
         try
         {
             final URL siteURL = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) siteURL.openConnection();
+            final HttpURLConnection connection = (HttpURLConnection) siteURL.openConnection();
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(5000);
             connection.connect();
@@ -24,9 +26,12 @@ public class NetworkUtils
                 return true;
             }
         }
-        catch (final Exception e)
+        catch (final IOException ioException)
         {
-            e.printStackTrace();
+            if (ioException instanceof ConnectException)
+            {
+                throw (ConnectException) ioException;
+            }
         }
         return false;
     }

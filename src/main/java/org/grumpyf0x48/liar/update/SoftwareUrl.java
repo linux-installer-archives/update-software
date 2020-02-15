@@ -7,6 +7,7 @@ import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareUrlNotParsableException;
 import org.grumpyf0x48.misc.NetworkUtils;
 
+import java.net.ConnectException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -70,6 +71,10 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
             catch (final SoftwareException softwareException)
             {
                 throw softwareException.setMaxTries(maxTries);
+            }
+            catch (final ConnectException connectException)
+            {
+                throw new SoftwareException("Failed to connect to: " + getUrl(), connectException).setMaxTries(maxTries);
             }
         }
 
