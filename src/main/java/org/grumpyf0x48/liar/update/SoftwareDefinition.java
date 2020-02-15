@@ -18,7 +18,7 @@ public enum SoftwareDefinition {
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
     MARP_CLI,
     // MAVEN, Cannot parse because of 'maven-3' in URL
-//    NODE,
+    // NODE,
     // POSTMAN, Cannot parse because always the same URL
     PYCHARM_COMMUNITY,
     PYCHARM_PROFESSIONAL,
