@@ -1,7 +1,8 @@
 package org.grumpyf0x48.liar.update;
 
-public enum SoftwareDefinition {
-    ANT,
+public enum SoftwareDefinition
+{
+    // ANT, Frequent connection problems
     ATOM,
     // EVANS, Cannot parse because of digits in URL
     FIREFOX,

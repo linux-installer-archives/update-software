@@ -95,11 +95,9 @@ public class SoftwareUpdateServiceTest
     {
         for (final SoftwareDefinition software : SoftwareDefinition.values())
         {
-            if (software != SoftwareDefinition.ANT)
-            {
-                final SoftwareUrl url = nextUpdateService.getUrl(software);
-                Assert.assertTrue("URL " + url + " for software: " + software + " does not exist", NetworkUtils.urlExists(url.getUrl()));
-            }
+            final SoftwareUrl url = nextUpdateService.getUrl(software);
+            Assert.assertTrue("URL " + url + " for software: " + software + " does not exist",
+                            NetworkUtils.urlExists(url.getUrl()));
         }
     }
 
@@ -179,6 +177,6 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 21, count);
+        Assert.assertEquals("Bad number of updatable software", 20, count);
     }
 }
