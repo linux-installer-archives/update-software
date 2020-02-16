@@ -103,7 +103,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         final String url = getSoftwareProperties().getProperty(software.name().toLowerCase());
         if (url == null)
         {
-            throw new SofwareNotFoundException("Software: " + software + " does not exist");
+            throw new SoftwareNotFoundException("Software: " + software + " does not exist");
         }
         return new SoftwareUrl(software, url, updateOptions);
     }
