@@ -177,6 +177,6 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 21, count);
+        Assert.assertEquals("Bad number of updatable software", 23, count);
     }
 }

@@ -16,6 +16,7 @@ public enum SoftwareDefinition
     HUGO,
     ICECAT,
     IDEA_COMMUNITY,
+    IDEA_EDU,
     IDEA_ULTIMATE,
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
     MARP_CLI,
@@ -23,6 +24,7 @@ public enum SoftwareDefinition
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
     PYCHARM_COMMUNITY,
+    PYCHARM_EDU,
     PYCHARM_PROFESSIONAL,
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE,

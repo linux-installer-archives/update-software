@@ -45,6 +45,7 @@ grpcurl
 hugo
 icecat
 idea_community
+idea_edu
 idea_ultimate
 jdk9
 jdk10
@@ -66,6 +67,7 @@ maven
 node
 postman
 pycharm_community
+pycharm_edu
 pycharm_professional
 robo3t
 rubymine
@@ -94,6 +96,7 @@ grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.4.1/grpcurl
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.54.1/hugo_0.54.1_Linux-64bit.tar.gz
 icecat=https://ftp.gnu.org/gnu/gnuzilla/60.3.1/icecat-60.3.1.en-US.gnulinux-x86_64.tar.bz2
 idea_community=https://download.jetbrains.com/idea/ideaIC-2018.3.7.tar.gz
+idea_edu=https://download.jetbrains.com/idea/ideaIE-2020.1.tar.gz
 idea_ultimate=https://download.jetbrains.com/idea/ideaIU-2018.3.7.tar.gz
 jdk10=https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_linux-x64_bin.tar.gz
 jdk11=https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
@@ -106,6 +109,7 @@ jdk_ri11=https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.
 marp_cli=https://github.com/marp-team/marp-cli/releases/download/v0.14.2/marp-cli-v0.14.2-linux.tar.gz
 maven=http://apache.mediamirrors.org/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
 pycharm_community=https://download.jetbrains.com/python/pycharm-community-2019.1.2.tar.gz
+pycharm_edu=https://download.jetbrains.com/python/pycharm-edu-2020.1.tar.gz
 pycharm_professional=https://download.jetbrains.com/python/pycharm-professional-2019.1.2.tar.gz
 robo3t=https://download.robomongo.org/1.2.1/linux/robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
 rubymine=https://download.jetbrains.com/ruby/RubyMine-2018.3.6.tar.gz
