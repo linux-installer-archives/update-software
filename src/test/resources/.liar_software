@@ -30,24 +30,59 @@ if [ "$1" = "version" ]; then
     echo "$LIAR version $VERSION"
 fi
 
-software="\
-ant atom \
-firefox \
-go goland gradle groovy \
-hugo \
-icecat idea_community idea_ultimate \
-jdk10 jdk11 jdk12 jdk_ri7 jdk_ri8 jdk_ri9 jdk_ri10 jdk_ri11 \
-marp maven \
-pycharm_community pycharm_professional \
-robo3t rubymine \
-scala sublimetext \
-torbrowser \
-visualvm \
-webstorm \
-"
+software_list=(
+ant
+atom
+clion
+evans
+firefox
+go
+goland
+graalvm
+gradle
+groovy
+grpcurl
+hugo
+icecat
+idea_community
+idea_ultimate
+jdk9
+jdk10
+jdk11
+jdk12
+jdk13
+jdk14
+jdk_ea15
+jdk_ri7
+jdk_ri8
+jdk_ri9
+jdk_ri10
+jdk_ri11
+jdk_ri12
+jdk_ri13
+jdk_ri14
+marp_cli
+maven
+node
+postman
+pycharm_community
+pycharm_professional
+robo3t
+rubymine
+sbt
+scala
+spring
+sublimemerge
+sublimetext
+torbrowser
+visualvm
+webstorm
+xsv
+)
 
 ant=https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip
 atom=https://github.com/atom/atom/releases/download/v1.35.1/atom-amd64.tar.gz
+clion=https://download.jetbrains.com/cpp/CLion-2020.1.0.tar.gz
 evans=https://github.com/ktr0731/evans/releases/download/0.8.4/evans_linux_amd64.tar.gz
 firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/66.0.2/linux-x86_64/fr/firefox-66.0.2.tar.bz2
 go=https://dl.google.com/go/go1.12.2.linux-amd64.tar.gz
