@@ -125,6 +125,15 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("https://download.jetbrains.com/idea/ideaIC-2019.3.tar.gz", nextUrl.getUrl());
     }
 
+
+    @Test
+    public void getNextUrlJbangTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.JBANG, "https://github.com/jbangdev/jbang/releases/download/v0.25.0/jbang-0.25.0.zip");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://github.com/jbangdev/jbang/releases/download/v0.25.1/jbang-0.25.1.zip", nextUrl.getUrl());
+    }
+
     /*
     @Test
     public void getNextUrlNodeTest() throws SoftwareException
@@ -177,6 +186,6 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 23, count);
+        Assert.assertEquals("Bad number of updatable software", 24, count);
     }
 }

@@ -47,6 +47,7 @@ icecat
 idea_community
 idea_edu
 idea_ultimate
+jbang
 jdk9
 jdk10
 jdk11
@@ -98,6 +99,7 @@ icecat=https://ftp.gnu.org/gnu/gnuzilla/60.3.1/icecat-60.3.1.en-US.gnulinux-x86_
 idea_community=https://download.jetbrains.com/idea/ideaIC-2018.3.7.tar.gz
 idea_edu=https://download.jetbrains.com/idea/ideaIE-2020.1.tar.gz
 idea_ultimate=https://download.jetbrains.com/idea/ideaIU-2018.3.7.tar.gz
+jbang=https://github.com/jbangdev/jbang/releases/download/v0.25.1/jbang-0.25.1.zip
 jdk10=https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_linux-x64_bin.tar.gz
 jdk11=https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
 jdk12=https://download.java.net/java/GA/jdk12/GPL/openjdk-12_linux-x64_bin.tar.gz
