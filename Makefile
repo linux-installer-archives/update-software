@@ -16,7 +16,7 @@ install: clean
 	mvn install
 
 install_native: clean
-	JAVA_HOME=${GRAAL_VM_HOME} mvn -Pnative install
+	JAVA_HOME=${GRAALVM_HOME} mvn -Pnative install
 
 clean:
 	mvn clean

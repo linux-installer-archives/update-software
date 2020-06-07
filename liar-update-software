@@ -8,10 +8,11 @@
 LIAR_SOFTWARE_FILE=.liar_software
 
 # Make sure Maven and Java are in the crontab environment
-JAVA_HOME=/usr/lib/jvm/jdk8/jdk1.8.0_231
+export JAVA_HOME=/usr/lib/jvm/jdk8/jdk1.8.0_231
+PATH=~/bin:${JAVA_HOME}/bin:${PATH}
+
 # Cannot make more GraalVM recent versions work with native-image-maven-plugin
-GRAAL_VM_HOME=~/Programs/graalvm_rc16/graalvm-ce-1.0.0-rc16
-PATH=~/bin:${JAVA_HOME}/bin:$PATH
+export GRAALVM_HOME=~/Programs/graalvm_rc16/graalvm-ce-1.0.0-rc16
 
 liar_update_repository=$(dirname "$0")
 liar_repository="$1"
@@ -32,7 +33,6 @@ if [ ! -f  "./target/SoftwareUpdateRepository.native" ]; then
 fi
 
 # Run update
-export JAVA_HOME
 make LIAR_REPOSITORY="${liar_repository}" update_native
 
 # Update repository
