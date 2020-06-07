@@ -119,8 +119,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
 
     private void getNextUrl() throws SoftwareException
     {
-        final String previousVersion = version.toString();
-        url = url.replaceAll(previousVersion, version.getNext().toString());
+        url = url.replaceAll(version.toString(), version.getNext().toString());
     }
 
     private static SoftwareVersion parse(final String url, final SoftwareUpdateOptions updateOptions) throws SoftwareException
