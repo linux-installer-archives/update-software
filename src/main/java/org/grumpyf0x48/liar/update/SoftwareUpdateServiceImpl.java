@@ -37,7 +37,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public boolean updateSoftwareResource() throws IOException, SoftwareException
     {
         boolean updated = false;
-        final List lines = IOUtils.readLines(new FileInputStream(getSoftwareFile()));
+        final List<String> lines = (List<String>) IOUtils.readLines(new FileInputStream(getSoftwareFile()));
         for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
         {
             try
@@ -135,7 +135,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         throw new FileNotFoundException(getSoftwareResource());
     }
 
-    private void updateSoftwareDefinition(final SoftwareDefinition softwareDefinition, final SoftwareUrl url, final List lines)
+    private void updateSoftwareDefinition(final SoftwareDefinition softwareDefinition, final SoftwareUrl url, final List<String> lines)
                     throws SoftwareException
     {
         final int index = searchLine(softwareDefinition, lines);
@@ -147,11 +147,11 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         lines.set(index, newline);
     }
 
-    private int searchLine(final SoftwareDefinition softwareDefinition, final List lines)
+    private int searchLine(final SoftwareDefinition softwareDefinition, final List<String> lines)
     {
         for (int index = 0; index < lines.size(); index++)
         {
-            final String line = (String) lines.get(index);
+            final String line = lines.get(index);
             if (line.startsWith(softwareDefinition.name().toLowerCase() + "="))
             {
                 return index;

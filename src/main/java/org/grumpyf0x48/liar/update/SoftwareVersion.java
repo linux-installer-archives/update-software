@@ -21,13 +21,13 @@ public class SoftwareVersion implements SoftwareIncrementable<SoftwareVersion>
 
     private final SoftwareVersionIncrementPolicy versionIncrementPolicy;
 
+    private final Integer initialMajor;
+    private Integer initialMinor;
+    private Integer initialPatch;
+
     private Integer major;
     private Integer minor;
     private Integer patch;
-
-    private Integer initialMajor;
-    private Integer initialMinor;
-    private Integer initialPatch;
 
     private SoftwareVersionField versionField;
 

@@ -1,5 +1,7 @@
 package org.grumpyf0x48.liar.update;
 
+import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareUrlIncrementPolicy;
+import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareVersionIncrementPolicy;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 
 import java.io.IOException;
@@ -17,6 +19,10 @@ public class SoftwareUpdateRepository
         try
         {
             final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource);
+            final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
+                            SoftwareUrlIncrementPolicy.LAST_EXISTING, //
+                            SoftwareVersionIncrementPolicy.withDefault());
+            updateService.setUpdateOptions(updateOptions);
             updateService.updateSoftwareResource();
         }
         catch (final SoftwareException | IOException e)

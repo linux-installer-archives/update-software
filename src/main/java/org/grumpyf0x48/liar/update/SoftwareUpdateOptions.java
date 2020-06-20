@@ -21,7 +21,7 @@ public class SoftwareUpdateOptions
 
     public enum SoftwareUrlIncrementPolicy
     {
-        NEXT, NEXT_EXISTING
+        NEXT, NEXT_EXISTING, LAST_EXISTING
     }
 
     public static class SoftwareVersionFieldIncrementPolicy

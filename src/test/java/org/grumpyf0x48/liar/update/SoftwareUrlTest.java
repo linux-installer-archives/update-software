@@ -51,19 +51,15 @@ public class SoftwareUrlTest
     public void urlCanIncrementUntilMaxIncrement() throws SoftwareException
     {
         SoftwareUrl softwareUrl = new SoftwareUrl(URL, updateOptions);
-        int count = 0;
         try
         {
             while ((softwareUrl = softwareUrl.getNext()) != null)
             {
-                // System.out.println(softwareUrl.getUrl());
-                count++;
             }
             Assert.fail();
         }
         catch (final SoftwareVersionNotIncrementableException e)
         {
-            // System.out.println("count=" + count);
             Assert.assertEquals("Version: 2020.0.0 cannot be incremented", e.getMessage());
         }
     }
@@ -98,6 +94,16 @@ public class SoftwareUrlTest
 
         softwareUrl = softwareUrl.getNext();
         Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v1.3/hugo_1.3_Linux-64bit.tar.gz", softwareUrl.getUrl());
+    }
+
+    @Test
+    public void lastExistingUrlTest() throws SoftwareException
+    {
+        final SoftwareVersionIncrementPolicy versionIncrementPolicy = SoftwareVersionIncrementPolicy.withDefault();
+        final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions(SoftwareUrlIncrementPolicy.LAST_EXISTING, versionIncrementPolicy);
+        final SoftwareUrl softwareUrl = new SoftwareUrl("https://github.com/jbangdev/jbang/releases/download/v0.28.0/jbang-0.28.0.zip", updateOptions);
+        final SoftwareUrl lastSoftwareUrl = softwareUrl.getNext();
+        Assert.assertEquals("https://github.com/jbangdev/jbang/releases/download/v0.31.0/jbang-0.31.0.zip", lastSoftwareUrl.getUrl());
     }
 
     @Test

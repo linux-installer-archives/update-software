@@ -33,8 +33,8 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     {
         this.software = software;
         this.version = parse(url, updateOptions);
-        this.url = url;
         this.updateOptions = updateOptions;
+        this.url = url;
     }
 
     public SoftwareDefinition getSoftware()
@@ -55,30 +55,82 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     @Override
     public SoftwareUrl getNext() throws SoftwareException
     {
-        getNextUrl();
-
-        if (updateOptions.urlIncrementPolicy == SoftwareUpdateOptions.SoftwareUrlIncrementPolicy.NEXT_EXISTING)
+        switch (updateOptions.urlIncrementPolicy)
         {
-            int maxTries = 0;
+            case NEXT:
+                return nextUrl();
+            case NEXT_EXISTING:
+                nextUrl();
+                return nextExistingUrl();
+            case LAST_EXISTING:
+                nextUrl();
+                return lastExistingUrl();
+            default:
+                throw new IllegalArgumentException("Invalid urlIncrementPolicy: " + updateOptions.urlIncrementPolicy);
+        }
+    }
+
+    private SoftwareUrl nextUrl() throws SoftwareException
+    {
+        url = url.replaceAll(version.toString(), version.getNext().toString());
+        return this;
+    }
+
+    private SoftwareUrl nextExistingUrl() throws SoftwareException
+    {
+        int maxTries = 0;
+        try
+        {
+            while (!NetworkUtils.urlExists(url))
+            {
+                nextUrl();
+                maxTries++;
+            }
+            return this;
+        }
+        catch (final SoftwareException softwareException)
+        {
+            throw softwareException.setMaxTries(maxTries);
+        }
+        catch (final ConnectException connectException)
+        {
+            throw new SoftwareException("Failed to connect to: " + url, connectException).setMaxTries(maxTries);
+        }
+    }
+
+    private SoftwareUrl lastExistingUrl() throws SoftwareException
+    {
+        SoftwareUrl lastExistingUrl = null;
+        for (; ;)
+        {
             try
             {
-                while (!NetworkUtils.urlExists(getUrl()))
+                if (NetworkUtils.urlExists(url))
                 {
-                    getNextUrl();
-                    maxTries++;
+                    nextUrl();
+                }
+                else
+                {
+                    nextExistingUrl();
+                }
+                if (NetworkUtils.urlExists(url))
+                {
+                    lastExistingUrl = new SoftwareUrl(software, url);
                 }
             }
             catch (final SoftwareException softwareException)
             {
-                throw softwareException.setMaxTries(maxTries);
+                if (lastExistingUrl != null)
+                {
+                    return lastExistingUrl;
+                }
+                throw softwareException;
             }
             catch (final ConnectException connectException)
             {
-                throw new SoftwareException("Failed to connect to: " + getUrl(), connectException).setMaxTries(maxTries);
+                throw new SoftwareException("Failed to connect to: " + url, connectException);
             }
         }
-
-        return this;
     }
 
     @Override
@@ -115,11 +167,6 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
         return new ToStringBuilder(this) //
                         .append("url", url) //
                         .toString();
-    }
-
-    private void getNextUrl() throws SoftwareException
-    {
-        url = url.replaceAll(version.toString(), version.getNext().toString());
     }
 
     private static SoftwareVersion parse(final String url, final SoftwareUpdateOptions updateOptions) throws SoftwareException
