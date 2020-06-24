@@ -37,7 +37,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public boolean updateSoftwareResource() throws IOException, SoftwareException
     {
         boolean updated = false;
-        final List<String> lines = (List<String>) IOUtils.readLines(new FileInputStream(getSoftwareFile()));
+        final List<String> lines = IOUtils.readLines(new FileInputStream(getSoftwareFile()));
         for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
         {
             try
@@ -122,15 +122,15 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 
     private File getSoftwareFile() throws FileNotFoundException
     {
-        final File softwareFile = new File(getSoftwareResource());
-        if (softwareFile.exists())
+        final File file = new File(getSoftwareResource());
+        if (file.exists())
         {
-            return softwareFile;
+            return file;
         }
-        final URL softwareResource = getClass().getResource(getSoftwareResource());
-        if (softwareResource != null)
+        final URL resource = getClass().getResource(getSoftwareResource());
+        if (resource != null)
         {
-            return new File(softwareResource.getFile());
+            return new File(resource.getFile());
         }
         throw new FileNotFoundException(getSoftwareResource());
     }

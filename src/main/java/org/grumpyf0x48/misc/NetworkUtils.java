@@ -26,12 +26,13 @@ public class NetworkUtils
                 return true;
             }
         }
+        catch (final ConnectException connectException)
+        {
+            throw connectException;
+        }
         catch (final IOException ioException)
         {
-            if (ioException instanceof ConnectException)
-            {
-                throw (ConnectException) ioException;
-            }
+            // Ignore
         }
         return false;
     }
