@@ -2,16 +2,24 @@ package org.grumpyf0x48.liar.update.exceptions;
 
 public class SoftwareException extends Exception
 {
-    private int maxTries;
+    private final int maxTries;
 
     public SoftwareException(final String message)
     {
         super(message);
+        this.maxTries = -1;
     }
 
     public SoftwareException(final String message, final Throwable cause)
     {
         super(message, cause);
+        this.maxTries = -1;
+    }
+
+    public SoftwareException(final String message, final Throwable cause, final int maxTries)
+    {
+        super(message, cause);
+        this.maxTries = maxTries;
     }
 
     public int getMaxTries()
@@ -19,9 +27,8 @@ public class SoftwareException extends Exception
         return maxTries;
     }
 
-    public SoftwareException setMaxTries(final int maxTries)
+    public static SoftwareException from(final SoftwareException softwareException, final int maxTries)
     {
-        this.maxTries = maxTries;
-        return this;
+        return new SoftwareException(softwareException.getMessage(), softwareException.getCause(), maxTries);
     }
 }

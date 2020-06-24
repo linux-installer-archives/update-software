@@ -28,7 +28,7 @@ public class SoftwareUrlTest
     public void getUrl() throws SoftwareException
     {
         final SoftwareUrl softwareUrl = new SoftwareUrl(URL, updateOptions);
-        Assert.assertEquals(softwareUrl.getUrl(), URL);
+        Assert.assertEquals(URL, softwareUrl.getUrl());
     }
 
     @Test
