@@ -22,13 +22,13 @@ public class SoftwareException extends Exception
         this.maxTries = maxTries;
     }
 
+    public SoftwareException(final SoftwareException softwareException, final int maxTries)
+    {
+        this(softwareException.getMessage(), softwareException.getCause(), maxTries);
+    }
+
     public int getMaxTries()
     {
         return maxTries;
-    }
-
-    public static SoftwareException from(final SoftwareException softwareException, final int maxTries)
-    {
-        return new SoftwareException(softwareException.getMessage(), softwareException.getCause(), maxTries);
     }
 }

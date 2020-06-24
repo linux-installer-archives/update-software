@@ -90,11 +90,11 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
         }
         catch (final SoftwareException softwareException)
         {
-            throw SoftwareException.from(softwareException, maxTries);
+            throw new SoftwareException(softwareException, maxTries);
         }
         catch (final ConnectException connectException)
         {
-            throw SoftwareException.from(new SoftwareException("Failed to connect to: " + url, connectException), maxTries);
+            throw new SoftwareException(new SoftwareException("Failed to connect to: " + url, connectException), maxTries);
         }
     }
 
