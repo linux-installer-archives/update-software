@@ -6,4 +6,9 @@ public class SoftwareUrlNotParsableException extends SoftwareException
     {
         super(message);
     }
+
+    public SoftwareUrlNotParsableException(final String message, final Throwable cause, final int maxTries)
+    {
+        super(message, cause, maxTries);
+    }
 }

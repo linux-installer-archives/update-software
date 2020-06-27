@@ -11,8 +11,7 @@ LIAR_SOFTWARE_FILE=.liar_software
 export JAVA_HOME=/usr/lib/jvm/jdk8/jdk1.8.0_231
 PATH=~/bin:${JAVA_HOME}/bin:${PATH}
 
-# Cannot make more GraalVM recent versions work with native-image-maven-plugin
-export GRAALVM_HOME=~/Programs/graalvm_rc16/graalvm-ce-1.0.0-rc16
+export GRAALVM_HOME=/usr/lib/jvm/graalvm/graalvm-ce-java8-20.1.0/
 
 liar_update_repository=$(dirname "$0")
 liar_repository="$1"

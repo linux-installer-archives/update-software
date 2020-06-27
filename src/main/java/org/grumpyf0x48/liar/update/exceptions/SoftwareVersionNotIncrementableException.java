@@ -6,4 +6,9 @@ public class SoftwareVersionNotIncrementableException extends SoftwareException
     {
         super(message);
     }
+
+    public SoftwareVersionNotIncrementableException(final String message, final Throwable cause, final int maxTries)
+    {
+        super(message, cause, maxTries);
+    }
 }

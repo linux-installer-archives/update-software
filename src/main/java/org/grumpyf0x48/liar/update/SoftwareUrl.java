@@ -4,6 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
+import org.grumpyf0x48.liar.update.exceptions.SoftwareExceptionFactory;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareUrlNotParsableException;
 import org.grumpyf0x48.misc.NetworkUtils;
 
@@ -90,11 +91,12 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
         }
         catch (final SoftwareException softwareException)
         {
-            throw new SoftwareException(softwareException, maxTries);
+            throw SoftwareExceptionFactory.build(softwareException, maxTries);
         }
         catch (final ConnectException connectException)
         {
-            throw new SoftwareException(new SoftwareException("Failed to connect to: " + url, connectException), maxTries);
+            throw SoftwareExceptionFactory
+                            .build(new SoftwareException("Failed to connect to: " + url, connectException), maxTries);
         }
     }
 

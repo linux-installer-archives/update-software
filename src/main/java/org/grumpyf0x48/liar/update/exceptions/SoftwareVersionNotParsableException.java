@@ -6,4 +6,9 @@ public class SoftwareVersionNotParsableException extends SoftwareException
     {
         super(message);
     }
+
+    public SoftwareVersionNotParsableException(final String message, final Throwable cause, final int maxTries)
+    {
+        super(message, cause, maxTries);
+    }
 }

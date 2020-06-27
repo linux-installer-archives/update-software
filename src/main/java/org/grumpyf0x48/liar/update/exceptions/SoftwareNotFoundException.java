@@ -6,4 +6,9 @@ public class SoftwareNotFoundException extends SoftwareException
     {
         super(message);
     }
+
+    public SoftwareNotFoundException(final String message, final Throwable cause, final int maxTries)
+    {
+        super(message, cause, maxTries);
+    }
 }
