@@ -5,6 +5,7 @@ import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareVersionFieldInc
 import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareVersionIncrementPolicy;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareVersionNotIncrementableException;
+import org.grumpyf0x48.liar.update.exceptions.SoftwareUrlNotParsableException;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,6 +30,12 @@ public class SoftwareUrlTest
     {
         final SoftwareUrl softwareUrl = new SoftwareUrl(URL, updateOptions);
         Assert.assertEquals(URL, softwareUrl.getUrl());
+    }
+
+    @Test(expected = SoftwareUrlNotParsableException.class)
+    public void notParsableUrl() throws SoftwareException
+    {
+        new SoftwareUrl("https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz", updateOptions);
     }
 
     @Test

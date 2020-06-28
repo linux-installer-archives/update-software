@@ -125,7 +125,6 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("https://download.jetbrains.com/idea/ideaIC-2019.3.tar.gz", nextUrl.getUrl());
     }
 
-
     @Test
     public void getNextUrlJbangTest() throws SoftwareException
     {
@@ -133,16 +132,6 @@ public class SoftwareUpdateServiceTest
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("https://github.com/jbangdev/jbang/releases/download/v0.25.1/jbang-0.25.1.zip", nextUrl.getUrl());
     }
-
-    /*
-    @Test
-    public void getNextUrlNodeTest() throws SoftwareException
-    {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.NODE, "https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.xz");
-        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
-        Assert.assertEquals("https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-x64.tar.xz", nextUrl.getUrl());
-    }
-     */
 
     @Test
     public void getNextUrlXsvTest() throws SoftwareException
