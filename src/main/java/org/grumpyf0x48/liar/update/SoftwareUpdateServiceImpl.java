@@ -1,5 +1,6 @@
 package org.grumpyf0x48.liar.update;
 
+import org.apache.commons.io.FileUtils;
 import org.grumpyf0x48.liar.update.exceptions.*;
 import org.grumpyf0x48.misc.StringUtils;
 
@@ -7,8 +8,6 @@ import java.io.*;
 import java.net.URL;
 import java.util.List;
 import java.util.Properties;
-
-import org.apache.commons.io.IOUtils;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
@@ -37,7 +36,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public boolean updateSoftwareResource() throws IOException, SoftwareException
     {
         boolean updated = false;
-        final List<String> lines = IOUtils.readLines(new FileInputStream(getSoftwareFile()));
+        final List<String> lines = FileUtils.readLines(getSoftwareFile());
         for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
         {
             try
@@ -62,7 +61,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         }
         if (updated)
         {
-            IOUtils.writeLines(lines, null, new FileOutputStream(getSoftwareFile()));
+            FileUtils.writeLines(getSoftwareFile(), lines);
         }
         return updated;
     }
