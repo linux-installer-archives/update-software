@@ -82,7 +82,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public Properties getSoftwareProperties() throws IOException
     {
         final Properties softwareProperties = new Properties();
-        try (final FileInputStream inputStream = new FileInputStream(getSoftwareFile()))
+        try (final InputStream inputStream = new BufferedInputStream(new FileInputStream(getSoftwareFile())))
         {
             softwareProperties.load(inputStream);
         }

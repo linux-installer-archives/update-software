@@ -40,7 +40,8 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareResourceInClassPath() throws IOException
     {
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/.liar_software");
-        Assert.assertNotNull(softwareUpdateService.getSoftwareProperties());
+        final Properties softwareProperties = softwareUpdateService.getSoftwareProperties();
+        checkSoftwareProperties(softwareProperties);
     }
 
     @Test(expected = FileNotFoundException.class)
@@ -48,6 +49,13 @@ public class SoftwareUpdateServiceTest
     {
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/not_found");
         softwareUpdateService.getSoftwareProperties();
+    }
+
+    @Test
+    public void getSoftwareResourceInFilePath() throws IOException
+    {
+        final Properties softwareProperties = nextUpdateService.getSoftwareProperties();
+        checkSoftwareProperties(softwareProperties);
     }
 
     @Test
@@ -81,13 +89,6 @@ public class SoftwareUpdateServiceTest
     {
         final SoftwareUpdateOptions softwareUpdateOptions = nextUpdateService.getUpdateOptions();
         Assert.assertNotNull(softwareUpdateOptions);
-    }
-
-    @Test
-    public void getSoftwarePropertiesTest() throws IOException
-    {
-        final Properties softwareProperties = nextUpdateService.getSoftwareProperties();
-        Assert.assertNotNull(softwareProperties.getProperty("software"));
     }
 
     @Test
@@ -176,5 +177,12 @@ public class SoftwareUpdateServiceTest
             }
         }
         Assert.assertEquals("Bad number of updatable software", 24, count);
+    }
+
+    private static void checkSoftwareProperties(final Properties softwareProperties)
+    {
+        Assert.assertTrue(softwareProperties.containsKey("software_list"));
+        Assert.assertTrue(softwareProperties.containsKey("gradle"));
+        Assert.assertTrue(softwareProperties.containsKey("idea_ultimate"));
     }
 }
