@@ -42,6 +42,7 @@ graalvm
 gradle
 groovy
 grpcurl
+hadolint
 hugo
 icecat
 idea_community
@@ -94,6 +95,7 @@ graalvm=https://github.com/oracle/graal/releases/download/vm-19.2.2/graalvm-ce-l
 gradle=https://downloads.gradle.org/distributions/gradle-5.3.2-bin.zip
 groovy=https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.7.zip
 grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.4.1/grpcurl_1.4.1_linux_x86_64.tar.gz
+hadolint=https://github.com/hadolint/hadolint/releases/download/v1.17.7/hadolint-Linux-x86_64
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.54.1/hugo_0.54.1_Linux-64bit.tar.gz
 icecat=https://ftp.gnu.org/gnu/gnuzilla/60.3.1/icecat-60.3.1.en-US.gnulinux-x86_64.tar.bz2
 idea_community=https://download.jetbrains.com/idea/ideaIC-2018.3.7.tar.gz

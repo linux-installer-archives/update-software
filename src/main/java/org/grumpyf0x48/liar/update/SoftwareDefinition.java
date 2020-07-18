@@ -13,6 +13,7 @@ public enum SoftwareDefinition
     GRADLE,
     GROOVY,
     GRPCURL,
+    HADOLINT,
     HUGO,
     ICECAT,
     IDEA_COMMUNITY,
