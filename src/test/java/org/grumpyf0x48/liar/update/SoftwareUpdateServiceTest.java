@@ -143,6 +143,14 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
+    public void getNextUrlSpringTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.SPRING, "https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.3.0.RELEASE/spring-boot-cli-2.3.0.RELEASE-bin.zip");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.3.1.RELEASE/spring-boot-cli-2.3.1.RELEASE-bin.zip", nextUrl.getUrl());
+    }
+
+    @Test
     public void getNextExistingURLTest() throws SoftwareException
     {
         final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
@@ -176,7 +184,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 25, count);
+        Assert.assertEquals("Bad number of updatable software", 26, count);
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)

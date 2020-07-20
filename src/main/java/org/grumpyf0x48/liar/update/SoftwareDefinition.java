@@ -31,6 +31,7 @@ public enum SoftwareDefinition
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE,
     SCALA,
+    SPRING,
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
     // SUBLIMETEXT, Cannot parse because of the presence of build number in URL
     TORBROWSER,
