@@ -66,6 +66,13 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
+    public void getSoftwareListTest() throws IOException
+    {
+        final String[] softwareList = nextUpdateService.getSoftwareList();
+        Assert.assertEquals(53, softwareList.length);
+    }
+
+    @Test
     public void updateSoftwareResourceTest() throws IOException, SoftwareException
     {
         final File testDir = new File("src/test/resources");

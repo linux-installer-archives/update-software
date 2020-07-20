@@ -2,12 +2,10 @@ package org.grumpyf0x48.liar.update;
 
 import org.apache.commons.io.FileUtils;
 import org.grumpyf0x48.liar.update.exceptions.*;
-import org.grumpyf0x48.misc.StringUtils;
 
 import java.io.*;
 import java.net.URL;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
@@ -92,8 +90,14 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     @Override
     public String[] getSoftwareList() throws IOException
     {
-        final String softwareAsString = StringUtils.unquote(getSoftwareProperties().getProperty("software"));
-        return softwareAsString.split("\\s+");
+        final List<String> softwareList = new ArrayList<>();
+        final Enumeration<Object> softwareEnumeration = retainSoftwareProperties(getSoftwareProperties()).keys();
+        while (softwareEnumeration.hasMoreElements())
+        {
+            softwareList.add(softwareEnumeration.nextElement().toString());
+        }
+        Collections.sort(softwareList);
+        return softwareList.toArray(new String[]{});
     }
 
     @Override
@@ -157,5 +161,19 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
             }
         }
         return -1;
+    }
+
+    private Properties retainSoftwareProperties(final Properties properties)
+    {
+        final Properties softwareProperties = new Properties();
+        softwareProperties.putAll(properties);
+        for (final Map.Entry<Object, Object> entry : properties.entrySet())
+        {
+            if (!entry.getValue().toString().startsWith("http"))
+            {
+                softwareProperties.remove(entry.getKey());
+            }
+        }
+        return softwareProperties;
     }
 }
