@@ -12,6 +12,8 @@ update_native:
 		-Djavax.net.ssl.trustStore=${JAVA_HOME}/jre/lib/security/cacerts \
 		${LIAR_SOFTWARE}
 
+test: install
+
 # This target runs tests
 install: clean
 	mvn install
