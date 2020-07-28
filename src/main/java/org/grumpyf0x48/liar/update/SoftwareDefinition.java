@@ -13,6 +13,7 @@ public enum SoftwareDefinition
     GRAALVM,
     GRADLE,
     GROOVY,
+    GRPCUI,
     GRPCURL,
     HADOLINT,
     HUGO,

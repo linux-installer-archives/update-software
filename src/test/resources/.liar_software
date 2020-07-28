@@ -42,6 +42,7 @@ goland
 graalvm
 gradle
 groovy
+grpcui
 grpcurl
 hadolint
 hugo
@@ -97,6 +98,7 @@ goland=https://download.jetbrains.com/go/goland-2018.3.6.tar.gz
 graalvm=https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-5.3.1-bin.zip
 groovy=https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.6.zip
+grpcui=https://github.com/fullstorydev/grpcui/releases/download/v0.2.0/grpcui_0.2.0_linux_x86_64.tar.gz
 grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.4.0/grpcurl_1.4.0_linux_x86_64.tar.gz
 hadolint=https://github.com/hadolint/hadolint/releases/download/v1.17.6/hadolint-Linux-x86_64
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.tar.gz
