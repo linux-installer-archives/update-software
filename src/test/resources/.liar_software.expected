@@ -83,6 +83,7 @@ torbrowser
 visualvm
 webstorm
 xsv
+yq
 )
 
 ant=https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip
@@ -126,3 +127,4 @@ torbrowser=https://dist.torproject.org/torbrowser/8.0.9/tor-browser-linux64-8.0.
 visualvm=https://github.com/visualvm/visualvm.src/releases/download/1.4.2/visualvm_142.zip
 webstorm=https://download.jetbrains.com/webstorm/WebStorm-2018.3.7.tar.gz
 xsv=https://github.com/BurntSushi/xsv/releases/download/0.13.1/xsv-0.13.1-x86_64-unknown-linux-musl.tar.gz
+yq=https://github.com/mikefarah/yq/releases/download/3.3.2/yq_linux_amd64

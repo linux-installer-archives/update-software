@@ -38,5 +38,6 @@ public enum SoftwareDefinition
     TORBROWSER,
     // VISUALVM, Cannot parse because of the version in the form mMp
     WEBSTORM,
-    XSV
+    XSV,
+    YQ
 }
