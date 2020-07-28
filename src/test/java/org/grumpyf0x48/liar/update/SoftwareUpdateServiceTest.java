@@ -11,6 +11,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Properties;
 
 import static org.apache.commons.io.FileUtils.contentEquals;
@@ -69,7 +70,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(53, softwareList.length);
+        Assert.assertEquals(57, softwareList.length);
     }
 
     @Test
@@ -191,7 +192,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 26, count);
+        Assert.assertEquals("Bad number of updatable software", 27, count);
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)

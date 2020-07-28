@@ -4,6 +4,7 @@ public enum SoftwareDefinition
 {
     // ANT, Frequent connection problems
     ATOM,
+    CHEAT,
     CLION,
     // EVANS, Cannot parse because of digits in URL
     FIREFOX,
