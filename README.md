@@ -1,6 +1,6 @@
 # liar-update-software
 
-## How to add an handled software
+## How to add a new handled software
 
 ### 1. Update SoftwareDefinition
 
