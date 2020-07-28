@@ -8,7 +8,7 @@ Add the new software.
 
 ### 2. Update SoftwareUpdateServiceTest
 
-Update `SoftwareUpdateServiceTest#checkUpdatableSoftwareTest` to increase count.
+Update `checkUpdatableSoftwareTest` and `getSoftwareListTest` to increase count.
 
 ### 3. Update .liar_software files
 
