@@ -66,6 +66,7 @@ jdk_ri11
 jdk_ri12
 jdk_ri13
 jdk_ri14
+jq
 marp_cli
 maven
 node
@@ -115,6 +116,7 @@ jdk_ri8=https://download.java.net/openjdk/jdk8u40/ri/openjdk-8u40-b25-linux-x64-
 jdk_ri9=https://download.java.net/openjdk/jdk9/ri/openjdk-9+181_linux-x64_ri.zip
 jdk_ri10=https://download.java.net/openjdk/jdk10/ri/openjdk-10+44_linux-x64_bin_ri.tar.gz
 jdk_ri11=https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz
+jq=https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
 marp_cli=https://github.com/marp-team/marp-cli/releases/download/v0.14.1/marp-cli-v0.14.1-linux.tar.gz
 maven=http://apache.mediamirrors.org/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
 pycharm_community=https://download.jetbrains.com/python/pycharm-community-2019.1.1.tar.gz
