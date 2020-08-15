@@ -92,6 +92,7 @@ ant=https://www-eu.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip
 atom=https://github.com/atom/atom/releases/download/v1.35.2/atom-amd64.tar.gz
 cheat=https://github.com/cheat/cheat/releases/download/4.0.2/cheat-linux-amd64.gz
 clion=https://download.jetbrains.com/cpp/CLion-2020.1.1.tar.gz
+easy_rsa=https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.7/EasyRSA-3.0.7.tgz
 evans=https://github.com/ktr0731/evans/releases/download/0.8.4/evans_linux_amd64.tar.gz
 firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/66.0.3/linux-x86_64/fr/firefox-66.0.3.tar.bz2
 go=https://dl.google.com/go/go1.12.3.linux-amd64.tar.gz

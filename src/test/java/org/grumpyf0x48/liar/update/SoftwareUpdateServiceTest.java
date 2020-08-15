@@ -70,7 +70,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(57, softwareList.length);
+        Assert.assertEquals(58, softwareList.length);
     }
 
     @Test
@@ -192,7 +192,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 30, count);
+        Assert.assertEquals("Bad number of updatable software", 31, count);
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)

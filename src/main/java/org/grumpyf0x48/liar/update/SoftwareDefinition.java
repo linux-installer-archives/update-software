@@ -6,6 +6,7 @@ public enum SoftwareDefinition
     ATOM,
     CHEAT,
     CLION,
+    EASY_RSA,
     // EVANS, Cannot parse because of digits in URL
     FIREFOX,
     GO,
