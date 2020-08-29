@@ -27,6 +27,7 @@ public enum SoftwareDefinition
     JQ,
     MARP_CLI,
     // MAVEN, Cannot parse because of 'maven-3' in URL
+    MICRONAUT,
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
     PYCHARM_COMMUNITY,

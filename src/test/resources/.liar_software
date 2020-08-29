@@ -69,6 +69,7 @@ jdk_ri14
 jq
 marp_cli
 maven
+micronaut
 node
 postman
 pycharm_community
@@ -120,6 +121,7 @@ jdk_ri11=https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.
 jq=https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
 marp_cli=https://github.com/marp-team/marp-cli/releases/download/v0.14.1/marp-cli-v0.14.1-linux.tar.gz
 maven=http://apache.mediamirrors.org/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+micronaut=https://github.com/micronaut-projects/micronaut-starter/releases/download/v2.0.0/micronaut-cli-2.0.0.zip
 pycharm_community=https://download.jetbrains.com/python/pycharm-community-2019.1.1.tar.gz
 pycharm_edu=https://download.jetbrains.com/python/pycharm-edu-2020.0.tar.gz
 pycharm_professional=https://download.jetbrains.com/python/pycharm-professional-2019.1.1.tar.gz
