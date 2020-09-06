@@ -11,7 +11,6 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Properties;
 
 import static org.apache.commons.io.FileUtils.contentEquals;
