@@ -40,7 +40,7 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getSoftwareResourceInClassPath() throws IOException
     {
-        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/.liar_software");
+        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/liar-software");
         final Properties softwareProperties = softwareUpdateService.getSoftwareProperties();
         checkSoftwareProperties(softwareProperties);
     }
@@ -63,7 +63,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareFilePathTest()
     {
         final String softwareFilePath = nextUpdateService.getSoftwareResource();
-        Assert.assertEquals(System.getProperty("user.home") + "/.liar_software", softwareFilePath);
+        Assert.assertEquals(System.getProperty("user.home") + "/.config/liar/liar-software", softwareFilePath);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class SoftwareUpdateServiceTest
     public void updateSoftwareResourceTest() throws IOException, SoftwareException
     {
         final File testDir = new File("src/test/resources");
-        final File initialSoftwareFile = new File(testDir, ".liar_software");
+        final File initialSoftwareFile = new File(testDir, "liar-software");
         final File updatedSoftwareFile = new File(testDir, initialSoftwareFile.getName() + ".updated");
         updatedSoftwareFile.deleteOnExit();
         copyFile(initialSoftwareFile, updatedSoftwareFile);

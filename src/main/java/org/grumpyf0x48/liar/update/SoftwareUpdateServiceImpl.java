@@ -9,7 +9,7 @@ import java.util.*;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
-    public static final String LIAR_SOFTWARE = ".liar_software";
+    public static final String LIAR_SOFTWARE = ".config/liar/liar-software";
 
     private final String softwareResource;
     private SoftwareUpdateOptions updateOptions = SoftwareUpdateOptions.withDefault();

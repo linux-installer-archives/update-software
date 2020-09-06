@@ -5,7 +5,7 @@
 # To be called in crontab:
 #
 # 45 7 * * Tue,Fri ~/Sources/liar-update-software/liar-update-software ~/Sources/liar/
-LIAR_SOFTWARE_FILE=.liar_software
+LIAR_SOFTWARE_FILE=liar-software
 
 # Make sure Maven and Java are in the crontab environment
 export JAVA_HOME=/usr/lib/jvm/jdk8/jdk1.8.0_231

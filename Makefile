@@ -1,4 +1,4 @@
-LIAR_SOFTWARE=${LIAR_REPOSITORY}/.liar_software
+LIAR_SOFTWARE=${LIAR_REPOSITORY}/liar-software
 
 update: install
 	mvn exec:java \
