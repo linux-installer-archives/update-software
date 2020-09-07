@@ -10,10 +10,10 @@ Add the new software.
 
 Update `checkUpdatableSoftwareTest` and `getSoftwareListTest` to increase count.
 
-### 3. Update .liar_software files
+### 3. Update liar-software files in src/test/resources
 
-Add the new software in `.liar_software` and `.liar_software.expected`.
+Add the new software in `liar-software` and `liar-software.expected`.
 
-### 4. Update .liar_software in $HOME
+### 4. Make sur liar-software is up to date
 
-    $ cp ${LIAR_REPOSITORY}/.liar_software ~
+    $ cp ${LIAR_REPOSITORY}/liar-software $XDG_CONFIG_HOME/liar

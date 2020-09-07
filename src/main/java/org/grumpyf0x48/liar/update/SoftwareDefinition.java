@@ -24,6 +24,7 @@ public enum SoftwareDefinition
     IDEA_ULTIMATE,
     JBANG,
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
+    JGO,
     JQ,
     MARP_CLI,
     // MAVEN, Cannot parse because of 'maven-3' in URL
