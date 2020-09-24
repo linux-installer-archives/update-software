@@ -36,6 +36,7 @@ make LIAR_REPOSITORY="${liar_repository}" update_native
 
 # Update repository
 cd "${liar_repository}"
+git pull
 if git status --porcelain ${LIAR_SOFTWARE_FILE} | grep ${LIAR_SOFTWARE_FILE}; then
     git add ${LIAR_SOFTWARE_FILE}
     git commit -m"Automatic URL update"
