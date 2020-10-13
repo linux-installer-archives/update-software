@@ -33,7 +33,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     public SoftwareUrl(final SoftwareDefinition software, final String url, final SoftwareUpdateOptions updateOptions) throws SoftwareException
     {
         this.software = software;
-        this.version = parse(url, updateOptions);
+        this.version = parse(software != null ? software.getSanitizedUrl(url) : url, updateOptions);
         this.updateOptions = updateOptions;
         this.url = url;
     }

@@ -14,6 +14,8 @@ Update `checkUpdatableSoftwareTest` and `getSoftwareListTest` to increase count.
 
 Add the new software in `liar-software` and `liar-software.expected`.
 
-### 4. Make sur liar-software is up to date
+### 4. Make sure liar-software is up to date
 
-    $ cp ${LIAR_REPOSITORY}/liar-software $XDG_CONFIG_HOME/liar
+```console
+$ cp ${LIAR_REPOSITORY}/liar-software ${HOME}/.config/liar/
+```

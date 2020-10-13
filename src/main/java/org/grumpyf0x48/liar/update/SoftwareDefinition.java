@@ -29,6 +29,7 @@ public enum SoftwareDefinition
     MARP_CLI,
     // MAVEN, Cannot parse because of 'maven-3' in URL
     MICRONAUT,
+    MONGODB(new String[] { "x86_64", "debian10" }),
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
     PYCHARM_COMMUNITY,
@@ -44,5 +45,27 @@ public enum SoftwareDefinition
     // VISUALVM, Cannot parse because of the version in the form mMp
     WEBSTORM,
     XSV,
-    YQ
+    YQ;
+
+    private String[] regexps;
+
+    SoftwareDefinition()
+    {
+        this(new String[] {});
+    }
+
+    SoftwareDefinition(final String[] regexps)
+    {
+        this.regexps = regexps;
+    }
+
+    public String getSanitizedUrl(final String url)
+    {
+        String sanitizedUrl = url;
+        for (final String regexp : regexps)
+        {
+            sanitizedUrl = sanitizedUrl.replaceAll(regexp, "");
+        }
+        return sanitizedUrl;
+    }
 }

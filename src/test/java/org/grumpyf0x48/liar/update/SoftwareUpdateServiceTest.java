@@ -69,7 +69,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(60, softwareList.length);
+        Assert.assertEquals(67, softwareList.length);
     }
 
     @Test
@@ -158,6 +158,14 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
+    public void getNextUrlMongoDBTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.MONGODB, "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-debian10-4.4.1.tgz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-debian10-4.4.2.tgz", nextUrl.getUrl());
+    }
+
+    @Test
     public void getNextExistingURLTest() throws SoftwareException
     {
         final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
@@ -191,7 +199,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 33, count);
+        Assert.assertEquals("Bad number of updatable software", 34, count);
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)
