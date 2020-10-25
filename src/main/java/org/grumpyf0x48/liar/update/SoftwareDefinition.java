@@ -7,7 +7,7 @@ public enum SoftwareDefinition
     CHEAT,
     CLION,
     EASY_RSA,
-    // EVANS, Cannot parse because of digits in URL
+    EVANS(new String[]{ "ktr0731" }),
     FIREFOX,
     GO,
     GOLAND,
@@ -27,7 +27,7 @@ public enum SoftwareDefinition
     JGO,
     JQ,
     MARP_CLI,
-    // MAVEN, Cannot parse because of 'maven-3' in URL
+    MAVEN(new String[]{ "maven/maven-3" }),
     MICRONAUT,
     MONGODB(new String[] { "x86_64", "debian10" }),
     // NODE,

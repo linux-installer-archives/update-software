@@ -69,7 +69,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(67, softwareList.length);
+        Assert.assertEquals(68, softwareList.length);
     }
 
     @Test
@@ -165,6 +165,23 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-debian10-4.4.2.tgz", nextUrl.getUrl());
     }
 
+    /*
+    @Test
+    public void getNextUrlEvansTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.EVANS, "https://github.com/ktr0731/evans/releases/download/0.8.4/evans_linux_amd64.tar.gz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://github.com/ktr0731/evans/releases/download/0.8.5/evans_linux_amd64.tar.gz", nextUrl.getUrl());
+    }
+
+    @Test
+    public void getNextUrlMavenTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.MAVEN, "http://apache.mediamirrors.org/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz");
+        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("http://apache.mediamirrors.org/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz", nextUrl.getUrl());
+    }
+*/
     @Test
     public void getNextExistingURLTest() throws SoftwareException
     {
@@ -199,7 +216,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 34, count);
+        Assert.assertEquals("Bad number of updatable software", 36, count);
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)
