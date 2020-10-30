@@ -13,9 +13,3 @@ Update `checkUpdatableSoftwareTest` and `getSoftwareListTest` to increase count.
 ### 3. Update liar-software files in src/test/resources
 
 Add the new software in `liar-software` and `liar-software.expected`.
-
-### 4. Make sure liar-software is up to date
-
-```console
-$ cp ${LIAR_REPOSITORY}/liar-software ${HOME}/.config/liar/
-```
