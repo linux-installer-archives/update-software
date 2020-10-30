@@ -25,7 +25,7 @@ public class SoftwareUpdateServiceTest
     @BeforeClass
     public static void initialize()
     {
-        nextUpdateService = SoftwareUpdateService.getInstance();
+        nextUpdateService = getSoftwareUpdateService();
 
         nextSoftwareUpdateOptions = new SoftwareUpdateOptions( //
                         SoftwareUrlIncrementPolicy.NEXT, //
@@ -33,7 +33,7 @@ public class SoftwareUpdateServiceTest
 
         nextUpdateService.setUpdateOptions(nextSoftwareUpdateOptions);
 
-        nextExistingUpdateService = SoftwareUpdateService.getInstance();
+        nextExistingUpdateService = getSoftwareUpdateService();
     }
 
     @Test
@@ -62,14 +62,14 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareFilePathTest()
     {
         final String softwareFilePath = nextUpdateService.getSoftwareResource();
-        Assert.assertEquals(System.getProperty("user.home") + "/.config/liar/liar-software", softwareFilePath);
+        Assert.assertEquals("./target/test-classes/liar-software", softwareFilePath);
     }
 
     @Test
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(68, softwareList.length);
+        Assert.assertEquals(50, softwareList.length);
     }
 
     @Test
@@ -216,6 +216,11 @@ public class SoftwareUpdateServiceTest
             }
         }
         Assert.assertEquals("Bad number of updatable software", 38, count);
+    }
+
+    private static SoftwareUpdateService getSoftwareUpdateService()
+    {
+        return new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)
