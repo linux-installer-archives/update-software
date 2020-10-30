@@ -165,7 +165,6 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-debian10-4.4.2.tgz", nextUrl.getUrl());
     }
 
-    /*
     @Test
     public void getNextUrlEvansTest() throws SoftwareException
     {
@@ -181,7 +180,7 @@ public class SoftwareUpdateServiceTest
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("http://apache.mediamirrors.org/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz", nextUrl.getUrl());
     }
-*/
+
     @Test
     public void getNextExistingURLTest() throws SoftwareException
     {
@@ -216,7 +215,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 36, count);
+        Assert.assertEquals("Bad number of updatable software", 38, count);
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)

@@ -9,6 +9,8 @@ public enum SoftwareDefinition
     EASY_RSA,
     EVANS(new String[]{ "ktr0731" }),
     FIREFOX,
+    GH,
+    GLAB(new String[]{ "pre2" }),
     GO,
     GOLAND,
     GRAALVM,
