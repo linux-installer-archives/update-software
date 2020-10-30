@@ -186,14 +186,14 @@ public class SoftwareUpdateServiceTest
     {
         final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
         final SoftwareUrl nextAtomUrl = nextExistingUpdateService.getNextUrl(initialAtomUrl);
-        Assert.assertNotEquals(nextAtomUrl.getUrl(), initialAtomUrl);
+        Assert.assertNotEquals(nextAtomUrl.getUrl(), initialAtomUrl.getUrl());
         Assert.assertEquals("https://github.com/atom/atom/releases/download/v1.33.0/atom-amd64.tar.gz", nextAtomUrl.getUrl());
         Assert.assertEquals(SoftwareDefinition.ATOM, nextAtomUrl.getSoftware());
         Assert.assertEquals("1.33.0", nextAtomUrl.getVersion().toString());
 
         final SoftwareUrl initialGoUrl = new SoftwareUrl(SoftwareDefinition.GO, "https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz");
         final SoftwareUrl nextGoUrl = nextExistingUpdateService.getNextUrl(initialGoUrl);
-        Assert.assertNotEquals(nextGoUrl.getUrl(), initialGoUrl);
+        Assert.assertNotEquals(nextGoUrl.getUrl(), initialGoUrl.getUrl());
         Assert.assertEquals("https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz", nextGoUrl.getUrl());
         Assert.assertEquals(SoftwareDefinition.GO, nextGoUrl.getSoftware());
         Assert.assertEquals("1.11.5", nextGoUrl.getVersion().toString());
