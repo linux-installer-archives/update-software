@@ -6,6 +6,7 @@ public enum SoftwareDefinition
     ATOM,
     CHEAT,
     CLION,
+    DATAGRIP,
     EASY_RSA,
     EVANS(new String[]{ "ktr0731" }),
     FIREFOX,
