@@ -5,6 +5,7 @@ import org.grumpyf0x48.liar.update.exceptions.*;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
@@ -34,7 +35,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public boolean updateSoftwareResource() throws IOException, SoftwareException
     {
         boolean updated = false;
-        final List<String> lines = FileUtils.readLines(getSoftwareFile());
+        final List<String> lines = FileUtils.readLines(getSoftwareFile(), StandardCharsets.UTF_8);
         for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
         {
             try

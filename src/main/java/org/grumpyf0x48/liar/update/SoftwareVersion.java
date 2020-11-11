@@ -12,12 +12,12 @@ import java.util.regex.Pattern;
 
 public class SoftwareVersion implements SoftwareIncrementable<SoftwareVersion>
 {
-    private static final String MAJOR = "major";
-    private static final String MINOR = "minor";
-    private static final String PATCH = "patch";
+    private static final String MAJOR_FIELD = "major";
+    private static final String MINOR_FIELD = "minor";
+    private static final String PATCH_FIELD = "patch";
 
-    private static final String VERSION_REGEXP = "(?<" + MAJOR + ">\\d+)\\.(?<" + MINOR + ">\\d+)";
-    private static final String VERSION_WITH_PATCH_REGEXP = VERSION_REGEXP + "\\.(?<" + PATCH + ">\\d+)";
+    private static final String VERSION_REGEXP = "(?<" + MAJOR_FIELD + ">\\d+)\\.(?<" + MINOR_FIELD + ">\\d+)";
+    private static final String VERSION_WITH_PATCH_REGEXP = VERSION_REGEXP + "\\.(?<" + PATCH_FIELD + ">\\d+)";
 
     private final SoftwareVersionIncrementPolicy versionIncrementPolicy;
 
@@ -48,12 +48,12 @@ public class SoftwareVersion implements SoftwareIncrementable<SoftwareVersion>
             {
                 continue;
             }
-            initialMajor = major = Integer.parseInt(versionMatcher.group(MAJOR));
-            initialMinor = minor = Integer.parseInt(versionMatcher.group(MINOR));
+            initialMajor = major = Integer.parseInt(versionMatcher.group(MAJOR_FIELD));
+            initialMinor = minor = Integer.parseInt(versionMatcher.group(MINOR_FIELD));
             final int groupCount = versionMatcher.groupCount();
             if (groupCount == 3)
             {
-                patch = Integer.parseInt(versionMatcher.group(PATCH));
+                patch = Integer.parseInt(versionMatcher.group(PATCH_FIELD));
                 versionField = SoftwareVersionField.PATCH;
             }
             else if (groupCount == 2)
