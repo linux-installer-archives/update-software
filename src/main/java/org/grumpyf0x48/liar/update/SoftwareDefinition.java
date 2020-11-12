@@ -4,6 +4,7 @@ public enum SoftwareDefinition
 {
     // ANT, Frequent connection problems
     ATOM,
+    BAT,
     CHEAT,
     CLION,
     DATAGRIP,

@@ -99,7 +99,7 @@ yq
 
 ant=https://downloads.apache.org/ant/binaries/apache-ant-1.10.8-bin.zip
 atom=https://github.com/atom/atom/releases/download/v1.52.1/atom-amd64.tar.gz
-bat=https://github.com/sharkdp/bat/releases/download/v0.15.4/bat-v0.15.4-x86_64-unknown-linux-gnu.tar.gz
+bat=https://github.com/sharkdp/bat/releases/download/v0.15.5/bat-v0.15.5-x86_64-unknown-linux-gnu.tar.gz
 cheat=https://github.com/cheat/cheat/releases/download/4.1.1/cheat-linux-amd64.gz
 clion=https://download.jetbrains.com/cpp/CLion-2020.2.4.tar.gz
 datagrip=https://download-cf.jetbrains.com/datagrip/datagrip-2020.2.4.tar.gz
