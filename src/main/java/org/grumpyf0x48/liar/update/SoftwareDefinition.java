@@ -42,7 +42,9 @@ public enum SoftwareDefinition
     PYCHARM_PROFESSIONAL,
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE,
+    SBT,
     SCALA,
+    SHELLCHECK,
     SPRING,
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
     // SUBLIMETEXT, Cannot parse because of the presence of build number in URL
