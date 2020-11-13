@@ -27,6 +27,7 @@ public enum SoftwareDefinition
     IDEA_EDU,
     IDEA_ULTIMATE,
     JBANG,
+    JD_CMD,
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
     JGO,
     JQ,
