@@ -10,24 +10,26 @@ public class SoftwareUpdateRepository
 {
     public static void main(final String[] args) throws SoftwareException
     {
-        if (args.length == 0)
+        if (args.length < 1)
         {
-            throw new SoftwareException("Missing softwareResource");
+            throw new SoftwareException("Usage: SoftwareUpdateRepository <softwareResource> <softwareUpdatePeriodicity> [skipSoftwareNotFound]");
         }
-
         final String softwareResource = args[0];
+        final SoftwareUpdatePeriodicity softwareUpdatePeriodicity = args.length > 1 ? SoftwareUpdatePeriodicity.valueOf(args[1]) : null;
+        final boolean skipSoftwareNotFound = args.length > 2 ? Boolean.parseBoolean(args[2]) : false;
         try
         {
             final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource);
             final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
-                            SoftwareUrlIncrementPolicy.LAST_EXISTING, //
-                            SoftwareVersionIncrementPolicy.withDefault());
+                SoftwareUrlIncrementPolicy.LAST_EXISTING, //
+                SoftwareVersionIncrementPolicy.withDefault(), //
+                skipSoftwareNotFound);
             updateService.setUpdateOptions(updateOptions);
-            updateService.updateSoftwareResource();
+            updateService.updateSoftwareResource(softwareUpdatePeriodicity);
         }
         catch (final SoftwareException | IOException e)
         {
-            throw new SoftwareException(softwareResource + " updated failed");
+            throw new SoftwareException(softwareResource + " updated failed", e);
         }
     }
 }

@@ -14,7 +14,7 @@ public interface SoftwareUpdateService
 
     String getSoftwareResource();
 
-    boolean updateSoftwareResource() throws IOException, SoftwareException;
+    boolean updateSoftwareResource(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException;
 
     SoftwareUpdateOptions getUpdateOptions();
 

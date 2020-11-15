@@ -83,7 +83,7 @@ public class SoftwareUpdateServiceTest
 
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath());
         softwareUpdateService.setUpdateOptions(nextSoftwareUpdateOptions);
-        final boolean updated = softwareUpdateService.updateSoftwareResource();
+        final boolean updated = softwareUpdateService.updateSoftwareResource(null);
 
         Assert.assertTrue(updated);
         Assert.assertFalse(contentEquals(initialSoftwareFile, updatedSoftwareFile));

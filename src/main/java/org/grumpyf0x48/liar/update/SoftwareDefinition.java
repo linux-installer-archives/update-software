@@ -1,69 +1,80 @@
 package org.grumpyf0x48.liar.update;
 
+import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.DAILY;
+import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.MONTHLY;
+import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.WEEKLY;
+
 public enum SoftwareDefinition
 {
     // ANT, Frequent connection problems
-    ATOM,
-    BAT,
-    CHEAT,
-    CLION,
-    DATAGRIP,
-    EASY_RSA,
-    EVANS(new String[]{ "ktr0731" }),
-    FIREFOX,
-    GH,
-    GLAB(new String[]{ "pre2" }),
-    GO,
-    GOLAND,
-    GRAALVM,
-    GRADLE,
-    GROOVY,
-    GRPCUI,
-    GRPCURL,
-    HADOLINT,
-    HUGO,
-    ICECAT,
-    IDEA_COMMUNITY,
-    IDEA_EDU,
-    IDEA_ULTIMATE,
-    JBANG,
-    JD_CMD,
+    ATOM(DAILY),
+    BAT(MONTHLY),
+    CHEAT(MONTHLY),
+    CLION(MONTHLY),
+    DATAGRIP(MONTHLY),
+    EASY_RSA(MONTHLY),
+    EVANS(MONTHLY,new String[]{ "ktr0731" }),
+    FIREFOX(DAILY),
+    GH(MONTHLY),
+    GLAB(MONTHLY,new String[]{ "pre2" }),
+    GO(DAILY),
+    GOLAND(DAILY),
+    GRAALVM(WEEKLY),
+    GRADLE(DAILY),
+    GROOVY(WEEKLY),
+    GRPCUI(MONTHLY),
+    GRPCURL(MONTHLY),
+    HADOLINT(MONTHLY),
+    HUGO(DAILY),
+    ICECAT(MONTHLY),
+    IDEA_COMMUNITY(DAILY),
+    IDEA_EDU(MONTHLY),
+    IDEA_ULTIMATE(DAILY),
+    JBANG(DAILY),
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
-    JGO,
-    JQ,
-    MARP_CLI,
-    MAVEN(new String[]{ "maven/maven-3" }),
-    MICRONAUT,
-    MONGODB(new String[] { "x86_64", "debian10" }),
+    JD_CMD(MONTHLY),
+    JGO(MONTHLY),
+    JQ(MONTHLY),
+    MARP_CLI(WEEKLY),
+    MAVEN(WEEKLY,new String[]{ "maven/maven-3" }),
+    MICRONAUT(MONTHLY),
+    MONGODB(MONTHLY,new String[] { "x86_64", "debian10" }),
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
-    PYCHARM_COMMUNITY,
-    PYCHARM_EDU,
-    PYCHARM_PROFESSIONAL,
+    PYCHARM_COMMUNITY(WEEKLY),
+    PYCHARM_EDU(MONTHLY),
+    PYCHARM_PROFESSIONAL(WEEKLY),
     // ROBO3T Cannot parse because of the presence of SHA in URL
-    RUBYMINE,
-    SBT,
-    SCALA,
-    SHELLCHECK,
-    SPRING,
+    RUBYMINE(DAILY),
+    SBT(WEEKLY),
+    SCALA(WEEKLY),
+    SHELLCHECK(MONTHLY),
+    SPRING(WEEKLY),
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
     // SUBLIMETEXT, Cannot parse because of the presence of build number in URL
-    TORBROWSER,
+    TORBROWSER(DAILY),
     // VISUALVM, Cannot parse because of the version in the form mMp
-    WEBSTORM,
-    XSV,
-    YQ;
+    WEBSTORM(DAILY),
+    XSV(MONTHLY),
+    YQ(MONTHLY);
 
+    private SoftwareUpdatePeriodicity periodicity;
     private String[] regexps;
 
-    SoftwareDefinition()
+    SoftwareDefinition(final SoftwareUpdatePeriodicity periodicity)
     {
-        this(new String[] {});
+        this(periodicity, new String[] {});
     }
 
-    SoftwareDefinition(final String[] regexps)
+    SoftwareDefinition(final SoftwareUpdatePeriodicity periodicity, final String[] regexps)
     {
+        this.periodicity = periodicity;
         this.regexps = regexps;
+    }
+
+    public SoftwareUpdatePeriodicity getPeriodicity()
+    {
+        return periodicity;
     }
 
     public String getSanitizedUrl(final String url)

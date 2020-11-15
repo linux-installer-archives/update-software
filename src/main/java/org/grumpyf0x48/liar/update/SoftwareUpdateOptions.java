@@ -4,19 +4,30 @@ public class SoftwareUpdateOptions
 {
     final SoftwareUrlIncrementPolicy urlIncrementPolicy;
     final SoftwareVersionIncrementPolicy versionIncrementPolicy;
+    final boolean skipSoftwareNotFound;
 
-    public SoftwareUpdateOptions(final SoftwareUrlIncrementPolicy urlIncrementPolicy,
-                    final SoftwareVersionIncrementPolicy versionIncrementPolicy)
+    public SoftwareUpdateOptions( //
+        final SoftwareUrlIncrementPolicy urlIncrementPolicy, //
+        final SoftwareVersionIncrementPolicy versionIncrementPolicy)
+    {
+        this(urlIncrementPolicy, versionIncrementPolicy, false);
+    }
+
+    public SoftwareUpdateOptions( //
+        final SoftwareUrlIncrementPolicy urlIncrementPolicy, //
+        final SoftwareVersionIncrementPolicy versionIncrementPolicy, //
+        final boolean skipSoftwareNotFound)
     {
         this.urlIncrementPolicy = urlIncrementPolicy;
         this.versionIncrementPolicy = versionIncrementPolicy;
+        this.skipSoftwareNotFound = skipSoftwareNotFound;
     }
 
     public static SoftwareUpdateOptions withDefault()
     {
         return new SoftwareUpdateOptions( //
-                        SoftwareUrlIncrementPolicy.NEXT_EXISTING, //
-                        SoftwareVersionIncrementPolicy.withDefault());
+            SoftwareUrlIncrementPolicy.NEXT_EXISTING, //
+            SoftwareVersionIncrementPolicy.withDefault(), false);
     }
 
     public enum SoftwareUrlIncrementPolicy
@@ -64,9 +75,9 @@ public class SoftwareUpdateOptions
         }
 
         SoftwareVersionIncrementPolicy( //
-                        final SoftwareVersionFieldIncrementPolicy majorIncrementPolicy,
-                        final SoftwareVersionFieldIncrementPolicy minorIncrementPolicy,
-                        final SoftwareVersionFieldIncrementPolicy patchIncrementPolicy)
+            final SoftwareVersionFieldIncrementPolicy majorIncrementPolicy,
+            final SoftwareVersionFieldIncrementPolicy minorIncrementPolicy,
+            final SoftwareVersionFieldIncrementPolicy patchIncrementPolicy)
         {
             this.majorIncrementPolicy = majorIncrementPolicy;
             this.minorIncrementPolicy = minorIncrementPolicy;
@@ -76,9 +87,9 @@ public class SoftwareUpdateOptions
         public static SoftwareVersionIncrementPolicy withDefault()
         {
             return new SoftwareVersionIncrementPolicy( //
-                            SoftwareVersionFieldIncrementPolicy.withMaxIncrement(1), //
-                            SoftwareVersionFieldIncrementPolicy.withMaxIncrement(3), //
-                            SoftwareVersionFieldIncrementPolicy.withMaxIncrement(5));
+                SoftwareVersionFieldIncrementPolicy.withMaxIncrement(1), //
+                SoftwareVersionFieldIncrementPolicy.withMaxIncrement(3), //
+                SoftwareVersionFieldIncrementPolicy.withMaxIncrement(5));
         }
     }
 }

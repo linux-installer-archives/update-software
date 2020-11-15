@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
@@ -32,11 +33,11 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     }
 
     @Override
-    public boolean updateSoftwareResource() throws IOException, SoftwareException
+    public boolean updateSoftwareResource(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException
     {
         boolean updated = false;
         final List<String> lines = FileUtils.readLines(getSoftwareFile(), StandardCharsets.UTF_8);
-        for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
+        for (final SoftwareDefinition softwareDefinition : getSoftwareToUpdate(softwareUpdatePeriodicity))
         {
             try
             {
@@ -48,6 +49,14 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
                     updated = true;
                     System.out.println("Updated URL for: " + softwareDefinition);
                 }
+            }
+            catch (final SoftwareNotFoundException e)
+            {
+                if (updateOptions.skipSoftwareNotFound)
+                {
+                    continue;
+                }
+                throw e;
             }
             catch (final SoftwareVersionNotIncrementableException e)
             {
@@ -122,6 +131,16 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public SoftwareUrl getNextUrl(final SoftwareUrl softwareUrl) throws SoftwareException
     {
         return new SoftwareUrl(softwareUrl.getSoftware(), softwareUrl.getUrl(), updateOptions).getNext();
+    }
+
+    private static List<SoftwareDefinition> getSoftwareToUpdate(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity)
+    {
+        return Arrays
+            .stream(SoftwareDefinition.values())
+            .filter(softwareDefinition -> softwareUpdatePeriodicity == null || softwareDefinition
+                .getPeriodicity()
+                .equals(softwareUpdatePeriodicity))
+            .collect(Collectors.toList());
     }
 
     private File getSoftwareFile() throws FileNotFoundException
