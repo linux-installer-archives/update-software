@@ -12,10 +12,10 @@ public class SoftwareUpdateRepository
     {
         if (args.length < 1)
         {
-            throw new SoftwareException("Usage: SoftwareUpdateRepository <softwareResource> <softwareUpdatePeriodicity> [skipSoftwareNotFound]");
+            throw new SoftwareException("Usage: SoftwareUpdateRepository <software resource path> <daily | weekly | monthly>");
         }
         final String softwareResource = args[0];
-        final SoftwareUpdatePeriodicity softwareUpdatePeriodicity = args.length > 1 ? SoftwareUpdatePeriodicity.valueOf(args[1]) : null;
+        final SoftwareUpdatePeriodicity softwareUpdatePeriodicity = args.length > 1 ? SoftwareUpdatePeriodicity.valueOf(args[1].toUpperCase()) : null;
         final boolean skipSoftwareNotFound = args.length > 2 ? Boolean.parseBoolean(args[2]) : false;
         try
         {

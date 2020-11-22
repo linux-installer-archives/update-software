@@ -31,5 +31,5 @@ $(error Please set LIAR_REPOSITORY !)
 endif
 
 ifndef LIAR_PERIODICITY
-LIAR_PERIODICITY=MONTHLY
+LIAR_PERIODICITY=monthly
 endif
