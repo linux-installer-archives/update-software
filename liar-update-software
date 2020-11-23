@@ -26,7 +26,7 @@ export PATH=~/bin:${JAVA_HOME}/bin:${PATH}
 # To trust git server certificate
 export GIT_SSL_NO_VERIFY=true
 
-# To allow git clone to be done in root
+# To avoid 'git clone' to cd to /root
 cd /tmp
 
 LIAR_REPOSITORY=$(mktemp -d)
