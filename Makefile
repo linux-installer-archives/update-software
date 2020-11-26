@@ -7,9 +7,9 @@ install_liar_update_software:
 	sudo cp --verbose --update ${LIAR_UPDATE_SOFTWARE} /usr/local/bin
 
 install_all_crons:
-	make LIAR_PERIODICITY=Daily install_cron
-	make LIAR_PERIODICITY=Weekly install_cron
-	make LIAR_PERIODICITY=Monthly install_cron
+	make LIAR_PERIODICITY=daily install_cron
+	make LIAR_PERIODICITY=weekly install_cron
+	make LIAR_PERIODICITY=monthly install_cron
 
 install_cron:
 	echo "#!/usr/bin/env bash" | sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
@@ -37,7 +37,7 @@ update_software_native: build_native
 update_software: build
 	mvn exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
-		-Dexec.args="${LIAR_REPOSITORY}/liar-software ${LIAR_PERIODICITY}"
+		-Dexec.args="${LIAR_REPOSITORY^}/liar-software ${LIAR_PERIODICITY}"
 
 clean:
 	mvn clean
