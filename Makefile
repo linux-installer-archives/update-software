@@ -14,6 +14,7 @@ install_all_crons:
 install_cron:
 	echo "#!/usr/bin/env bash" | sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 	echo "sudo -u #${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}.log 2>&1" | sudo tee -a /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
+	sudo chmod +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
 # This target does not run tests
 build_native: clean
