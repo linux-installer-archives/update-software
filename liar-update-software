@@ -10,7 +10,7 @@ LIAR_REPOSITORY_URL=git@framagit.org:grumpyf0x48/liar.git
 LIAR_UPDATE_REPOSITORY_URL=git@framagit.org:grumpyf0x48/liar-update-software.git
 
 if [ $# -lt 1 ]; then
-    echo "Usage $0 daily | weekly | monthly" >&2
+    echo "Usage $0 Daily | Weekly | Monthly" >&2
     exit 1
 fi
 

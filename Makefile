@@ -1,5 +1,5 @@
 LIAR_UPDATE_SOFTWARE=liar-update-software
-USERID:=$(shell id -u)
+USERID=$(shell id -u)
 
 install: install_liar_update_software install_all_crons
 
@@ -7,13 +7,13 @@ install_liar_update_software:
 	sudo cp --verbose --update ${LIAR_UPDATE_SOFTWARE} /usr/local/bin
 
 install_all_crons:
-	make LIAR_PERIODICITY=daily install_cron
-	make LIAR_PERIODICITY=weekly install_cron
-	make LIAR_PERIODICITY=monthly install_cron
+	make LIAR_PERIODICITY=Daily install_cron
+	make LIAR_PERIODICITY=Weekly install_cron
+	make LIAR_PERIODICITY=Monthly install_cron
 
 install_cron:
 	echo "#!/usr/bin/env bash" | sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
-	echo "sudo -u #${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}.log 2>&1" | sudo tee -a /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
+	echo "sudo -u \#${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}.log 2>&1" | sudo tee -a /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 	sudo chmod +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
 # This target does not run tests
@@ -43,5 +43,5 @@ clean:
 	mvn clean
 
 ifndef LIAR_PERIODICITY
-LIAR_PERIODICITY=monthly
+LIAR_PERIODICITY=Monthly
 endif
