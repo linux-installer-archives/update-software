@@ -43,6 +43,6 @@ LIAR_SOFTWARE_FILE=liar-software
 cd "${LIAR_REPOSITORY}"
 if git status --porcelain ${LIAR_SOFTWARE_FILE} | grep ${LIAR_SOFTWARE_FILE}; then
     git pull
-    git commit -a -m "${LIAR_PERIODICITY^} Automatic URL update"
+    git commit -a -m "${LIAR_PERIODICITY^} automatic URL update"
     git push
 fi
