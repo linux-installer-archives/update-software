@@ -29,8 +29,8 @@ test: build
 # This target does not depend on install_native because it is very long to build
 update_software_native: build_native
 	./target/SoftwareUpdateRepository.native \
-		-Djava.library.path=${JAVA_HOME}/jre/lib/amd64 \
-		-Djavax.net.ssl.trustStore=${JAVA_HOME}/jre/lib/security/cacerts \
+		-Djava.library.path=${GRAALVM_HOME}/jre/lib/amd64 \
+		-Djavax.net.ssl.trustStore=${GRAALVM_HOME}/jre/lib/security/cacerts \
 		${LIAR_REPOSITORY}/liar-software \
 		${LIAR_PERIODICITY}
 
