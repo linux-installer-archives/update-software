@@ -8,6 +8,7 @@ set -o errexit
 
 LIAR_REPOSITORY_URL=git@framagit.org:grumpyf0x48/liar.git
 LIAR_UPDATE_REPOSITORY_URL=git@framagit.org:grumpyf0x48/liar-update-software.git
+LIAR_USER=liar-update
 
 if [ $# -lt 1 ]; then
     echo "Usage $0 Daily | Weekly | Monthly" >&2
@@ -16,7 +17,7 @@ fi
 
 LIAR_PERIODICITY="$1"
 
-# Make sure Maven and Java can be found
+# Make sure Maven, Java and GraalVM can be found
 export JAVA_HOME=/usr/lib/jvm/jdk8/jdk1.8.0_231
 export GRAALVM_HOME=/usr/lib/jvm/graalvm/graalvm-ce-java8-20.1.0
 export PATH=~/bin:${JAVA_HOME}/bin:${PATH}
@@ -42,6 +43,8 @@ make -C "${LIAR_UPDATE_REPOSITORY}" LIAR_REPOSITORY="${LIAR_REPOSITORY}" LIAR_PE
 LIAR_SOFTWARE_FILE=liar-software
 cd "${LIAR_REPOSITORY}"
 if git status --porcelain ${LIAR_SOFTWARE_FILE} | grep ${LIAR_SOFTWARE_FILE}; then
+    git config user.name "${LIAR_USER}[bot]"
+    git config user.email "${LIAR_USER}@$(hostname)"
     git pull
     git commit -a -m "${LIAR_PERIODICITY^} automatic URL update"
     git push
