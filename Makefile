@@ -43,5 +43,5 @@ clean:
 	mvn clean
 
 ifndef LIAR_PERIODICITY
-LIAR_PERIODICITY=Monthly
+LIAR_PERIODICITY=monthly
 endif
