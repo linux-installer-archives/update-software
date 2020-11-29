@@ -11,11 +11,12 @@ LIAR_UPDATE_REPOSITORY_URL=git@framagit.org:grumpyf0x48/liar-update-software.git
 LIAR_USER=liar-update
 
 if [ $# -lt 1 ]; then
-    echo "Usage $0 daily | weekly | monthly" >&2
+    echo "Usage $0 [daily | weekly | monthly] [update_software | update_software_native]" >&2
     exit 1
 fi
 
 LIAR_PERIODICITY="$1"
+LIAR_UPDATE_TARGET="${2:-"update_software"}"
 
 # Make sure Maven, Java and GraalVM can be found
 export JAVA_HOME=/usr/lib/jvm/jdk8/jdk1.8.0_231
@@ -37,7 +38,7 @@ LIAR_UPDATE_REPOSITORY=$(mktemp -d)
 git clone "${LIAR_UPDATE_REPOSITORY_URL}" "${LIAR_UPDATE_REPOSITORY}"
 
 # Run update
-make -C "${LIAR_UPDATE_REPOSITORY}" LIAR_REPOSITORY="${LIAR_REPOSITORY}" LIAR_PERIODICITY="${LIAR_PERIODICITY}" update_software_native
+make -C "${LIAR_UPDATE_REPOSITORY}" LIAR_REPOSITORY="${LIAR_REPOSITORY}" LIAR_PERIODICITY="${LIAR_PERIODICITY}" "${LIAR_UPDATE_TARGET}"
 
 # Commit changes to repository
 LIAR_SOFTWARE_FILE=liar-software
