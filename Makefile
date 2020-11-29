@@ -17,11 +17,11 @@ install_cron:
 	sudo chmod +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
 # This target does not run tests
-build_native: clean
+build_native:
 	JAVA_HOME=${GRAALVM_HOME} mvn -Dmaven.test.skip=true -DskipTests -Pnative install
 
 # This target runs tests
-build: clean
+build:
 	mvn install
 
 test: build
