@@ -103,6 +103,11 @@ public class SoftwareUpdateServiceTest
     {
         for (final SoftwareDefinition software : SoftwareDefinition.values())
         {
+            if (software == SoftwareDefinition.TORBROWSER)
+            {
+                // Old TORBROWSER URL are removed :-(
+                continue;
+            }
             final SoftwareUrl url = nextUpdateService.getUrl(software);
             Assert.assertTrue("URL " + url + " for software: " + software + " does not exist",
                             NetworkUtils.urlExists(url.getUrl()));
