@@ -24,6 +24,9 @@ build_native:
 build:
 	mvn install
 
+build_no_tests:
+	mvn -DskipTests -Dmaven.test.skip=true install
+
 test: build
 
 # This target does not depend on install_native because it is very long to build
@@ -34,7 +37,7 @@ update_software_native: build_native
 		${LIAR_REPOSITORY}/liar-software \
 		${LIAR_PERIODICITY}
 
-update_software: build
+update_software: build_no_tests
 	mvn exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
 		-Dexec.args="${LIAR_REPOSITORY^}/liar-software ${LIAR_PERIODICITY}"
