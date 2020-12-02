@@ -22,7 +22,7 @@ public class SoftwareUpdateRepositoryTest
         }
         catch (final SoftwareException exception)
         {
-            Assert.assertEquals("Usage: SoftwareUpdateRepository <softwareResource> <softwareUpdatePeriodicity> [skipSoftwareNotFound]", exception.getMessage());
+            Assert.assertEquals("Usage: SoftwareUpdateRepository <software resource path> <daily | weekly | monthly>", exception.getMessage());
         }
     }
 
@@ -50,7 +50,7 @@ public class SoftwareUpdateRepositoryTest
         }
         catch (final IllegalArgumentException exception)
         {
-            Assert.assertEquals("No enum constant org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.invalidPerodicity", exception.getMessage());
+            Assert.assertEquals("No enum constant org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.INVALIDPERODICITY", exception.getMessage());
         }
     }
 
