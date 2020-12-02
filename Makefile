@@ -40,7 +40,7 @@ update_software_native: build_native
 update_software: build_no_tests
 	mvn exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
-		-Dexec.args="${LIAR_REPOSITORY^}/liar-software ${LIAR_PERIODICITY}"
+		-Dexec.args="${LIAR_REPOSITORY}/liar-software ${LIAR_PERIODICITY}"
 
 clean:
 	mvn clean
