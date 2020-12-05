@@ -16,7 +16,7 @@ public class SoftwareUpdateRepository
         }
         final String softwareResource = args[0];
         final SoftwareUpdatePeriodicity softwareUpdatePeriodicity = args.length > 1 ? SoftwareUpdatePeriodicity.valueOf(args[1].toUpperCase()) : null;
-        final boolean skipSoftwareNotFound = args.length > 2 ? Boolean.parseBoolean(args[2]) : false;
+        final boolean skipSoftwareNotFound = args.length > 2 && Boolean.parseBoolean(args[2]);
         try
         {
             final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource);
