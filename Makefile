@@ -1,4 +1,5 @@
 LIAR_UPDATE_SOFTWARE=liar-update-software
+MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true 
 USERID=$(shell id -u)
 
 install: install_liar_update_software install_all_crons
@@ -12,20 +13,21 @@ install_all_crons:
 	make LIAR_PERIODICITY=monthly install_cron
 
 install_cron:
-	echo "#!/usr/bin/env bash" | sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
-	echo "sudo -u \#${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}.log 2>&1" | sudo tee -a /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
+	echo "#!/usr/bin/env bash\n"  \
+		 "sudo -u \#${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}.log 2>&1" \
+			| sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 	sudo chmod +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
 # This target does not run tests
 build_native:
-	JAVA_HOME=${GRAALVM_HOME} mvn -Dmaven.test.skip=true -DskipTests -Pnative install
+	JAVA_HOME=${GRAALVM_HOME} mvn $(MVN_NO_TESTS) -Pnative install
 
 # This target runs tests
 build:
 	mvn install
 
 build_no_tests:
-	mvn -DskipTests -Dmaven.test.skip=true install
+	mvn $(MVN_NO_TESTS) install
 
 test: build
 
