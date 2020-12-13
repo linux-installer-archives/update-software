@@ -20,7 +20,7 @@ fi
 LIAR_PERIODICITY="$1"
 LIAR_UPDATE_TARGET="${2:-"update_software"}"
 
-export GRAALVM_HOME=$(find /usr/lib/jvm/graalvm/ -name native-image | grep -v lib/svm | xargs dirname | xargs dirname)
+export GRAALVM_HOME=$(find /usr/lib/jvm/graalvm -name native-image | grep -v lib/svm | xargs dirname | xargs dirname)
 
 # Clone repositories
 
