@@ -5,7 +5,7 @@ USERID=$(shell id -u)
 install: install_liar_update_software install_all_crons
 
 install_liar_update_software:
-	sudo cp --verbose --update ${LIAR_UPDATE_SOFTWARE} /usr/local/bin
+	sudo cp --verbose ${LIAR_UPDATE_SOFTWARE} /usr/local/bin
 
 install_all_crons:
 	make LIAR_PERIODICITY=daily install_cron
