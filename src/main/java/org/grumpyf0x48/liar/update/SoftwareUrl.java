@@ -109,15 +109,15 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
             {
                 if (NetworkUtils.urlExists(url))
                 {
+                    lastExistingUrl = new SoftwareUrl(software, url);
+                }
+                if (NetworkUtils.urlExists(url))
+                {
                     nextUrl();
                 }
                 else
                 {
                     nextExistingUrl();
-                }
-                if (NetworkUtils.urlExists(url))
-                {
-                    lastExistingUrl = new SoftwareUrl(software, url);
                 }
             }
             catch (final SoftwareException softwareException)
