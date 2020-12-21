@@ -3,7 +3,6 @@ package org.grumpyf0x48.liar.update;
 import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareUrlIncrementPolicy;
 import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareVersionIncrementPolicy;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
-import org.grumpyf0x48.misc.NetworkUtils;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,6 +19,7 @@ public class SoftwareUpdateServiceTest
 {
     private static SoftwareUpdateService nextUpdateService;
     private static SoftwareUpdateService nextExistingUpdateService;
+    private static SoftwareUpdateService lastExistingUpdateService;
     private static SoftwareUpdateOptions nextSoftwareUpdateOptions;
 
     @BeforeClass
@@ -34,6 +34,18 @@ public class SoftwareUpdateServiceTest
         nextUpdateService.setUpdateOptions(nextSoftwareUpdateOptions);
 
         nextExistingUpdateService = getSoftwareUpdateService();
+        lastExistingUpdateService = getLastExistingSoftwareUpdateService();
+    }
+
+    private static SoftwareUpdateService getLastExistingSoftwareUpdateService()
+    {
+        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
+        final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
+                SoftwareUrlIncrementPolicy.LAST_EXISTING, //
+                SoftwareVersionIncrementPolicy.withDefault(), //
+                false);
+        updateService.setUpdateOptions(updateOptions);
+        return updateService;
     }
 
     @Test
@@ -101,6 +113,7 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getUrlTest() throws IOException, SoftwareException
     {
+        final NetworkServiceImpl networkService = new NetworkServiceImpl();
         for (final SoftwareDefinition software : SoftwareDefinition.values())
         {
             if (software == SoftwareDefinition.TORBROWSER)
@@ -110,7 +123,7 @@ public class SoftwareUpdateServiceTest
             }
             final SoftwareUrl url = nextUpdateService.getUrl(software);
             Assert.assertTrue("URL " + url + " for software: " + software + " does not exist",
-                            NetworkUtils.urlExists(url.getUrl()));
+                            networkService.urlExists(url.getUrl()));
         }
     }
 
@@ -187,7 +200,7 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
-    public void getNextExistingURLTest() throws SoftwareException
+    public void getNextExistingAtomURLTest() throws SoftwareException
     {
         final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
         final SoftwareUrl nextAtomUrl = nextExistingUpdateService.getNextUrl(initialAtomUrl);
@@ -195,13 +208,27 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("https://github.com/atom/atom/releases/download/v1.33.0/atom-amd64.tar.gz", nextAtomUrl.getUrl());
         Assert.assertEquals(SoftwareDefinition.ATOM, nextAtomUrl.getSoftware());
         Assert.assertEquals("1.33.0", nextAtomUrl.getVersion().toString());
+    }
 
+    @Test
+    public void getNextExistingGoURLTest() throws SoftwareException
+    {
         final SoftwareUrl initialGoUrl = new SoftwareUrl(SoftwareDefinition.GO, "https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz");
         final SoftwareUrl nextGoUrl = nextExistingUpdateService.getNextUrl(initialGoUrl);
         Assert.assertNotEquals(nextGoUrl.getUrl(), initialGoUrl.getUrl());
         Assert.assertEquals("https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz", nextGoUrl.getUrl());
         Assert.assertEquals(SoftwareDefinition.GO, nextGoUrl.getSoftware());
         Assert.assertEquals("1.11.5", nextGoUrl.getVersion().toString());
+    }
+
+    // Quand ce test échouera à la sortie d'une nouvelle version
+    // Mocker le NetworkService pour stabiliser le test
+    @Test
+    public void getLastExistingUrlEasyRsaTest() throws SoftwareException
+    {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.EASY_RSA,  "https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.7/EasyRSA-3.0.7.tgz");
+        final SoftwareUrl nextUrl = lastExistingUpdateService.getNextUrl(initialUrl);
+        Assert.assertEquals("https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.8/EasyRSA-3.0.8.tgz", nextUrl.getUrl());
     }
 
     @Test

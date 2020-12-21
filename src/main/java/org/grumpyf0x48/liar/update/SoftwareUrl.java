@@ -6,7 +6,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareExceptionFactory;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareUrlNotParsableException;
-import org.grumpyf0x48.misc.NetworkUtils;
 
 import java.net.ConnectException;
 import java.util.regex.Matcher;
@@ -17,7 +16,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     private final SoftwareDefinition software;
     private final SoftwareVersion version;
     private final SoftwareUpdateOptions updateOptions;
-
+    private NetworkService networkService;
     private String url;
 
     public SoftwareUrl(final SoftwareDefinition software, final String url) throws SoftwareException
@@ -35,6 +34,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
         this.software = software;
         this.version = parse(software != null ? software.getSanitizedUrl(url) : url, updateOptions);
         this.updateOptions = updateOptions;
+        this.networkService = new NetworkServiceImpl();
         this.url = url;
     }
 
@@ -46,6 +46,11 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     public SoftwareVersion getVersion()
     {
         return version;
+    }
+
+    public void setNetworkService(final NetworkService networkService)
+    {
+        this.networkService = networkService;
     }
 
     public String getUrl()
@@ -82,7 +87,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
         int maxTries = 0;
         try
         {
-            while (!NetworkUtils.urlExists(url))
+            while (!networkService.urlExists(url))
             {
                 nextUrl();
                 maxTries++;
@@ -107,11 +112,11 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
         {
             try
             {
-                if (NetworkUtils.urlExists(url))
+                if (networkService.urlExists(url))
                 {
                     lastExistingUrl = new SoftwareUrl(software, url);
                 }
-                if (NetworkUtils.urlExists(url))
+                if (networkService.urlExists(url))
                 {
                     nextUrl();
                 }
