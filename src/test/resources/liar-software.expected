@@ -91,6 +91,7 @@ sublimetext
 torbrowser
 visualvm
 vscode
+vscodium
 webstorm
 xsv
 youtube_dl
@@ -163,6 +164,7 @@ sublimetext=https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.b
 torbrowser=https://www.torproject.org/dist/torbrowser/10.0.3/tor-browser-linux64-10.0.3_fr.tar.xz
 visualvm=https://github.com/oracle/visualvm/releases/download/2.0.2/visualvm_202.zip
 vscode=https://update.code.visualstudio.com/1.49.1/linux-x64/stable
+vscodium=https://github.com/VSCodium/vscodium/releases/download/1.52.1/VSCodium-linux-x64-1.52.1.tar.gz
 webstorm=https://download.jetbrains.com/webstorm/WebStorm-2020.2.tar.gz
 xsv=https://github.com/BurntSushi/xsv/releases/download/0.13.1/xsv-0.13.1-x86_64-unknown-linux-musl.tar.gz
 youtube_dl=https://yt-dl.org/downloads/latest/youtube-dl

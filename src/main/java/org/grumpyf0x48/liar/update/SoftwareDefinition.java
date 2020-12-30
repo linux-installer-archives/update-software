@@ -53,7 +53,7 @@ public enum SoftwareDefinition
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
     // SUBLIMETEXT, Cannot parse because of the presence of build number in URL
     TORBROWSER(DAILY),
-    // VISUALVM, Cannot parse because of the version in the form mMp
+    VSCODIUM(WEEKLY),
     WEBSTORM(DAILY),
     XSV(MONTHLY),
     YQ(MONTHLY);
