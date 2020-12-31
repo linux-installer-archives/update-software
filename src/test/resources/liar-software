@@ -31,6 +31,7 @@ atom
 bat
 cheat
 clion
+cloc
 datagrip
 easy_rsa
 evans
@@ -45,6 +46,7 @@ groovy
 grpcui
 grpcurl
 hadolint
+hexa
 hugo
 icecat
 idea_community
@@ -103,8 +105,10 @@ atom=https://github.com/atom/atom/releases/download/v1.52.0/atom-amd64.tar.gz
 bat=https://github.com/sharkdp/bat/releases/download/v0.15.4/bat-v0.15.4-x86_64-unknown-linux-gnu.tar.gz
 cheat=https://github.com/cheat/cheat/releases/download/4.1.0/cheat-linux-amd64.gz
 clion=https://download.jetbrains.com/cpp/CLion-2020.2.3.tar.gz
+cloc=https://github.com/AlDanial/cloc/releases/download/1.86/cloc-1.86.pl
 datagrip=https://download-cf.jetbrains.com/datagrip/datagrip-2020.2.3.tar.gz
 easy_rsa=https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.7/EasyRSA-3.0.7.tgz
+exa=https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip
 evans=https://github.com/ktr0731/evans/releases/download/0.9.0/evans_linux_amd64.tar.gz
 firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/82.0/linux-x86_64/fr/firefox-82.0.tar.bz2
 gh=https://github.com/cli/cli/releases/download/v1.1.0/gh_1.1.0_linux_amd64.tar.gz
