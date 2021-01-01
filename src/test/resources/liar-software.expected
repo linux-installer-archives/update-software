@@ -35,6 +35,7 @@ cloc
 datagrip
 easy_rsa
 evans
+exa
 firefox
 gh
 glab
@@ -46,7 +47,7 @@ groovy
 grpcui
 grpcurl
 hadolint
-hexa
+helidon
 hugo
 icecat
 idea_community
@@ -62,6 +63,7 @@ jdk13
 jdk14
 jdk15
 jdk_ea16
+jdk_ea17
 jdk_ri7
 jdk_ri8
 jdk_ri9
@@ -121,6 +123,7 @@ groovy=https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.7.zip
 grpcui=https://github.com/fullstorydev/grpcui/releases/download/v1.1.1/grpcui_1.1.1_linux_x86_64.tar.gz
 grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.7.1/grpcurl_1.7.1_linux_x86_64.tar.gz
 hadolint=https://github.com/hadolint/hadolint/releases/download/v1.18.3/hadolint-Linux-x86_64
+helidon=https://helidon.io/cli/latest/linux/helidon
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.76.6/hugo_0.76.6_Linux-64bit.tar.gz
 icecat=https://ftp.gnu.org/gnu/gnuzilla/60.7.1/icecat-60.7.1.en-US.gnulinux-x86_64.tar.bz2
 idea_community=https://download.jetbrains.com/idea/ideaIC-2020.2.4.tar.gz
@@ -136,6 +139,7 @@ jdk13=https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882c
 jdk14=https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_linux-x64_bin.tar.gz
 jdk15=https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_linux-x64_bin.tar.gz
 jdk_ea16=https://download.java.net/java/early_access/jdk16/20/GPL/openjdk-16-ea+20_linux-x64_bin.tar.gz
+jdk_ea17=https://download.java.net/java/early_access/jdk17/2/GPL/openjdk-17-ea+2_linux-x64_bin.tar.gz
 jdk_ri7=https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
 jdk_ri8=https://download.java.net/openjdk/jdk8u40/ri/openjdk-8u40-b25-linux-x64-10_feb_2015.tar.gz
 jdk_ri9=https://download.java.net/openjdk/jdk9/ri/openjdk-9+181_linux-x64_ri.zip
