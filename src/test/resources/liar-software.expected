@@ -41,7 +41,8 @@ gh
 glab
 go
 goland
-graalvm
+graalvm8
+graalvm11
 gradle
 groovy
 grpcui
@@ -117,7 +118,8 @@ gh=https://github.com/cli/cli/releases/download/v1.1.1/gh_1.1.1_linux_amd64.tar.
 glab=https://github.com/profclems/glab/releases/download/v1.11.1-pre2/glab_1.11.1-pre2_Linux_x86_64.tar.gz
 go=https://dl.google.com/go/go1.15.4.linux-amd64.tar.gz
 goland=https://download.jetbrains.com/go/goland-2020.2.4.tar.gz
-graalvm=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java8-linux-amd64-20.2.1.tar.gz
+graalvm8=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java8-linux-amd64-20.2.1.tar.gz
+graalvm11=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java11-linux-amd64-20.2.1.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-6.8-bin.zip
 groovy=https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.7.zip
 grpcui=https://github.com/fullstorydev/grpcui/releases/download/v1.1.1/grpcui_1.1.1_linux_x86_64.tar.gz
