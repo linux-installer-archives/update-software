@@ -44,6 +44,7 @@ goland
 graalvm8
 graalvm11
 gradle
+grails
 groovy
 grpcui
 grpcurl
@@ -121,6 +122,7 @@ goland=https://download.jetbrains.com/go/goland-2020.2.3.tar.gz
 graalvm8=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.0/graalvm-ce-java8-linux-amd64-20.2.0.tar.gz
 graalvm11=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.0/graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-6.7-bin.zip
+grails=https://github.com/grails/grails-core/releases/download/v4.0.5/grails-4.0.5.zip
 groovy=https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.6.zip
 grpcui=https://github.com/fullstorydev/grpcui/releases/download/v1.1.0/grpcui_1.1.0_linux_x86_64.tar.gz
 grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.7.0/grpcurl_1.7.0_linux_x86_64.tar.gz

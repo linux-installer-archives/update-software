@@ -24,6 +24,7 @@ public enum SoftwareDefinition
     GRAALVM8(WEEKLY),
     GRAALVM11(WEEKLY),
     GRADLE(DAILY),
+    GRAILS(MONTHLY),
     GROOVY(WEEKLY),
     GRPCUI(MONTHLY),
     GRPCURL(MONTHLY),
