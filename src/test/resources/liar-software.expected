@@ -51,6 +51,7 @@ grpcurl
 hadolint
 helidon
 hugo
+hyperfine
 icecat
 idea_community
 idea_edu
@@ -129,6 +130,7 @@ grpcurl=https://github.com/fullstorydev/grpcurl/releases/download/v1.7.1/grpcurl
 hadolint=https://github.com/hadolint/hadolint/releases/download/v1.18.3/hadolint-Linux-x86_64
 helidon=https://helidon.io/cli/latest/linux/helidon
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.76.6/hugo_0.76.6_Linux-64bit.tar.gz
+hyperfine=https://github.com/sharkdp/hyperfine/releases/download/v1.10.1/hyperfine-v1.10.1-x86_64-unknown-linux-gnu.tar.gz
 icecat=https://ftp.gnu.org/gnu/gnuzilla/60.7.1/icecat-60.7.1.en-US.gnulinux-x86_64.tar.bz2
 idea_community=https://download.jetbrains.com/idea/ideaIC-2020.2.4.tar.gz
 idea_edu=https://download.jetbrains.com/idea/ideaIE-2020.2.tar.gz
