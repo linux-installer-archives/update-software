@@ -63,8 +63,8 @@ public enum SoftwareDefinition
     XSV(MONTHLY),
     YQ(MONTHLY);
 
-    private SoftwareUpdatePeriodicity periodicity;
-    private String[] regexps;
+    private final SoftwareUpdatePeriodicity periodicity;
+    private final String[] regexps;
 
     SoftwareDefinition(final SoftwareUpdatePeriodicity periodicity)
     {

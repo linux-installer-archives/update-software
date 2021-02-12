@@ -60,9 +60,11 @@ public class SoftwareUrlTest
         SoftwareUrl softwareUrl = new SoftwareUrl(URL, updateOptions);
         try
         {
-            while ((softwareUrl = softwareUrl.getNext()) != null)
+            do
             {
+                softwareUrl = softwareUrl.getNext();
             }
+            while (softwareUrl != null);
             Assert.fail();
         }
         catch (final SoftwareVersionNotIncrementableException e)
