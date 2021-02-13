@@ -35,8 +35,31 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     @Override
     public boolean updateSoftwareResource(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException
     {
-        boolean updated = false;
-        final List<String> lines = FileUtils.readLines(getSoftwareFile(), StandardCharsets.UTF_8);
+        final Map<SoftwareDefinition, SoftwareUrl> urlMap = updateSoftwareDefinitions(softwareUpdatePeriodicity);
+        if (!urlMap.isEmpty())
+        {
+            final File softwareFile = getSoftwareFile();
+            final List<String> lines = FileUtils.readLines(softwareFile, StandardCharsets.UTF_8);
+            urlMap.forEach((softwareDefinition, softwareUrl) ->
+            {
+                try
+                {
+                    updateSoftwareDefinition(softwareDefinition, softwareUrl, lines);
+                    System.out.println("Updated URL for: " + softwareDefinition);
+                }
+                catch (final SoftwareNotFoundException e)
+                {
+                    System.err.println(e.getMessage());
+                }
+            });
+            FileUtils.writeLines(softwareFile, lines);
+        }
+        return !urlMap.isEmpty();
+    }
+
+    private Map<SoftwareDefinition, SoftwareUrl> updateSoftwareDefinitions(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException
+    {
+        final Map<SoftwareDefinition, SoftwareUrl> urlMap = new HashMap();
         for (final SoftwareDefinition softwareDefinition : getSoftwareToUpdate(softwareUpdatePeriodicity))
         {
             try
@@ -45,18 +68,15 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
                 final SoftwareUrl nextUrl = getNextUrl(softwareDefinition);
                 if (!nextUrl.getUrl().equals(url.getUrl()))
                 {
-                    updateSoftwareDefinition(softwareDefinition, nextUrl, lines);
-                    updated = true;
-                    System.out.println("Updated URL for: " + softwareDefinition);
+                    urlMap.put(softwareDefinition, nextUrl);
                 }
             }
             catch (final SoftwareNotFoundException e)
             {
-                if (updateOptions.skipSoftwareNotFound)
+                if (!updateOptions.skipSoftwareNotFound)
                 {
-                    continue;
+                    throw e;
                 }
-                throw e;
             }
             catch (final SoftwareVersionNotIncrementableException e)
             {
@@ -67,11 +87,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
                 System.err.println("Don't know how to parse URL for: " + softwareDefinition);
             }
         }
-        if (updated)
-        {
-            FileUtils.writeLines(getSoftwareFile(), lines);
-        }
-        return updated;
+        return urlMap;
     }
 
     @Override
@@ -158,13 +174,12 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         throw new FileNotFoundException(getSoftwareResource());
     }
 
-    private void updateSoftwareDefinition(final SoftwareDefinition softwareDefinition, final SoftwareUrl url, final List<String> lines)
-                    throws SoftwareException
+    private void updateSoftwareDefinition(final SoftwareDefinition softwareDefinition, final SoftwareUrl url, final List<String> lines) throws SoftwareNotFoundException
     {
         final int index = searchLine(softwareDefinition, lines);
         if (index == -1)
         {
-            throw new SoftwareException("Failed to update SoftwareResource for: " + softwareDefinition);
+            throw new SoftwareNotFoundException("Failed to find: " + softwareDefinition + " in software file");
         }
         final String newline = softwareDefinition.name().toLowerCase() + "=" + url.getUrl();
         lines.set(index, newline);
