@@ -59,7 +59,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 
     private Map<SoftwareDefinition, SoftwareUrl> updateSoftwareDefinitions(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException
     {
-        final Map<SoftwareDefinition, SoftwareUrl> urlMap = new HashMap<>();
+        final EnumMap<SoftwareDefinition, SoftwareUrl> urlMap = new EnumMap<>(SoftwareDefinition.class);
         for (final SoftwareDefinition softwareDefinition : getSoftwareToUpdate(softwareUpdatePeriodicity))
         {
             try
