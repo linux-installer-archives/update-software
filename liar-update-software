@@ -3,7 +3,7 @@
 #
 # liar update script for liar-software
 #
-# Maven, Java and optionnaly GraalVM should be installed
+# Maven, Java and optionally GraalVM should be installed
 #
 
 set -o errexit
@@ -19,8 +19,6 @@ fi
 
 LIAR_PERIODICITY="$1"
 LIAR_UPDATE_TARGET="${2:-"update_software"}"
-
-#export GRAALVM_HOME=$(find /usr/lib/jvm/graalvm -name native-image | grep -v lib/svm | xargs dirname | xargs dirname)
 
 # Clone repositories
 

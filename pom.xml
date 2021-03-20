@@ -22,8 +22,8 @@
 
         <!-- java -->
         <java.version>11</java.version>
-        <graalvm.version>20.1.0</graalvm.version>
-        <graal-sdk.version>19.2.0.1</graal-sdk.version>
+        <graalvm.version>21.0.0.2</graalvm.version>
+        <graal-sdk.version>21.0.0.2</graal-sdk.version>
 
         <!-- plugins -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -136,7 +136,7 @@
                         <configuration>
                             <mainClass>org.grumpyf0x48.liar.update.SoftwareUpdateRepository</mainClass>
                             <imageName>SoftwareUpdateRepository.native</imageName>
-                            <buildArgs>--no-fallback -H:EnableURLProtocols=http,https</buildArgs>
+                            <buildArgs>--no-fallback --enable-http --enable-https -H:+ReportExceptionStackTraces</buildArgs>
                         </configuration>
                     </plugin>
                 </plugins>
