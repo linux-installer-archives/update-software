@@ -16,13 +16,13 @@ test:
 update_software: build
 	mvn exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
-		-Dexec.args="${LIAR_REPOSITORY}/liar-software ${LIAR_PERIODICITY}"
+		-Dexec.args="${LIAR_REPOSITORY}/config/liar-software ${LIAR_PERIODICITY}"
 
 update_software_native:
 	./target/SoftwareUpdateRepository.native \
 		-Djava.library.path=${GRAALVM_HOME}/jre/lib/amd64 \
 		-Djavax.net.ssl.trustStore=${GRAALVM_HOME}/jre/lib/security/cacerts \
-		${LIAR_REPOSITORY}/liar-software \
+		${LIAR_REPOSITORY}/config/liar-software \
 		${LIAR_PERIODICITY}
 
 clean:

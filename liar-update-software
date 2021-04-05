@@ -38,7 +38,7 @@ git clone "${LIAR_UPDATE_REPOSITORY_URL}" "${LIAR_UPDATE_REPOSITORY}"
 make -C "${LIAR_UPDATE_REPOSITORY}" LIAR_REPOSITORY="${LIAR_REPOSITORY}" LIAR_PERIODICITY="${LIAR_PERIODICITY}" "${LIAR_UPDATE_TARGET}"
 
 # Commit changes to repository
-LIAR_SOFTWARE_FILE=liar-software
+LIAR_SOFTWARE_FILE=config/liar-software
 cd "${LIAR_REPOSITORY}"
 if git status --porcelain ${LIAR_SOFTWARE_FILE} | grep ${LIAR_SOFTWARE_FILE}; then
     git config user.name "${LIAR_USER}[bot]"
