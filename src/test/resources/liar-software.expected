@@ -157,6 +157,7 @@ jdk_ri14=https://download.java.net/openjdk/jdk14/ri/openjdk-14+36_linux-x64_bin.
 jdk_ri15=https://download.java.net/openjdk/jdk15/ri/openjdk-15+36_linux-x64_bin.tar.gz
 jgo=https://github.com/scijava/jgo/archive/0.5.1.zip
 jq=https://github.com/stedolan/jq/releases/download/jq-1.7/jq-linux64
+jreleaser=https://github.com/jreleaser/jreleaser/releases/download/v0.1.1/jreleaser-0.1.1.zip
 marp_cli=https://github.com/marp-team/marp-cli/releases/download/v0.22.1/marp-cli-v0.22.1-linux.tar.gz
 maven=https://downloads.apache.org/maven/maven-3/3.6.4/binaries/apache-maven-3.6.4-bin.tar.gz
 micronaut=https://github.com/micronaut-projects/micronaut-starter/releases/download/v2.1.3/micronaut-cli-2.1.3.zip

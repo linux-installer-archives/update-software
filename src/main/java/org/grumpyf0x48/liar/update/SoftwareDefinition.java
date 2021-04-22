@@ -40,6 +40,7 @@ public enum SoftwareDefinition
     JD_CMD(MONTHLY),
     JGO(MONTHLY),
     JQ(MONTHLY),
+    JRELEASER(WEEKLY),
     MARP_CLI(WEEKLY),
     MAVEN(WEEKLY,new String[]{ "maven/maven-3" }),
     MICRONAUT(MONTHLY),
