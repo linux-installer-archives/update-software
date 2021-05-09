@@ -25,6 +25,14 @@ update_software_native:
 		${LIAR_REPOSITORY}/config/liar-software \
 		${LIAR_PERIODICITY}
 
+display-updates: display-plugin-updates display-dependency-updates
+
+display-plugin-updates:
+	mvn versions:display-plugin-updates
+
+display-dependency-updates:
+	mvn versions:display-dependency-updates
+
 clean:
 	mvn clean
 
