@@ -81,7 +81,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(78, softwareList.length);
+        Assert.assertEquals(79, softwareList.length);
     }
 
     @Test

@@ -176,6 +176,7 @@ shellcheck=https://github.com/koalaman/shellcheck/releases/download/v0.7.1/shell
 spring=https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.3.3.RELEASE/spring-boot-cli-2.3.3.RELEASE-bin.zip
 sublimemerge=https://download.sublimetext.com/sublime_merge_build_2025_x64.tar.xz
 sublimetext=https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
+sublimetext4=https://download.sublimetext.com/sublime_text_build_4107_x64.tar.xz
 torbrowser=https://www.torproject.org/dist/torbrowser/10.0.2/tor-browser-linux64-10.0.2_fr.tar.xz
 visualvm=https://github.com/oracle/visualvm/releases/download/2.0.2/visualvm_202.zip
 vscode=https://update.code.visualstudio.com/1.49.1/linux-x64/stable
