@@ -11,15 +11,8 @@ import java.util.stream.Collectors;
 
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
-    public static final String LIAR_SOFTWARE = ".config/liar/liar-software";
-
     private final String softwareResource;
     private SoftwareUpdateOptions updateOptions = SoftwareUpdateOptions.withDefault();
-
-    public SoftwareUpdateServiceImpl()
-    {
-        this(System.getProperty("user.home") + "/" + LIAR_SOFTWARE);
-    }
 
     public SoftwareUpdateServiceImpl(final String softwareResource)
     {

@@ -7,11 +7,6 @@ import java.util.Properties;
 
 public interface SoftwareUpdateService
 {
-    static SoftwareUpdateService getInstance()
-    {
-        return new SoftwareUpdateServiceImpl();
-    }
-
     String getSoftwareResource();
 
     boolean updateSoftwareResource(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException;

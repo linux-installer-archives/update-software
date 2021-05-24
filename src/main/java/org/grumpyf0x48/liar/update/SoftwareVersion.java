@@ -122,7 +122,7 @@ public class SoftwareVersion implements SoftwareIncrementable<SoftwareVersion>
             versionField = null;
         }
 
-        throw new SoftwareVersionNotIncrementableException("Version: " + toString() + " cannot be incremented");
+        throw new SoftwareVersionNotIncrementableException("Version: " + this + " cannot be incremented");
     }
 
     @Override
