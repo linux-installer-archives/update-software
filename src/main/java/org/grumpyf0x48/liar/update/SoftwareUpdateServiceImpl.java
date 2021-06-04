@@ -55,6 +55,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         final EnumMap<SoftwareDefinition, SoftwareUrl> urlMap = new EnumMap<>(SoftwareDefinition.class);
         for (final SoftwareDefinition softwareDefinition : getSoftwareToUpdate(softwareUpdatePeriodicity))
         {
+            System.out.println("Searching updates for: " + softwareDefinition);
             try
             {
                 final SoftwareUrl url = getUrl(softwareDefinition);
@@ -73,7 +74,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
             }
             catch (final SoftwareVersionNotIncrementableException e)
             {
-                System.err.println("Gave up while searching next URL for: " + softwareDefinition);
+                System.err.println("Gave up while searching next URL for: " + softwareDefinition + " after: " + e.getMaxTries() + " tries");
             }
             catch (final SoftwareUrlNotParsableException e)
             {
