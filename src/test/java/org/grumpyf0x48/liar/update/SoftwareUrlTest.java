@@ -10,19 +10,31 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.net.ConnectException;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class SoftwareUrlTest
 {
-    private static final String URL = "https://download.jetbrains.com/idea/ideaIU-2018.3.3.tar.gz";
-    private static final String NEXT_URL = "https://download.jetbrains.com/idea/ideaIU-2018.3.4.tar.gz";
-
+    private static SoftwareVersionIncrementPolicy versionIncrementPolicy;
     private static SoftwareUpdateOptions updateOptions;
+    private static NetworkService networkService;
+    private static Function<Integer, String> ideaUrlFunction;
+    private static String URL, NEXT_URL;
 
     @BeforeClass
     public static void initialize()
     {
-        final SoftwareVersionIncrementPolicy versionIncrementPolicy = new SoftwareVersionIncrementPolicy(
+        versionIncrementPolicy = new SoftwareVersionIncrementPolicy(
                         SoftwareVersionFieldIncrementPolicy.withMaxIncrement(2));
         updateOptions = new SoftwareUpdateOptions(SoftwareUrlIncrementPolicy.NEXT, versionIncrementPolicy);
+        networkService = mock(NetworkService.class);
+        ideaUrlFunction = (patch) -> String.format("https://download.jetbrains.com/idea/ideaIU-2018.3.%d.tar.gz", patch);
+        URL = ideaUrlFunction.apply(3);
+        NEXT_URL = ideaUrlFunction.apply(4);
     }
 
     @Test
@@ -80,39 +92,42 @@ public class SoftwareUrlTest
                         SoftwareUrlIncrementPolicy.NEXT, //
                         SoftwareVersionIncrementPolicy.withDefault());
 
-        final String url = "https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_0.52_Linux-64bit.tar.gz";
+        final BiFunction<Integer, Integer, String> urlFunction = (major, minor) -> String.format("https://github.com/gohugoio/hugo/releases/download/v%d.%d/hugo_%d.%d_Linux-64bit.tar.gz", major, minor, major, minor);
+        final String url = urlFunction.apply(0, 52);
         SoftwareUrl softwareUrl = new SoftwareUrl(url, softwareUpdateOptions);
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_0.53_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(0, 53), softwareUrl.getUrl());
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v0.54/hugo_0.54_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(0, 54), softwareUrl.getUrl());
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v0.55/hugo_0.55_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(0, 55), softwareUrl.getUrl());
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v1.0/hugo_1.0_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(1, 0), softwareUrl.getUrl());
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v1.1/hugo_1.1_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(1, 1), softwareUrl.getUrl());
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v1.2/hugo_1.2_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(1, 2), softwareUrl.getUrl());
 
         softwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/gohugoio/hugo/releases/download/v1.3/hugo_1.3_Linux-64bit.tar.gz", softwareUrl.getUrl());
+        Assert.assertEquals(urlFunction.apply(1, 3), softwareUrl.getUrl());
     }
 
     @Test
-    public void lastExistingUrlTest() throws SoftwareException
-    {
-        final SoftwareVersionIncrementPolicy versionIncrementPolicy = SoftwareVersionIncrementPolicy.withDefault();
-        final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions(SoftwareUrlIncrementPolicy.LAST_EXISTING, versionIncrementPolicy);
-        final SoftwareUrl softwareUrl = new SoftwareUrl("https://github.com/jbangdev/jbang/releases/download/v0.28.0/jbang-0.28.0.zip", updateOptions);
-        final SoftwareUrl lastSoftwareUrl = softwareUrl.getNext();
-        Assert.assertEquals("https://github.com/jbangdev/jbang/releases/download/v0.31.0/jbang-0.31.0.zip", lastSoftwareUrl.getUrl());
+    public void lastExistingUrlTest() throws SoftwareException, ConnectException {
+        final SoftwareUpdateOptions nextExistingUpdateOptions = new SoftwareUpdateOptions(SoftwareUrlIncrementPolicy.LAST_EXISTING, versionIncrementPolicy);
+        final String initialUrl = ideaUrlFunction.apply(3);
+        final SoftwareUrl softwareUrl = new SoftwareUrl(null, initialUrl, nextExistingUpdateOptions, networkService);
+        when(networkService.urlExists(initialUrl)).thenReturn(true);
+        when(networkService.urlExists(ideaUrlFunction.apply(4))).thenReturn(true);
+        when(networkService.urlExists(ideaUrlFunction.apply(5))).thenReturn(true);
+        final SoftwareUrl nextSoftwareUrl = softwareUrl.getNext();
+        Assert.assertEquals(ideaUrlFunction.apply(5), nextSoftwareUrl.getUrl());
     }
 
     @Test

@@ -31,10 +31,15 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
 
     public SoftwareUrl(final SoftwareDefinition software, final String url, final SoftwareUpdateOptions updateOptions) throws SoftwareException
     {
+        this(software, url, updateOptions, new NetworkServiceImpl());
+    }
+
+    public SoftwareUrl(final SoftwareDefinition software, final String url, final SoftwareUpdateOptions updateOptions, final NetworkService networkService) throws SoftwareException
+    {
         this.software = software;
         this.version = parse(software != null ? software.getSanitizedUrl(url) : url, updateOptions);
         this.updateOptions = updateOptions;
-        this.networkService = new NetworkServiceImpl();
+        this.networkService = networkService;
         this.url = url;
     }
 
@@ -46,11 +51,6 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     public SoftwareVersion getVersion()
     {
         return version;
-    }
-
-    public void setNetworkService(final NetworkService networkService)
-    {
-        this.networkService = networkService;
     }
 
     public String getUrl()
