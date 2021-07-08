@@ -26,7 +26,7 @@ public class SoftwareExceptionFactory
         }
         else
         {
-            return new SoftwareException(softwareException.getMessage(), softwareException.getCause(), maxTries);
+            return new SoftwareException(softwareException, maxTries);
         }
     }
 }

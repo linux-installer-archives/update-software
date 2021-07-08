@@ -16,7 +16,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
     private final SoftwareDefinition software;
     private final SoftwareVersion version;
     private final SoftwareUpdateOptions updateOptions;
-    private NetworkService networkService;
+    private final NetworkService networkService;
     private String url;
 
     public SoftwareUrl(final SoftwareDefinition software, final String url) throws SoftwareException
