@@ -18,8 +18,8 @@
 
         <!-- test dependencies -->
         <junit.version>4.13.2</junit.version>
-        <assertj-core.version>3.19.0</assertj-core.version>
-        <mockito-core.version>3.11.0</mockito-core.version>
+        <assertj-core.version>3.20.2</assertj-core.version>
+        <mockito-core.version>3.11.1</mockito-core.version>
 
         <!-- java -->
         <java.version>11</java.version>
