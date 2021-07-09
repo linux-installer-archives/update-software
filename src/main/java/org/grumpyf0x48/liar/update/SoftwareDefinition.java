@@ -39,6 +39,7 @@ public enum SoftwareDefinition
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
     JD_CMD(MONTHLY),
     JGO(MONTHLY),
+    JMETER(MONTHLY),
     JQ(MONTHLY),
     JRELEASER(WEEKLY),
     MARP_CLI(WEEKLY),
