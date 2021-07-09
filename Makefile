@@ -2,9 +2,10 @@ GRAALVM_HOME=$(shell find /usr/lib/jvm -name native-image | grep -v lib/svm | xa
 USERID=$(shell id -u)
 
 LIAR_UPDATE_SOFTWARE=liar-update-software
-MVN_NO_TESTS=-v -DskipTests -Dmaven.test.skip=true
+MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 
 build:
+	mvn -v
 	mvn ${MVN_NO_TESTS} install
 
 build_native:
