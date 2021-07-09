@@ -5,8 +5,7 @@ LIAR_UPDATE_SOFTWARE=liar-update-software
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 
 build:
-	mvn -v
-	mvn ${MVN_NO_TESTS} install
+	mvn -X ${MVN_NO_TESTS} install
 
 build_native:
 	JAVA_HOME=${GRAALVM_HOME} mvn ${MVN_NO_TESTS} -Pnative install
