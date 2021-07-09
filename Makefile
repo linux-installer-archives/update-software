@@ -1,20 +1,21 @@
+#JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+#MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${PATH} mvn -X
 GRAALVM_HOME=$(shell find /usr/lib/jvm -name native-image | grep -v lib/svm | xargs dirname | xargs dirname)
-USERID=$(shell id -u)
 
-LIAR_UPDATE_SOFTWARE=liar-update-software
+MVN=mvn -X
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 
 build:
-	mvn -X ${MVN_NO_TESTS} install
+	${MVN} ${MVN_NO_TESTS} install
 
 build_native:
-	JAVA_HOME=${GRAALVM_HOME} mvn ${MVN_NO_TESTS} -Pnative install
+	JAVA_HOME=${GRAALVM_HOME} ${MVN} ${MVN_NO_TESTS} -Pnative install
 
 test:
-	mvn install
+	${MVN} install
 
 update_software: build
-	mvn exec:java \
+	${MVN} exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
 		-Dexec.args="${LIAR_REPOSITORY}/config/liar-software ${LIAR_PERIODICITY}"
 
@@ -34,7 +35,7 @@ display-dependency-updates:
 	mvn versions:display-dependency-updates
 
 clean:
-	mvn clean
+	${MVN} clean
 
 install: install_liar_update_software install_all_crons
 
@@ -54,3 +55,6 @@ install_cron:
 ifndef LIAR_PERIODICITY
 LIAR_PERIODICITY=monthly
 endif
+
+LIAR_UPDATE_SOFTWARE=liar-update-software
+USERID=$(shell id -u)
