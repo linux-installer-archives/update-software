@@ -1,5 +1,3 @@
-#JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-#MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${PATH} mvn -X
 GRAALVM_HOME=$(shell find /usr/lib/jvm -name native-image | grep -v lib/svm | xargs dirname | xargs dirname)
 
 MVN=mvn -X
