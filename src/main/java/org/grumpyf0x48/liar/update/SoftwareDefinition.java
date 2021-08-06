@@ -13,6 +13,7 @@ public enum SoftwareDefinition
     CLION(MONTHLY),
     CLOC(MONTHLY),
     DATAGRIP(MONTHLY),
+    DBEAVER(WEEKLY),
     EASY_RSA(MONTHLY),
     EXA(MONTHLY),
     EVANS(MONTHLY,new String[]{ "ktr0731" }),
