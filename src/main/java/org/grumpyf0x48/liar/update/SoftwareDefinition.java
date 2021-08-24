@@ -6,6 +6,7 @@ import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.WEEKLY;
 
 public enum SoftwareDefinition
 {
+    ACT(WEEKLY),
     // ANT, Frequent connection problems
     ATOM(DAILY),
     BAT(MONTHLY),

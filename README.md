@@ -18,9 +18,9 @@ Add the new software in `liar-software` and `liar-software.expected`.
 
 This project uses Java 11.
 
-If the 'ci' machine uses Java 13, we may not want to use Java 13 to build the project.
+If the 'ci' machine uses another Java version, for example Java 13, we may not want to use this version to build the project.
 
-To do this, we can either:
+So, in order to keep building this project with Java 11:
 
 add to `Makefile`
 

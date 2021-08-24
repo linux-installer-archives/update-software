@@ -26,6 +26,7 @@
 declare -a software_list
 
 software_list=(
+act
 ant
 atom
 bat
@@ -107,6 +108,7 @@ youtube_dl
 yq
 )
 
+act=https://github.com/nektos/act/releases/download/v0.2.24/act_Linux_x86_64.tar.gz
 ant=https://downloads.apache.org/ant/binaries/apache-ant-1.10.8-bin.zip
 atom=https://github.com/atom/atom/releases/download/v1.52.1/atom-amd64.tar.gz
 bat=https://github.com/sharkdp/bat/releases/download/v0.15.5/bat-v0.15.5-x86_64-unknown-linux-gnu.tar.gz
