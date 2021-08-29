@@ -1,4 +1,4 @@
-GRAALVM_HOME=$(shell find /usr/lib/jvm -name native-image | grep -v lib/svm | xargs dirname | xargs dirname)
+GRAALVM_HOME=$(shell find /usr/lib/jvm -name native-image | grep -v lib/svm | head -n 1 | xargs dirname | xargs dirname)
 
 MVN=mvn -X
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
