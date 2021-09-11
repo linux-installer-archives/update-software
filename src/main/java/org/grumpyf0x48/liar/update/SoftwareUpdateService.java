@@ -11,6 +11,8 @@ public interface SoftwareUpdateService
 
     boolean updateSoftwareResource(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException;
 
+    boolean checkSoftwareResource() throws IOException, SoftwareException;
+
     SoftwareUpdateOptions getUpdateOptions();
 
     void setUpdateOptions(final SoftwareUpdateOptions updateOptions);

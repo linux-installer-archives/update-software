@@ -50,6 +50,25 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         return !urlMap.isEmpty();
     }
 
+    @Override
+    public boolean checkSoftwareResource() throws IOException, SoftwareException
+    {
+        boolean check = false;
+        final NetworkService networkService = new NetworkServiceImpl();
+        for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
+        {
+            final SoftwareUrl softwareUrl = getUrl(softwareDefinition);
+            final String url = softwareUrl.getUrl();
+            System.out.println("Checking: " + url);
+            if (!networkService.urlExists(url))
+            {
+                check = true;
+                System.err.println(url);
+            }
+        }
+        return check;
+    }
+
     private Map<SoftwareDefinition, SoftwareUrl> updateSoftwareDefinitions(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity) throws IOException, SoftwareException
     {
         final EnumMap<SoftwareDefinition, SoftwareUrl> urlMap = new EnumMap<>(SoftwareDefinition.class);
