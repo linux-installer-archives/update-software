@@ -31,7 +31,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
 
     public SoftwareUrl(final SoftwareDefinition software, final String url, final SoftwareUpdateOptions updateOptions) throws SoftwareException
     {
-        this(software, url, updateOptions, new NetworkServiceImpl());
+        this(software, url, updateOptions, NetworkService.getInstance());
     }
 
     public SoftwareUrl(final SoftwareDefinition software, final String url, final SoftwareUpdateOptions updateOptions, final NetworkService networkService) throws SoftwareException

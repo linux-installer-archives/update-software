@@ -4,5 +4,10 @@ import java.net.ConnectException;
 
 public interface NetworkService
 {
+    static NetworkService getInstance()
+    {
+        return new LegacyNetworkServiceImpl();
+    }
+
     boolean urlExists(final String url) throws ConnectException;
 }

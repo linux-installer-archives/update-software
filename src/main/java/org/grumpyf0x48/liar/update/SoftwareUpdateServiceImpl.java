@@ -54,7 +54,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public boolean checkSoftwareResource() throws IOException, SoftwareException
     {
         boolean check = false;
-        final NetworkService networkService = new NetworkServiceImpl();
+        final NetworkService networkService = NetworkService.getInstance();
         for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
         {
             final SoftwareUrl softwareUrl = getUrl(softwareDefinition);

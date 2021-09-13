@@ -5,7 +5,7 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class NetworkServiceImpl implements NetworkService
+public class LegacyNetworkServiceImpl implements NetworkService
 {
     @Override
     public boolean urlExists(final String url) throws ConnectException

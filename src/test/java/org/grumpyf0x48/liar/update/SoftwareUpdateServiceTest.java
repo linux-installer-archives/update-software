@@ -113,7 +113,7 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getUrlTest() throws IOException, SoftwareException
     {
-        final NetworkServiceImpl networkService = new NetworkServiceImpl();
+        final LegacyNetworkServiceImpl networkService = new LegacyNetworkServiceImpl();
         for (final SoftwareDefinition software : SoftwareDefinition.values())
         {
             if (software == SoftwareDefinition.TORBROWSER)

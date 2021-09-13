@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import java.net.ConnectException;
 
-public class NetworkServiceImplTest
+public class LegacyNetworkServiceImplTest
 {
     static NetworkService networkService;
 
     @BeforeClass
     public static void initService()
     {
-        networkService = new NetworkServiceImpl();
+        networkService = new LegacyNetworkServiceImpl();
     }
 
     @Test
