@@ -1,5 +1,10 @@
 GRAALVM_HOME=$(shell find /usr/lib/jvm/graalvm-ce-java11 -name native-image | grep -v lib/svm | head -n 1 | xargs dirname | xargs dirname)
+
+ifeq (${GRAALVM_HOME},)
+JAVA_HOME=$(shell find /usr/lib/jvm/java-11* -name java | head -n 1 | xargs dirname | xargs dirname)
+else
 JAVA_HOME=${GRAALVM_HOME}
+endif
 
 MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${PATH} mvn -X
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
