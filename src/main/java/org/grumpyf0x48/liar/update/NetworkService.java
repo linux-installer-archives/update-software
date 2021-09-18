@@ -6,7 +6,7 @@ public interface NetworkService
 {
     static NetworkService getInstance()
     {
-        return new LegacyNetworkServiceImpl();
+        return new NetworkServiceImpl();
     }
 
     boolean urlExists(final String url) throws ConnectException;
