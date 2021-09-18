@@ -1,13 +1,14 @@
-GRAALVM_HOME=$(shell find /usr/lib/jvm -name native-image | grep -v lib/svm | head -n 1 | xargs dirname | xargs dirname)
+GRAALVM_HOME=$(shell find /usr/lib/jvm/graalvm-ce-java11 -name native-image | grep -v lib/svm | head -n 1 | xargs dirname | xargs dirname)
+JAVA_HOME=${GRAALVM_HOME}
 
-MVN=mvn -X
+MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${PATH} mvn -X
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 
 build:
 	${MVN} ${MVN_NO_TESTS} install
 
 build_native:
-	JAVA_HOME=${GRAALVM_HOME} ${MVN} ${MVN_NO_TESTS} -Pnative install
+	${MVN} ${MVN_NO_TESTS} -Pnative install
 
 test:
 	${MVN} install
@@ -25,10 +26,10 @@ update_software_native:
 		${LIAR_PERIODICITY}
 
 display-plugin-updates:
-	mvn versions:display-plugin-updates
+	${MVN} versions:display-plugin-updates
 
 display-dependency-updates:
-	mvn versions:display-dependency-updates
+	${MVN} versions:display-dependency-updates
 
 clean:
 	${MVN} clean
