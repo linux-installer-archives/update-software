@@ -18,6 +18,11 @@ build_native:
 test:
 	${MVN} install
 
+check_software: build
+	${MVN} exec:java \
+		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareCheckRepository \
+		-Dexec.args="${LIAR_REPOSITORY}/config/liar-software"
+
 update_software: build
 	${MVN} exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
