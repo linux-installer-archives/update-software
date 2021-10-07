@@ -25,6 +25,7 @@ public enum SoftwareDefinition
     GOLAND(DAILY),
     GRAALVM8(WEEKLY),
     GRAALVM11(WEEKLY),
+    GRAALVM16(WEEKLY),
     GRADLE(DAILY),
     GRAILS(MONTHLY),
     GROOVY(WEEKLY),

@@ -45,6 +45,7 @@ go
 goland
 graalvm8
 graalvm11
+graalvm16
 gradle
 grails
 groovy
@@ -127,6 +128,7 @@ go=https://dl.google.com/go/go1.15.4.linux-amd64.tar.gz
 goland=https://download.jetbrains.com/go/goland-2020.2.4.tar.gz
 graalvm8=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java8-linux-amd64-20.2.1.tar.gz
 graalvm11=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java11-linux-amd64-20.2.1.tar.gz
+graalvm16=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.1.1/graalvm-ce-java16-linux-amd64-21.1.1.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-6.8-bin.zip
 grails=https://github.com/grails/grails-core/releases/download/v4.0.6/grails-4.0.6.zip
 groovy=https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-3.0.8.zip
