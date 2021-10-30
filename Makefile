@@ -20,12 +20,12 @@ test:
 
 check_software: build
 	${MVN} exec:java \
-		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareCheckRepository \
+		-Dexec.mainClass=org.grumpyf0x48.liar.update.cli.SoftwareCheckRepository \
 		-Dexec.args="${LIAR_SOFTWARE}"
 
 update_software: build
 	${MVN} exec:java \
-		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
+		-Dexec.mainClass=org.grumpyf0x48.liar.update.cli.SoftwareUpdateRepository \
 		-Dexec.args="${LIAR_SOFTWARE} ${LIAR_PERIODICITY}"
 
 update_software_native:

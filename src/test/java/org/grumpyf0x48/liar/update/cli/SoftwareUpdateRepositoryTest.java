@@ -1,4 +1,4 @@
-package org.grumpyf0x48.liar.update;
+package org.grumpyf0x48.liar.update.cli;
 
 import org.apache.commons.io.FileUtils;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;

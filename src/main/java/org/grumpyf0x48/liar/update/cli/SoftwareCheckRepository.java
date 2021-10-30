@@ -1,5 +1,7 @@
-package org.grumpyf0x48.liar.update;
+package org.grumpyf0x48.liar.update.cli;
 
+import org.grumpyf0x48.liar.update.SoftwareUpdateService;
+import org.grumpyf0x48.liar.update.SoftwareUpdateServiceImpl;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 
 import java.io.IOException;
