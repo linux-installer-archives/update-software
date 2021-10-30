@@ -6,7 +6,7 @@ else
 JAVA_HOME=${GRAALVM_HOME}
 endif
 
-MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} mvn -X
+MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} mvn
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 
 build:
@@ -32,7 +32,7 @@ update_software_native:
 	./target/SoftwareUpdateRepository.native \
 		-Djava.library.path=${GRAALVM_HOME}/jre/lib/amd64 \
 		-Djavax.net.ssl.trustStore=${GRAALVM_HOME}/jre/lib/security/cacerts \
-		${LIAR_REPOSITORY}/config/liar-software \
+		"${LIAR_REPOSITORY}/config/liar-software" \
 		${LIAR_PERIODICITY}
 
 display-plugin-updates:
