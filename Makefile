@@ -21,19 +21,18 @@ test:
 check_software: build
 	${MVN} exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareCheckRepository \
-		-Dexec.args="${LIAR_REPOSITORY}/config/liar-software"
+		-Dexec.args="${LIAR_SOFTWARE}"
 
 update_software: build
 	${MVN} exec:java \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.SoftwareUpdateRepository \
-		-Dexec.args="${LIAR_REPOSITORY}/config/liar-software ${LIAR_PERIODICITY}"
+		-Dexec.args="${LIAR_SOFTWARE} ${LIAR_PERIODICITY}"
 
 update_software_native:
 	./target/SoftwareUpdateRepository.native \
 		-Djava.library.path=${GRAALVM_HOME}/jre/lib/amd64 \
 		-Djavax.net.ssl.trustStore=${GRAALVM_HOME}/jre/lib/security/cacerts \
-		"${LIAR_REPOSITORY}/config/liar-software" \
-		${LIAR_PERIODICITY}
+		${LIAR_SOFTWARE} ${LIAR_PERIODICITY}
 
 display-plugin-updates:
 	${MVN} versions:display-plugin-updates
@@ -59,6 +58,9 @@ install_cron:
 		| sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 	sudo chmod +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
+ifdef LIAR_REPOSITORY
+LIAR_SOFTWARE=${LIAR_REPOSITORY}/config/liar-software
+endif
 ifndef LIAR_PERIODICITY
 LIAR_PERIODICITY=monthly
 endif
