@@ -61,6 +61,7 @@ install_cron:
 ifdef LIAR_REPOSITORY
 LIAR_SOFTWARE=${LIAR_REPOSITORY}/config/liar-software
 endif
+
 ifndef LIAR_PERIODICITY
 LIAR_PERIODICITY=monthly
 endif
