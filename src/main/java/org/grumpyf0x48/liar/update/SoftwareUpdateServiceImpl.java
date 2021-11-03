@@ -99,6 +99,11 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
             {
                 System.err.println("Don't know how to parse URL for: " + softwareDefinition);
             }
+            catch (final SoftwareException e)
+            {
+                System.err.println("An error occurred when searching updates for: " + softwareDefinition);
+                e.printStackTrace(System.err);
+            }
         }
         return urlMap;
     }
