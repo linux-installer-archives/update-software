@@ -25,6 +25,7 @@ check_software: build
 
 update_software: build
 	${MVN} exec:java \
+		-Dexec.cleanupDaemonThreads=false \
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.cli.SoftwareUpdateRepository \
 		-Dexec.args="${LIAR_SOFTWARE} ${LIAR_PERIODICITY}"
 
