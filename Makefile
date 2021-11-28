@@ -55,7 +55,7 @@ install_all_crons:
 	make LIAR_PERIODICITY=monthly install_cron
 
 install_cron:
-	echo "#!/usr/bin/env bash\nsudo -u \#${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}-$(date +%U).log 2>&1" \
+	echo "#!/usr/bin/env bash\nsudo -u \#${USERID} ${LIAR_UPDATE_SOFTWARE} ${LIAR_PERIODICITY} >/var/log/${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY}.log 2>&1" \
 		| sudo tee /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 	sudo chmod +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
