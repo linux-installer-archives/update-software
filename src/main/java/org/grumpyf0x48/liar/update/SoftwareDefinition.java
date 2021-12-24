@@ -47,6 +47,7 @@ public enum SoftwareDefinition
     JRELEASER(WEEKLY),
     MARP_CLI(WEEKLY),
     MAVEN(WEEKLY,new String[]{ "maven/maven-3" }),
+    MCS(WEEKLY),
     MICRONAUT(MONTHLY),
     MONGODB(MONTHLY,new String[] { "x86_64", "debian10" }),
     // NODE,
