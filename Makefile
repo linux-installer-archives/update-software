@@ -54,9 +54,17 @@ install_all_crons:
 	make LIAR_PERIODICITY=weekly install_cron
 	make LIAR_PERIODICITY=monthly install_cron
 
+uninstall_all_crons:
+	make LIAR_PERIODICITY=daily uninstall_cron
+	make LIAR_PERIODICITY=weekly uninstall_cron
+	make LIAR_PERIODICITY=monthly uninstall_cron
+
 install_cron:
 	sudo cp --verbose ${LIAR_UPDATE_SOFTWARE}-${LIAR_PERIODICITY} /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 	sudo chmod -v +x /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
+
+uninstall_cron:
+	sudo rm --verbose --force /etc/cron.${LIAR_PERIODICITY}/${LIAR_UPDATE_SOFTWARE}
 
 ifdef LIAR_REPOSITORY
 LIAR_SOFTWARE=${LIAR_REPOSITORY}/config/liar-software
