@@ -6,7 +6,7 @@
 
     <groupId>org.grumpyf0x48.liar</groupId>
     <artifactId>liar-update-software</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <description>Project to update liar-software file of liar project</description>
     <name>liar-update-software</name>
