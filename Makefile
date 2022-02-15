@@ -6,7 +6,7 @@ else
 JAVA_HOME=${GRAALVM_HOME}
 endif
 
-MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} mvn
+MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} MAVEN_OPTS="-Xms512m -Xmx768m" mvn
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 
 build:
