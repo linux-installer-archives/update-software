@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+
 sudo -u \#1000 liar-update-software daily >/var/log/liar-update-software-daily-$(date +%Y)-$(date +%j).log 2>&1
