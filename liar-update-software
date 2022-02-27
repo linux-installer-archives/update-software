@@ -44,6 +44,6 @@ if git status --porcelain ${LIAR_SOFTWARE_FILE} | grep ${LIAR_SOFTWARE_FILE}; th
     git config user.name "${LIAR_USER}[bot]"
     git config user.email "${LIAR_USER}@$(hostname)"
     git pull
-    git commit -a -m "${LIAR_PERIODICITY^} automatic URL update"
+    git commit -a -m "chore(software): ${LIAR_PERIODICITY^} URL update"
     git push
 fi
