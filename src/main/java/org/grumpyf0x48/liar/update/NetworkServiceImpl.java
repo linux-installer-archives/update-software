@@ -21,7 +21,7 @@ public class NetworkServiceImpl implements NetworkService
                     .build();
     }
 
-    public int statusCode(final String url) throws IOException, URISyntaxException, InterruptedException
+    public int statusCode(final String url) throws IOException, InterruptedException
     {
         final HttpRequest request = HttpRequest.newBuilder(URI.create(url))
                 .GET()
@@ -41,12 +41,9 @@ public class NetworkServiceImpl implements NetworkService
         {
             throw new ConnectException(e.getMessage());
         }
-        catch (final URISyntaxException e)
-        {
-            throw new ConnectException(e.getMessage());
-        }
         catch (final InterruptedException e)
         {
+            Thread.currentThread().interrupt();
             throw new ConnectException(e.getMessage());
         }
     }
