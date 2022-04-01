@@ -29,7 +29,7 @@ update_software: build
 		-Dexec.mainClass=org.grumpyf0x48.liar.update.cli.SoftwareUpdateRepository \
 		-Dexec.args="${LIAR_SOFTWARE} ${LIAR_PERIODICITY}"
 
-update_software_native:
+update_software_native: build
 	./target/SoftwareUpdateRepository.native \
 		-Djava.library.path=${GRAALVM_HOME}/jre/lib/amd64 \
 		-Djavax.net.ssl.trustStore=${GRAALVM_HOME}/jre/lib/security/cacerts \
