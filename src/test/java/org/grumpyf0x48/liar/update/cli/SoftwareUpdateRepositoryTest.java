@@ -45,12 +45,12 @@ public class SoftwareUpdateRepositoryTest
     {
         try
         {
-            SoftwareUpdateRepository.main(new String[]{ "file", "invalidPerodicity" });
+            SoftwareUpdateRepository.main(new String[]{ "file", "invalid_Periodicity" });
             Assert.fail();
         }
         catch (final IllegalArgumentException exception)
         {
-            Assert.assertEquals("No enum constant org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.INVALIDPERODICITY", exception.getMessage());
+            Assert.assertEquals("No enum constant org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.INVALID_PERIODICITY", exception.getMessage());
         }
     }
 
