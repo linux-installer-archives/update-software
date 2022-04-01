@@ -8,11 +8,14 @@ endif
 
 MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} MAVEN_OPTS="-Xms512m -Xmx768m" mvn
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
+NATIVE_TARGET=./target/SoftwareUpdateRepository.native
 
 build:
 	${MVN} ${MVN_NO_TESTS} install
 
-build_native:
+build_native: ${NATIVE_TARGET}
+
+${NATIVE_TARGET}:
 	${MVN} ${MVN_NO_TESTS} -Pnative install
 
 test:
@@ -30,7 +33,7 @@ update_software: build
 		-Dexec.args="${LIAR_SOFTWARE} ${LIAR_PERIODICITY}"
 
 update_software_native: build_native
-	./target/SoftwareUpdateRepository.native \
+	${NATIVE_TARGET} \
 		-Djava.library.path=${GRAALVM_HOME}/jre/lib/amd64 \
 		-Djavax.net.ssl.trustStore=${GRAALVM_HOME}/jre/lib/security/cacerts \
 		${LIAR_SOFTWARE} ${LIAR_PERIODICITY}
