@@ -114,11 +114,13 @@ public class SoftwareUpdateServiceTest
     public void getUrlTest() throws IOException, SoftwareException
     {
         final LegacyNetworkServiceImpl networkService = new LegacyNetworkServiceImpl();
-        for (final SoftwareDefinition software : SoftwareDefinition.values())
+        for (final SoftwareDefinition software : SoftwareDefinition.getValues())
         {
-            if (software == SoftwareDefinition.TORBROWSER)
-            {
+            if (software == SoftwareDefinition.LAST_UPDATES
                 // Old TORBROWSER URL are removed :-(
+                || software == SoftwareDefinition.TORBROWSER)
+            {
+                // Special value
                 continue;
             }
             final SoftwareUrl url = nextUpdateService.getUrl(software);
@@ -224,7 +226,7 @@ public class SoftwareUpdateServiceTest
     public void checkUpdatableSoftwareTest()
     {
         int count = 0;
-        for (final SoftwareDefinition software : SoftwareDefinition.values())
+        for (final SoftwareDefinition software : SoftwareDefinition.getValues())
         {
             try
             {

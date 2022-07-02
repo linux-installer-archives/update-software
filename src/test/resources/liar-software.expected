@@ -23,7 +23,10 @@
 # This file is used by liar-completion, which defines Bash tab auto-completion rules for the liar command.
 #
 
+declare -a last_updates
 declare -a software_list
+
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver easy_rsa exa evans firefox gh glab go goland graalvm8 graalvm11 graalvm16 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act

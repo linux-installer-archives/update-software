@@ -45,6 +45,13 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
                     System.err.println(e.getMessage());
                 }
             });
+            final String lastUpdates = urlMap.keySet()
+                    .toString()
+                    .toLowerCase()
+                    .replaceAll(",", "")
+                    .replace("[", "(")
+                    .replace("]", ")");
+            updateSoftwareDefinition(SoftwareDefinition.LAST_UPDATES, lastUpdates, lines);
             FileUtils.writeLines(softwareFile, lines);
         }
         return !urlMap.isEmpty();
@@ -55,7 +62,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     {
         boolean check = false;
         final NetworkService networkService = NetworkService.getInstance();
-        for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.values())
+        for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.getValues())
         {
             final SoftwareUrl softwareUrl = getUrl(softwareDefinition);
             final String url = softwareUrl.getUrl();
@@ -170,7 +177,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     private static List<SoftwareDefinition> getSoftwareToUpdate(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity)
     {
         return Arrays
-            .stream(SoftwareDefinition.values())
+            .stream(SoftwareDefinition.getValues())
             .filter(softwareDefinition -> softwareUpdatePeriodicity == null || softwareDefinition
                 .getPeriodicity()
                 .equals(softwareUpdatePeriodicity))
@@ -194,12 +201,16 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 
     private void updateSoftwareDefinition(final SoftwareDefinition softwareDefinition, final SoftwareUrl url, final List<String> lines) throws SoftwareNotFoundException
     {
+        updateSoftwareDefinition(softwareDefinition, url.getUrl(), lines);
+    }
+
+    private void updateSoftwareDefinition(final SoftwareDefinition softwareDefinition, final String updatedValue, final List<String> lines) throws SoftwareNotFoundException {
         final int index = searchLine(softwareDefinition, lines);
         if (index == -1)
         {
             throw new SoftwareNotFoundException("Failed to find: " + softwareDefinition + " in software file");
         }
-        final String newline = softwareDefinition.name().toLowerCase() + "=" + url.getUrl();
+        final String newline = softwareDefinition.name().toLowerCase() + "=" + updatedValue;
         lines.set(index, newline);
     }
 

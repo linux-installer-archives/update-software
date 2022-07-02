@@ -23,7 +23,10 @@
 # This file is used by liar-completion, which defines Bash tab auto-completion rules for the liar command.
 #
 
+declare -a last_updates
 declare -a software_list
+
+last_updates=()
 
 software_list=(
 act

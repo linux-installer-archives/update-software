@@ -6,9 +6,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 public class SoftwareUpdateRepositoryTest
 {
@@ -58,11 +60,15 @@ public class SoftwareUpdateRepositoryTest
     public void matchingPeriodicityTest() throws IOException, SoftwareException
     {
         final File tempFile = File.createTempFile("matchingPeriodicityTest", ".properties");
-        final String content = "atom=https://github.com/atom/atom/releases/download/v1.51.0/atom-amd64.tar.gz";
+        final String content =
+                "atom=https://github.com/atom/atom/releases/download/v1.53.0/atom-amd64.tar.gz\n" +
+                        "last_updates=";
         FileUtils.writeStringToFile(tempFile, content, StandardCharsets.UTF_8);
-        SoftwareUpdateRepository.main(new String[] { tempFile.getAbsolutePath() , "DAILY", "true" });
-        final String updatedContent = FileUtils.readFileToString(tempFile, StandardCharsets.UTF_8);
-        Assert.assertNotEquals("URL should have been updated", content,updatedContent);
+        SoftwareUpdateRepository.main(new String[] { tempFile.getAbsolutePath(), "DAILY", "true" });
+        final Properties properties = new Properties();
+        properties.load(new FileInputStream(tempFile));
+        Assert.assertNotEquals("https://github.com/atom/atom/releases/download/v1.53.0/atom-amd64.tar.gz", properties.getProperty("atom"));
+        Assert.assertEquals("(atom)", properties.getProperty("last_updates"));
     }
 
     @Test

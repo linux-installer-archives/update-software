@@ -1,11 +1,14 @@
 package org.grumpyf0x48.liar.update;
 
+import static java.util.Arrays.*;
 import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.DAILY;
 import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.MONTHLY;
 import static org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity.WEEKLY;
 
 public enum SoftwareDefinition
 {
+    LAST_UPDATES(DAILY),
+
     ACT(WEEKLY),
     // ANT, Frequent connection problems
     ATOM(DAILY),
@@ -97,5 +100,12 @@ public enum SoftwareDefinition
             sanitizedUrl = sanitizedUrl.replaceAll(regexp, "");
         }
         return sanitizedUrl;
+    }
+
+    public static SoftwareDefinition[] getValues()
+    {
+        return stream(SoftwareDefinition.values())
+            .filter(softwareDefinition -> softwareDefinition != SoftwareDefinition.LAST_UPDATES)
+            .toArray(SoftwareDefinition[]::new);
     }
 }
