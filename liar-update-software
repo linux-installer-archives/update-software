@@ -6,6 +6,15 @@
 # Maven, Java and optionally GraalVM should be installed
 #
 
+function get_last_updates() {
+    . ${LIAR_SOFTWARE_FILE}
+    last_updates_str=""
+    for last_update in "${last_updates[@]}"; do
+        last_updates_str="${last_updates_str} ${last_update}"
+    done
+    echo "${last_updates_str}"
+}
+
 set -o errexit
 
 LIAR_REPOSITORY_URL=git@framagit.org:grumpyf0x48/liar.git
@@ -44,6 +53,6 @@ if git status --porcelain ${LIAR_SOFTWARE_FILE} | grep ${LIAR_SOFTWARE_FILE}; th
     git config user.name "${LIAR_USER}[bot]"
     git config user.email "${LIAR_USER}@$(hostname)"
     git pull
-    git commit -a -m "chore(software): ${LIAR_PERIODICITY^} URL update"
+    git commit -a -m "chore(software): ${LIAR_PERIODICITY^} URL update: $(get_last_updates)"
     git push
 fi
