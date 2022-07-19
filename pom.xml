@@ -25,7 +25,7 @@
         <!-- java -->
         <java.version>11</java.version>
         <graalvm.version>21.2.0</graalvm.version>
-        <graal-sdk.version>22.1.0.1</graal-sdk.version>
+        <graal-sdk.version>22.2.0</graal-sdk.version>
 
         <!-- plugins -->
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
