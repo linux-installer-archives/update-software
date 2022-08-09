@@ -19,6 +19,7 @@ public enum SoftwareDefinition
     DATAGRIP(MONTHLY),
     DBEAVER(WEEKLY),
     // DBVIS, Cannot parse because of version written with underscores: 13_0_3
+    DELTA(MONTHLY),
     EASY_RSA(MONTHLY),
     EXA(MONTHLY),
     EVANS(MONTHLY,new String[]{ "ktr0731" }),

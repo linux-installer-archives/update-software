@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act atom bat cheat clion cloc datagrip dbeaver easy_rsa exa evans firefox gh glab go goland graalvm8 graalvm11 graalvm16 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans firefox gh glab go goland graalvm8 graalvm11 graalvm16 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act
@@ -38,6 +38,7 @@ clion
 cloc
 datagrip
 dbeaver
+delta
 easy_rsa
 evans
 exa
@@ -122,6 +123,7 @@ clion=https://download.jetbrains.com/cpp/CLion-2020.2.4.tar.gz
 cloc=https://github.com/AlDanial/cloc/releases/download/1.87/cloc-1.87.pl
 datagrip=https://download-cf.jetbrains.com/datagrip/datagrip-2020.2.4.tar.gz
 dbeaver=https://github.com/dbeaver/dbeaver/releases/download/21.1.4/dbeaver-ce-21.1.4-linux.gtk.x86_64.tar.gz
+delta=https://github.com/dandavison/delta/releases/download/0.12.1/delta-0.12.1-x86_64-unknown-linux-gnu.tar.gz
 easy_rsa=https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.8/EasyRSA-3.0.8.tgz
 exa=https://github.com/ogham/exa/releases/download/v0.8.1/exa-linux-x86_64-0.8.1.zip
 evans=https://github.com/ktr0731/evans/releases/download/0.9.1/evans_linux_amd64.tar.gz
