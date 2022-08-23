@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans firefox gh glab go goland graalvm8 graalvm11 graalvm16 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans firefox gh glab go goland graalvm8 graalvm11 graalvm16 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act
@@ -86,6 +86,8 @@ jdk_ri15
 jgo
 jmeter
 jq
+jreleaser
+lazygit
 marp_cli
 maven
 mcs
@@ -172,6 +174,7 @@ jgo=https://github.com/scijava/jgo/archive/0.5.1.zip
 jmeter=https://mirroir.wptheme.fr/apache/jmeter/binaries/apache-jmeter-5.4.4.zip
 jq=https://github.com/stedolan/jq/releases/download/jq-1.7/jq-linux64
 jreleaser=https://github.com/jreleaser/jreleaser/releases/download/v0.1.1/jreleaser-0.1.1.zip
+lazygit=https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz
 marp_cli=https://github.com/marp-team/marp-cli/releases/download/v0.22.1/marp-cli-v0.22.1-linux.tar.gz
 maven=https://downloads.apache.org/maven/maven-3/3.6.4/binaries/apache-maven-3.6.4-bin.tar.gz
 mcs=https://github.com/mthmulders/mcs/releases/download/v0.1.14/mcs-0.1.14-linux-x86_64.tar.gz
