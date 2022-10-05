@@ -2,17 +2,19 @@
 
 ## How to add a new handled software
 
-### 1. Update SoftwareDefinition
+### 1. Update sources
 
-Add the new software.
+Update [SoftwareDefinition.java](../src/main/java/org/grumpyf0x48/liar/update/SoftwareDefinition.java) to add the new software.
 
-### 2. Update SoftwareUpdateServiceTest
+### 2. Update tests
+
+Update [SoftwareUpdateServiceTest.java](../src/test/java/org/grumpyf0x48/liar/update/SoftwareUpdateServiceTest.java)
 
 Update `checkUpdatableSoftwareTest` and `getSoftwareListTest` to increase count.
 
-### 3. Update liar-software files in src/test/resources
+### 3. Update test files
 
-Add the new software in `liar-software` and `liar-software.expected`.
+Update [liar-software](../src/test/resources/liar-software) and  [liar-software.expected](../src/test/resources/liar-software.expected) to add the new software.
 
 ## Use a different Java than the system one
 
