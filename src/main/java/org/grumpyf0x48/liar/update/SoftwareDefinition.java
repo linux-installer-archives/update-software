@@ -23,6 +23,7 @@ public enum SoftwareDefinition
     EASY_RSA(MONTHLY),
     EXA(MONTHLY),
     EVANS(MONTHLY,new String[]{ "ktr0731" }),
+    FZF(MONTHLY),
     FIREFOX(DAILY),
     GH(MONTHLY),
     GLAB(MONTHLY,new String[]{ "pre2" }),

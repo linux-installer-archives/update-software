@@ -81,7 +81,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(86, softwareList.length);
+        Assert.assertEquals(87, softwareList.length);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class SoftwareUpdateServiceTest
         final File testDir = new File("src/test/resources");
         final File initialSoftwareFile = new File(testDir, "liar-software");
         final File updatedSoftwareFile = new File(testDir, initialSoftwareFile.getName() + ".updated");
-        updatedSoftwareFile.deleteOnExit();
+        //updatedSoftwareFile.deleteOnExit();
         copyFile(initialSoftwareFile, updatedSoftwareFile);
 
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath());
@@ -238,7 +238,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 57, count);
+        Assert.assertEquals("Bad number of updatable software", 58, count);
     }
 
     private static SoftwareUpdateService getSoftwareUpdateService()
