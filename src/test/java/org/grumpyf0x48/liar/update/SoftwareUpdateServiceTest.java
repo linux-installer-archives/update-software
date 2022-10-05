@@ -90,7 +90,7 @@ public class SoftwareUpdateServiceTest
         final File testDir = new File("src/test/resources");
         final File initialSoftwareFile = new File(testDir, "liar-software");
         final File updatedSoftwareFile = new File(testDir, initialSoftwareFile.getName() + ".updated");
-        //updatedSoftwareFile.deleteOnExit();
+        updatedSoftwareFile.deleteOnExit();
         copyFile(initialSoftwareFile, updatedSoftwareFile);
 
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath());
