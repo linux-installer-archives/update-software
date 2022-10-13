@@ -219,7 +219,7 @@ public class SoftwareUpdateServiceTest
     {
         final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.EASY_RSA, "https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.7/EasyRSA-3.0.7.tgz");
         final SoftwareUrl nextUrl = lastExistingUpdateService.getNextUrl(initialUrl);
-        Assert.assertEquals("https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.0/EasyRSA-3.1.0.tgz", nextUrl.getUrl());
+        Assert.assertEquals("https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.1/EasyRSA-3.1.1.tgz", nextUrl.getUrl());
     }
 
     @Test
