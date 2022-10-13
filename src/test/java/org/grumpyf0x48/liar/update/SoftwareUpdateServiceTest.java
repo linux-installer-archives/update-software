@@ -20,32 +20,13 @@ public class SoftwareUpdateServiceTest
     private static SoftwareUpdateService nextUpdateService;
     private static SoftwareUpdateService nextExistingUpdateService;
     private static SoftwareUpdateService lastExistingUpdateService;
-    private static SoftwareUpdateOptions nextSoftwareUpdateOptions;
 
     @BeforeClass
     public static void initialize()
     {
-        nextUpdateService = getSoftwareUpdateService();
-
-        nextSoftwareUpdateOptions = new SoftwareUpdateOptions( //
-                        SoftwareUrlIncrementPolicy.NEXT, //
-                        SoftwareVersionIncrementPolicy.withDefault());
-
-        nextUpdateService.setUpdateOptions(nextSoftwareUpdateOptions);
-
-        nextExistingUpdateService = getSoftwareUpdateService();
-        lastExistingUpdateService = getLastExistingSoftwareUpdateService();
-    }
-
-    private static SoftwareUpdateService getLastExistingSoftwareUpdateService()
-    {
-        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
-        final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
-                SoftwareUrlIncrementPolicy.LAST_EXISTING, //
-                SoftwareVersionIncrementPolicy.withDefault(), //
-                false);
-        updateService.setUpdateOptions(updateOptions);
-        return updateService;
+        nextUpdateService = getNextUpdateService();
+        nextExistingUpdateService = getNextExistingUpdateService();
+        lastExistingUpdateService = getLastExistingUpdateService();
     }
 
     @Test
@@ -94,7 +75,7 @@ public class SoftwareUpdateServiceTest
         copyFile(initialSoftwareFile, updatedSoftwareFile);
 
         final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath());
-        softwareUpdateService.setUpdateOptions(nextSoftwareUpdateOptions);
+        softwareUpdateService.setUpdateOptions(nextUpdateService.getUpdateOptions());
         final boolean updated = softwareUpdateService.updateSoftwareResource(null);
 
         Assert.assertTrue(updated);
@@ -241,9 +222,32 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("Bad number of updatable software", 58, count);
     }
 
-    private static SoftwareUpdateService getSoftwareUpdateService()
+    private static SoftwareUpdateService getNextUpdateService()
+    {
+        final SoftwareUpdateService nextUpdateService = getNextExistingUpdateService();
+
+        SoftwareUpdateOptions nextSoftwareUpdateOptions = new SoftwareUpdateOptions( //
+                SoftwareUrlIncrementPolicy.NEXT, //
+                SoftwareVersionIncrementPolicy.withDefault());
+
+        nextUpdateService.setUpdateOptions(nextSoftwareUpdateOptions);
+        return nextUpdateService;
+    }
+
+    private static SoftwareUpdateService getNextExistingUpdateService()
     {
         return new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
+    }
+
+    private static SoftwareUpdateService getLastExistingUpdateService()
+    {
+        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
+        final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
+                SoftwareUrlIncrementPolicy.LAST_EXISTING, //
+                SoftwareVersionIncrementPolicy.withDefault(), //
+                false);
+        updateService.setUpdateOptions(updateOptions);
+        return updateService;
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)
