@@ -10,16 +10,20 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.util.Properties;
 
 import static org.apache.commons.io.FileUtils.contentEquals;
 import static org.apache.commons.io.FileUtils.copyFile;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class SoftwareUpdateServiceTest
 {
     private static SoftwareUpdateService nextUpdateService;
     private static SoftwareUpdateService nextExistingUpdateService;
     private static SoftwareUpdateService lastExistingUpdateService;
+    private static NetworkService networkService;
 
     @BeforeClass
     public static void initialize()
@@ -32,7 +36,7 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getSoftwareResourceInClassPath() throws IOException
     {
-        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/liar-software");
+        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/liar-software", NetworkService.getInstance());
         final Properties softwareProperties = softwareUpdateService.getSoftwareProperties();
         checkSoftwareProperties(softwareProperties);
     }
@@ -40,7 +44,7 @@ public class SoftwareUpdateServiceTest
     @Test(expected = FileNotFoundException.class)
     public void getSoftwareResourceNotInClassPath() throws IOException
     {
-        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/not_found");
+        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl("/not_found", NetworkService.getInstance());
         softwareUpdateService.getSoftwareProperties();
     }
 
@@ -74,7 +78,7 @@ public class SoftwareUpdateServiceTest
         updatedSoftwareFile.deleteOnExit();
         copyFile(initialSoftwareFile, updatedSoftwareFile);
 
-        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath());
+        final SoftwareUpdateService softwareUpdateService = new SoftwareUpdateServiceImpl(updatedSoftwareFile.getAbsolutePath(), NetworkService.getInstance());
         softwareUpdateService.setUpdateOptions(nextUpdateService.getUpdateOptions());
         final boolean updated = softwareUpdateService.updateSoftwareResource(null);
 
@@ -193,14 +197,19 @@ public class SoftwareUpdateServiceTest
         Assert.assertEquals("1.33.0", nextAtomUrl.getVersion().toString());
     }
 
-    // Quand ce test échouera à la sortie d'une nouvelle version
-    // Mocker le NetworkService pour stabiliser le test
     @Test
-    public void getLastExistingUrlEasyRsaTest() throws SoftwareException
-    {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.EASY_RSA, "https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.7/EasyRSA-3.0.7.tgz");
+    public void getLastExistingUrlEasyRsaTest() throws SoftwareException, ConnectException {
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.EASY_RSA, buildEasyRSAUrl(0, 7));
+        when(networkService.urlExists(buildEasyRSAUrl(0, 8))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(0, 9))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(0, 10))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(0, 11))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(0, 12))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(1, 0))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(1, 1))).thenReturn(true);
+        when(networkService.urlExists(buildEasyRSAUrl(1, 2))).thenReturn(false);
         final SoftwareUrl nextUrl = lastExistingUpdateService.getNextUrl(initialUrl);
-        Assert.assertEquals("https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.1/EasyRSA-3.1.1.tgz", nextUrl.getUrl());
+        Assert.assertEquals(buildEasyRSAUrl(1, 1), nextUrl.getUrl());
     }
 
     @Test
@@ -236,18 +245,27 @@ public class SoftwareUpdateServiceTest
 
     private static SoftwareUpdateService getNextExistingUpdateService()
     {
-        return new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
+        return new SoftwareUpdateServiceImpl("./target/test-classes/liar-software", NetworkService.getInstance());
     }
 
     private static SoftwareUpdateService getLastExistingUpdateService()
     {
-        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl("./target/test-classes/liar-software");
+        networkService = mock(NetworkService.class);
+        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl("./target/test-classes/liar-software", networkService);
         final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
                 SoftwareUrlIncrementPolicy.LAST_EXISTING, //
                 SoftwareVersionIncrementPolicy.withDefault(), //
                 false);
         updateService.setUpdateOptions(updateOptions);
         return updateService;
+    }
+
+    private static String buildEasyRSAUrl(int minor, int patch) {
+        return String.format(
+                "https://github.com/OpenVPN/easy-rsa/releases/download/v3.%d.%d/EasyRSA-3.%d.%d.tgz",
+                minor, patch,
+                minor, patch
+        );
     }
 
     private static void checkSoftwareProperties(final Properties softwareProperties)

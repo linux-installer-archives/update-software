@@ -12,11 +12,13 @@ import java.util.stream.Collectors;
 public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
 {
     private final String softwareResource;
+    private final NetworkService networkService;
     private SoftwareUpdateOptions updateOptions = SoftwareUpdateOptions.withDefault();
 
-    public SoftwareUpdateServiceImpl(final String softwareResource)
+    public SoftwareUpdateServiceImpl(final String softwareResource, final NetworkService networkService)
     {
         this.softwareResource = softwareResource;
+        this.networkService = networkService;
     }
 
     @Override
@@ -61,7 +63,6 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     public boolean checkSoftwareResource() throws IOException, SoftwareException
     {
         boolean check = false;
-        final NetworkService networkService = NetworkService.getInstance();
         for (final SoftwareDefinition softwareDefinition : SoftwareDefinition.getValues())
         {
             final SoftwareUrl softwareUrl = getUrl(softwareDefinition);
@@ -159,7 +160,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
         {
             throw new SoftwareNotFoundException("Software: " + software + " does not exist");
         }
-        return new SoftwareUrl(software, url, updateOptions);
+        return new SoftwareUrl(software, url, updateOptions, networkService);
     }
 
     @Override
@@ -171,7 +172,7 @@ public class SoftwareUpdateServiceImpl implements SoftwareUpdateService
     @Override
     public SoftwareUrl getNextUrl(final SoftwareUrl softwareUrl) throws SoftwareException
     {
-        return new SoftwareUrl(softwareUrl.getSoftware(), softwareUrl.getUrl(), updateOptions).getNext();
+        return new SoftwareUrl(softwareUrl.getSoftware(), softwareUrl.getUrl(), updateOptions, networkService).getNext();
     }
 
     private static List<SoftwareDefinition> getSoftwareToUpdate(final SoftwareUpdatePeriodicity softwareUpdatePeriodicity)

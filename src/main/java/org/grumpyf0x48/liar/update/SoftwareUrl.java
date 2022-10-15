@@ -114,7 +114,7 @@ public class SoftwareUrl implements SoftwareIncrementable<SoftwareUrl>
             {
                 if (networkService.urlExists(url))
                 {
-                    lastExistingUrl = new SoftwareUrl(software, url);
+                    lastExistingUrl = new SoftwareUrl(software, url, updateOptions, networkService);
                 }
                 if (networkService.urlExists(url))
                 {

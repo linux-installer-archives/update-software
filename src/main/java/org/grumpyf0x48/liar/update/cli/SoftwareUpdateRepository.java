@@ -1,11 +1,8 @@
 package org.grumpyf0x48.liar.update.cli;
 
-import org.grumpyf0x48.liar.update.SoftwareUpdateOptions;
+import org.grumpyf0x48.liar.update.*;
 import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareUrlIncrementPolicy;
 import org.grumpyf0x48.liar.update.SoftwareUpdateOptions.SoftwareVersionIncrementPolicy;
-import org.grumpyf0x48.liar.update.SoftwareUpdatePeriodicity;
-import org.grumpyf0x48.liar.update.SoftwareUpdateService;
-import org.grumpyf0x48.liar.update.SoftwareUpdateServiceImpl;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
 
 import java.io.IOException;
@@ -23,7 +20,7 @@ public class SoftwareUpdateRepository
         final boolean skipSoftwareNotFound = args.length > 2 && Boolean.parseBoolean(args[2]);
         try
         {
-            final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource);
+            final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource, NetworkService.getInstance());
             final SoftwareUpdateOptions updateOptions = new SoftwareUpdateOptions( //
                 SoftwareUrlIncrementPolicy.LAST_EXISTING, //
                 SoftwareVersionIncrementPolicy.withDefault(), //

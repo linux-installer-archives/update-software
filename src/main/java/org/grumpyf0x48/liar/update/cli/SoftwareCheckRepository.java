@@ -1,5 +1,6 @@
 package org.grumpyf0x48.liar.update.cli;
 
+import org.grumpyf0x48.liar.update.NetworkService;
 import org.grumpyf0x48.liar.update.SoftwareUpdateService;
 import org.grumpyf0x48.liar.update.SoftwareUpdateServiceImpl;
 import org.grumpyf0x48.liar.update.exceptions.SoftwareException;
@@ -15,7 +16,7 @@ public class SoftwareCheckRepository
             throw new SoftwareException("Usage: SoftwareCheckRepository <software resource path>");
         }
         final String softwareResource = args[0];
-        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource);
+        final SoftwareUpdateService updateService = new SoftwareUpdateServiceImpl(softwareResource, NetworkService.getInstance());
         try
         {
             final boolean check = updateService.checkSoftwareResource();
