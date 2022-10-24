@@ -1,12 +1,18 @@
 GRAALVM_HOME=$(shell find /usr/lib/jvm/graalvm-ce-java11 -name native-image | grep -v lib/svm | head -n 1 | xargs dirname | xargs dirname)
-
 ifeq (${GRAALVM_HOME},)
 JAVA_HOME=$(shell find /usr/lib/jvm/java-11* -name java | head -n 1 | xargs dirname | xargs dirname)
 else
 JAVA_HOME=${GRAALVM_HOME}
 endif
 
-MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} MAVEN_OPTS="-Xms512m -Xmx768m" ./mvnw
+ARCH=$(shell arch)
+ifeq (${ARCH}, x86_64)
+MEMORY_OPTS="-Xms512m -Xmx8192m"
+else
+MEMORY_OPTS="-Xms512m -Xmx768m"
+endif
+
+MVN=JAVA_HOME=${JAVA_HOME} PATH=${JAVA_HOME}/bin:${HOME}/bin:${PATH} MAVEN_OPTS=${MEMORY_OPTS} ./mvnw
 MVN_NO_TESTS=-DskipTests -Dmaven.test.skip=true
 NATIVE_TARGET=./target/SoftwareUpdateRepository.native
 
@@ -52,9 +58,13 @@ install: install_liar_update_software install_all_crons
 install_liar_update_software:
 	sudo cp --verbose ${LIAR_UPDATE_SOFTWARE} /usr/local/bin
 
-install_all_crons:
+install_all_crons: uninstall_all_crons install_all_crons_${ARCH}
+
+install_all_crons_armv7l:
 	make LIAR_PERIODICITY=daily install_cron
 	make LIAR_PERIODICITY=weekly install_cron
+
+install_all_crons_x86_64:
 	make LIAR_PERIODICITY=monthly install_cron
 
 uninstall_all_crons:
