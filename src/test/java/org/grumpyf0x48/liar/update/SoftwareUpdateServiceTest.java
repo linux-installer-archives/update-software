@@ -125,7 +125,7 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getNextUrlGraalVmTest() throws SoftwareException
     {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.GRAALVM8, "https://github.com/oracle/graal/releases/download/vm-19.2.0/graalvm-ce-linux-amd64-19.2.0.tar.gz");
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.GRAALVM11, "https://github.com/oracle/graal/releases/download/vm-19.2.0/graalvm-ce-linux-amd64-19.2.0.tar.gz");
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz", nextUrl.getUrl());
     }
