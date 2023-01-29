@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm8 graalvm11 graalvm16 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm11 graalvm17 graalvm19 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act
@@ -136,9 +136,9 @@ gh=https://github.com/cli/cli/releases/download/v1.1.1/gh_1.1.1_linux_amd64.tar.
 glab=https://github.com/profclems/glab/releases/download/v1.11.1-pre2/glab_1.11.1-pre2_Linux_x86_64.tar.gz
 go=https://dl.google.com/go/go1.15.4.linux-amd64.tar.gz
 goland=https://download.jetbrains.com/go/goland-2020.2.4.tar.gz
-graalvm8=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java8-linux-amd64-20.2.1.tar.gz
 graalvm11=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java11-linux-amd64-20.2.1.tar.gz
-graalvm16=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.1.1/graalvm-ce-java16-linux-amd64-21.1.1.tar.gz
+graalvm17=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.3.1/graalvm-ce-java17-linux-amd64-22.3.1.tar.gz
+graalvm19=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.3.1/graalvm-ce-java19-linux-amd64-22.3.1.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-6.8-bin.zip
 grails=https://github.com/grails/grails-core/releases/download/v4.0.6/grails-4.0.6.zip
 groovy=https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-3.0.8.zip

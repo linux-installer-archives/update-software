@@ -29,7 +29,6 @@ public enum SoftwareDefinition
     GLAB(MONTHLY,new String[]{ "pre2" }),
     GO(DAILY),
     GOLAND(DAILY),
-    GRAALVM8(WEEKLY),
     GRAALVM11(WEEKLY),
     GRAALVM17(WEEKLY),
     GRAALVM19(WEEKLY),
