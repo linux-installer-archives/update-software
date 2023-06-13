@@ -102,7 +102,8 @@ public class SoftwareUpdateServiceTest
         for (final SoftwareDefinition software : SoftwareDefinition.getValues())
         {
             if (software == SoftwareDefinition.LAST_UPDATES
-                // Old TORBROWSER URL are removed :-(
+                // Old MAVEN and TORBROWSER URL are removed :-(
+                || software == SoftwareDefinition.MAVEN
                 || software == SoftwareDefinition.TORBROWSER)
             {
                 // Special value

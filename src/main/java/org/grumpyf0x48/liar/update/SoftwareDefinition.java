@@ -67,7 +67,7 @@ public enum SoftwareDefinition
     SBT(WEEKLY),
     SCALA(WEEKLY),
     SHELLCHECK(MONTHLY),
-    SPRING(WEEKLY),
+    SPRING(WEEKLY, new String[]{"repo.maven.apache.org/maven2"}),
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
     // SUBLIMETEXT, Cannot parse because of the presence of build number in URL
     TORBROWSER(DAILY),
