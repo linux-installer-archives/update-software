@@ -66,7 +66,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(87, softwareList.length);
+        Assert.assertEquals(86, softwareList.length);
     }
 
     @Test
@@ -126,9 +126,10 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getNextUrlGraalVmTest() throws SoftwareException
     {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.GRAALVM11, "https://github.com/oracle/graal/releases/download/vm-19.2.0/graalvm-ce-linux-amd64-19.2.0.tar.gz");
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.GRAALVM17,
+                "https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.6/graalvm-community-jdk-17.0.6_linux-x64_bin.tar.gz");
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
-        Assert.assertEquals("https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz", nextUrl.getUrl());
+        Assert.assertEquals("https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.7/graalvm-community-jdk-17.0.7_linux-x64_bin.tar.gz",  nextUrl.getUrl());
     }
 
     @Test
@@ -229,7 +230,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 58, count);
+        Assert.assertEquals("Bad number of updatable software", 57, count);
     }
 
     private static SoftwareUpdateService getNextUpdateService()

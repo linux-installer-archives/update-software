@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm11 graalvm17 graalvm19 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act
@@ -48,9 +48,8 @@ gh
 glab
 go
 goland
-graalvm8
-graalvm11
-graalvm16
+graalvm17
+graalvm20
 gradle
 grails
 groovy
@@ -136,9 +135,8 @@ gh=https://github.com/cli/cli/releases/download/v1.1.1/gh_1.1.1_linux_amd64.tar.
 glab=https://github.com/profclems/glab/releases/download/v1.11.1-pre2/glab_1.11.1-pre2_Linux_x86_64.tar.gz
 go=https://dl.google.com/go/go1.15.4.linux-amd64.tar.gz
 goland=https://download.jetbrains.com/go/goland-2020.2.4.tar.gz
-graalvm11=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.1/graalvm-ce-java11-linux-amd64-20.2.1.tar.gz
-graalvm17=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.3.1/graalvm-ce-java17-linux-amd64-22.3.1.tar.gz
-graalvm19=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.3.1/graalvm-ce-java19-linux-amd64-22.3.1.tar.gz
+graalvm17=https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.8/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz
+graalvm20=https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-20.0.2/graalvm-community-jdk-20.0.2_linux-x64_bin.tar.gz
 gradle=https://downloads.gradle.org/distributions/gradle-6.8-bin.zip
 grails=https://github.com/grails/grails-core/releases/download/v4.0.6/grails-4.0.6.zip
 groovy=https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-3.0.8.zip
@@ -173,7 +171,7 @@ jdk_ri13=https://download.java.net/openjdk/jdk13/ri/openjdk-13+33_linux-x64_bin.
 jdk_ri14=https://download.java.net/openjdk/jdk14/ri/openjdk-14+36_linux-x64_bin.tar.gz
 jdk_ri15=https://download.java.net/openjdk/jdk15/ri/openjdk-15+36_linux-x64_bin.tar.gz
 jgo=https://github.com/scijava/jgo/archive/0.5.1.zip
-jmeter=https://mirroir.wptheme.fr/apache/jmeter/binaries/apache-jmeter-5.4.4.zip
+jmeter=https://mirroir.wptheme.fr/apache/jmeter/binaries/apache-jmeter-5.6.zip
 jq=https://github.com/stedolan/jq/releases/download/jq-1.7/jq-linux64
 jreleaser=https://github.com/jreleaser/jreleaser/releases/download/v0.1.1/jreleaser-0.1.1.zip
 lazygit=https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz
