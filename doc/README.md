@@ -14,7 +14,10 @@ Update `checkUpdatableSoftwareTest` and `getSoftwareListTest` to increase count.
 
 ### 3. Update test files
 
-Update [liar-software](../src/test/resources/liar-software) and  [liar-software.expected](../src/test/resources/liar-software.expected) to add the new software.
+Update the following files :
+
+- [liar-software.expected](../src/test/resources/liar-software.expected) with the latest version of the software
+- [liar-software](../src/test/resources/liar-software) with the previous version of the software
 
 ## Use a different Java than the system one
 

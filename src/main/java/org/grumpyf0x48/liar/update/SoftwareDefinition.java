@@ -61,6 +61,7 @@ public enum SoftwareDefinition
     PYCHARM_COMMUNITY(WEEKLY),
     PYCHARM_EDU(MONTHLY),
     PYCHARM_PROFESSIONAL(WEEKLY),
+    QUARKUS(WEEKLY),
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE(DAILY),
     SBT(WEEKLY),

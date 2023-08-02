@@ -98,6 +98,7 @@ postman
 pycharm_community
 pycharm_edu
 pycharm_professional
+quarkus
 robo3t
 rubymine
 sbt
@@ -186,6 +187,7 @@ postman=https://dl.pstmn.io/download/latest/linux64
 pycharm_community=https://download.jetbrains.com/python/pycharm-community-2020.1.tar.gz
 pycharm_edu=https://download.jetbrains.com/python/pycharm-edu-2020.1.tar.gz
 pycharm_professional=https://download.jetbrains.com/python/pycharm-professional-2020.1.tar.gz
+quarkus=https://github.com/quarkusio/quarkus/releases/download/3.2.1.Final/quarkus-cli-3.2.1.Final.zip
 robo3t=https://github.com/Studio3T/robomongo/releases/download/v1.4.1/robo3t-1.4.1-linux-x86_64-122dbd9.tar.gz
 rubymine=https://download.jetbrains.com/ruby/RubyMine-2020.2.3.tar.gz
 sbt=https://github.com/sbt/sbt/releases/download/v1.4.0/sbt-1.4.0.zip
