@@ -54,7 +54,7 @@ public enum SoftwareDefinition
     MARP_CLI(WEEKLY),
     MAVEN(WEEKLY,new String[]{ "maven/maven-3" }),
     MCS(WEEKLY),
-    MICRONAUT(MONTHLY),
+    MICRONAUT(WEEKLY),
     MONGODB(MONTHLY,new String[] { "x86_64", "debian10" }),
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
