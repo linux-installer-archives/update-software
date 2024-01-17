@@ -20,7 +20,7 @@
         <!-- test dependencies -->
         <junit.version>4.13.2</junit.version>
         <assertj-core.version>3.25.1</assertj-core.version>
-        <mockito-core.version>5.8.0</mockito-core.version>
+        <mockito-core.version>5.9.0</mockito-core.version>
 
         <!-- java -->
         <java.version>11</java.version>
