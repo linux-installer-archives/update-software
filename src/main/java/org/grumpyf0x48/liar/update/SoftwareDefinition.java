@@ -50,6 +50,7 @@ public enum SoftwareDefinition
     JMETER(MONTHLY),
     JQ(MONTHLY),
     JRELEASER(WEEKLY),
+    KOTLIN(WEEKLY),
     LAZYGIT(MONTHLY),
     MARP_CLI(WEEKLY),
     MAVEN(WEEKLY,new String[]{ "maven/maven-3" }),
