@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional quarkus rubymine sbt scala shellcheck spring torbrowser vscodium webstorm xsv yq)
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser kotlin lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional quarkus rubymine sbt scala scala_cli shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act
