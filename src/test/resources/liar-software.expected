@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea_community idea_edu idea_ultimate jbang jd_cmd jgo jmeter jq jreleaser kotlin lazygit marp_cli maven mcs micronaut mongodb pycharm_community pycharm_edu pycharm_professional quarkus rubymine sbt scala scala_cli shellcheck spring torbrowser vscodium webstorm xsv yq)
+last_updates=(act atom bat cheat clion cloc datagrip dbeaver delta easy_rsa exa evans fzf firefox gh glab go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea jbang jd_cmd jgo jmeter jq jreleaser kotlin lazygit marp_cli maven mcs micronaut mongodb pycharm quarkus rubymine sbt scala scala_cli shellcheck spring torbrowser vscodium webstorm xsv yq)
 
 software_list=(
 act
@@ -60,9 +60,7 @@ helidon
 hugo
 hyperfine
 icecat
-idea_community
-idea_edu
-idea_ultimate
+idea
 jbang
 jd_cmd
 jdk9
@@ -96,11 +94,8 @@ micronaut
 mongodb
 node
 postman
-pycharm_community
-pycharm_edu
-pycharm_professional
+pycharm
 quarkus
-robo3t
 rubymine
 sbt
 scala
@@ -111,7 +106,6 @@ sublimemerge
 sublimetext
 torbrowser
 visualvm
-vscode
 vscodium
 webstorm
 xsv
@@ -150,9 +144,7 @@ helidon=https://helidon.io/cli/latest/linux/helidon
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.76.6/hugo_0.76.6_Linux-64bit.tar.gz
 hyperfine=https://github.com/sharkdp/hyperfine/releases/download/v1.10.1/hyperfine-v1.10.1-x86_64-unknown-linux-gnu.tar.gz
 icecat=https://ftp.gnu.org/gnu/gnuzilla/60.7.1/icecat-60.7.1.en-US.gnulinux-x86_64.tar.bz2
-idea_community=https://download.jetbrains.com/idea/ideaIC-2020.2.4.tar.gz
-idea_edu=https://download.jetbrains.com/idea/ideaIE-2020.2.tar.gz
-idea_ultimate=https://download.jetbrains.com/idea/ideaIU-2020.2.4.tar.gz
+idea=https://download.jetbrains.com/idea/ideaIU-2020.2.4.tar.gz
 jbang=https://github.com/jbangdev/jbang/releases/download/v0.52.1/jbang-0.52.1.zip
 jd_cmd=https://github.com/kwart/jd-cmd/releases/download/jd-cmd-1.1.1.Final/jd-cli-1.1.1.Final-dist.zip
 jdk9=https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz
@@ -187,11 +179,8 @@ micronaut=https://github.com/micronaut-projects/micronaut-starter/releases/downl
 mongodb=https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-debian10-4.7.1.tgz
 node=https://nodejs.org/dist/v12.18.1/node-v12.18.1-linux-x64.tar.xz
 postman=https://dl.pstmn.io/download/latest/linux64
-pycharm_community=https://download.jetbrains.com/python/pycharm-community-2020.2.tar.gz
-pycharm_edu=https://download.jetbrains.com/python/pycharm-edu-2020.2.tar.gz
-pycharm_professional=https://download.jetbrains.com/python/pycharm-professional-2020.2.tar.gz
+pycharm=https://download.jetbrains.com/python/pycharm-professional-2020.2.tar.gz
 quarkus=https://github.com/quarkusio/quarkus/releases/download/3.2.2.Final/quarkus-cli-3.2.2.Final.zip
-robo3t=https://github.com/Studio3T/robomongo/releases/download/v1.4.1/robo3t-1.4.1-linux-x86_64-122dbd9.tar.gz
 rubymine=https://download.jetbrains.com/ruby/RubyMine-2020.2.4.tar.gz
 sbt=https://github.com/sbt/sbt/releases/download/v1.4.1/sbt-1.4.1.zip
 scala=https://downloads.lightbend.com/scala/2.13.3/scala-2.13.3.tgz
@@ -203,7 +192,6 @@ sublimetext=https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.b
 sublimetext4=https://download.sublimetext.com/sublime_text_build_4107_x64.tar.xz
 torbrowser=https://www.torproject.org/dist/torbrowser/10.0.3/tor-browser-linux64-10.0.3_fr.tar.xz
 visualvm=https://github.com/oracle/visualvm/releases/download/2.0.2/visualvm_202.zip
-vscode=https://update.code.visualstudio.com/1.49.1/linux-x64/stable
 vscodium=https://github.com/VSCodium/vscodium/releases/download/1.52.1/VSCodium-linux-x64-1.52.1.tar.gz
 webstorm=https://download.jetbrains.com/webstorm/WebStorm-2020.2.tar.gz
 xsv=https://github.com/BurntSushi/xsv/releases/download/0.13.1/xsv-0.13.1-x86_64-unknown-linux-musl.tar.gz

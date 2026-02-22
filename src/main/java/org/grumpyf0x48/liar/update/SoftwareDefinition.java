@@ -40,9 +40,7 @@ public enum SoftwareDefinition
     HUGO(WEEKLY),
     HYPERFINE(MONTHLY),
     ICECAT(MONTHLY),
-    IDEA_COMMUNITY(DAILY),
-    IDEA_EDU(MONTHLY),
-    IDEA_ULTIMATE(DAILY),
+    IDEA(DAILY),
     JBANG(DAILY),
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
     JD_CMD(MONTHLY),
@@ -59,9 +57,7 @@ public enum SoftwareDefinition
     MONGODB(MONTHLY,new String[] { "x86_64", "debian10" }),
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
-    PYCHARM_COMMUNITY(WEEKLY),
-    PYCHARM_EDU(MONTHLY),
-    PYCHARM_PROFESSIONAL(WEEKLY),
+    PYCHARM(WEEKLY),
     QUARKUS(WEEKLY),
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE(DAILY),

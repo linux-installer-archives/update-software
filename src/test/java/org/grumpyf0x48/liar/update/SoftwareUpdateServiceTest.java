@@ -66,7 +66,7 @@ public class SoftwareUpdateServiceTest
     public void getSoftwareListTest() throws IOException
     {
         final String[] softwareList = nextUpdateService.getSoftwareList();
-        Assert.assertEquals(89, softwareList.length);
+        Assert.assertEquals(83, softwareList.length);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class SoftwareUpdateServiceTest
     @Test
     public void getNextUrlIdeaTest() throws SoftwareException
     {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.IDEA_COMMUNITY, "https://download.jetbrains.com/idea/ideaIC-2019.2.tar.gz");
+        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.IDEA, "https://download.jetbrains.com/idea/ideaIC-2019.2.tar.gz");
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("https://download.jetbrains.com/idea/ideaIC-2019.3.tar.gz", nextUrl.getUrl());
     }
@@ -231,7 +231,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 60, count);
+        Assert.assertEquals("Bad number of updatable software", 56, count);
     }
 
     private static SoftwareUpdateService getNextUpdateService()
@@ -275,6 +275,6 @@ public class SoftwareUpdateServiceTest
     {
         Assert.assertTrue(softwareProperties.containsKey("software_list"));
         Assert.assertTrue(softwareProperties.containsKey("gradle"));
-        Assert.assertTrue(softwareProperties.containsKey("idea_ultimate"));
+        Assert.assertTrue(softwareProperties.containsKey("idea"));
     }
 }
