@@ -43,8 +43,7 @@ public enum SoftwareDefinition
     IDEA(DAILY),
     JBANG(DAILY),
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs
-    JD_CMD(MONTHLY),
-    JGO(MONTHLY),
+    JD_CLI(MONTHLY),
     JMETER(MONTHLY),
     JQ(MONTHLY),
     JRELEASER(WEEKLY),
