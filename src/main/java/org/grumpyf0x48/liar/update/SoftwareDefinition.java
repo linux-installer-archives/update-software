@@ -21,7 +21,7 @@ public enum SoftwareDefinition
     // DBVIS, Cannot parse because of version written with underscores: 13_0_3
     DELTA(MONTHLY),
     EASY_RSA(MONTHLY),
-    EXA(MONTHLY),
+    EZA(MONTHLY),
     EVANS(MONTHLY,new String[]{ "ktr0731" }),
     FZF(MONTHLY),
     FIREFOX(DAILY),
