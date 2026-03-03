@@ -61,14 +61,14 @@ public class SoftwareUpdateRepositoryTest
     {
         final File tempFile = File.createTempFile("matchingPeriodicityTest", ".properties");
         final String content =
-                "atom=https://github.com/atom/atom/releases/download/v1.53.0/atom-amd64.tar.gz\n" +
+                "gradle=https://downloads.gradle.org/distributions/gradle-6.7-bin.zip\n" +
                         "last_updates=";
         FileUtils.writeStringToFile(tempFile, content, StandardCharsets.UTF_8);
         SoftwareUpdateRepository.main(new String[] { tempFile.getAbsolutePath(), "DAILY", "true" });
         final Properties properties = new Properties();
         properties.load(new FileInputStream(tempFile));
-        Assert.assertNotEquals("https://github.com/atom/atom/releases/download/v1.53.0/atom-amd64.tar.gz", properties.getProperty("atom"));
-        Assert.assertEquals("(atom)", properties.getProperty("last_updates"));
+        Assert.assertNotEquals("https://downloads.gradle.org/distributions/gradle-6.8-bin.zip\n", properties.getProperty("atom"));
+        Assert.assertEquals("(gradle)", properties.getProperty("last_updates"));
     }
 
     @Test

@@ -11,7 +11,6 @@ public enum SoftwareDefinition
 
     ACT(WEEKLY),
     // ANT, Frequent connection problems
-    ATOM(DAILY),
     BAT(MONTHLY),
     CHEAT(MONTHLY),
     CLION(MONTHLY),
@@ -22,7 +21,6 @@ public enum SoftwareDefinition
     DELTA(MONTHLY),
     EASY_RSA(MONTHLY),
     EZA(MONTHLY),
-    EVANS(MONTHLY,new String[]{ "ktr0731" }),
     FZF(MONTHLY),
     FIREFOX(DAILY),
     GH(MONTHLY),
@@ -61,8 +59,6 @@ public enum SoftwareDefinition
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE(DAILY),
     SBT(WEEKLY),
-    SCALA(WEEKLY),
-    SCALA_CLI(WEEKLY),
     SHELLCHECK(MONTHLY),
     SPRING(WEEKLY, new String[]{"repo.maven.apache.org/maven2"}),
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
@@ -70,7 +66,6 @@ public enum SoftwareDefinition
     TORBROWSER(DAILY),
     VSCODIUM(WEEKLY),
     WEBSTORM(DAILY),
-    XSV(MONTHLY),
     YQ(MONTHLY);
 
     private final SoftwareUpdatePeriodicity periodicity;

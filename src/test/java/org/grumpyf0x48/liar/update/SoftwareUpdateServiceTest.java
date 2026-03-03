@@ -150,14 +150,6 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
-    public void getNextUrlXsvTest() throws SoftwareException
-    {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.XSV, "https://github.com/BurntSushi/xsv/releases/download/0.13.0/xsv-0.13.0-x86_64-unknown-linux-musl.tar.gz");
-        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
-        Assert.assertEquals("https://github.com/BurntSushi/xsv/releases/download/0.13.1/xsv-0.13.1-x86_64-unknown-linux-musl.tar.gz", nextUrl.getUrl());
-    }
-
-    @Test
     public void getNextUrlSpringTest() throws SoftwareException
     {
         final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.SPRING, "https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.3.0.RELEASE/spring-boot-cli-2.3.0.RELEASE-bin.zip");
@@ -174,30 +166,11 @@ public class SoftwareUpdateServiceTest
     }
 
     @Test
-    public void getNextUrlEvansTest() throws SoftwareException
-    {
-        final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.EVANS, "https://github.com/ktr0731/evans/releases/download/0.8.4/evans_linux_amd64.tar.gz");
-        final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
-        Assert.assertEquals("https://github.com/ktr0731/evans/releases/download/0.8.5/evans_linux_amd64.tar.gz", nextUrl.getUrl());
-    }
-
-    @Test
     public void getNextUrlMavenTest() throws SoftwareException
     {
         final SoftwareUrl initialUrl = new SoftwareUrl(SoftwareDefinition.MAVEN, "http://apache.mediamirrors.org/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz");
         final SoftwareUrl nextUrl = nextUpdateService.getNextUrl(initialUrl);
         Assert.assertEquals("http://apache.mediamirrors.org/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz", nextUrl.getUrl());
-    }
-
-    @Test
-    public void getNextExistingUrlAtomTest() throws SoftwareException
-    {
-        final SoftwareUrl initialAtomUrl = new SoftwareUrl(SoftwareDefinition.ATOM, "https://github.com/atom/atom/releases/download/v1.32.2/atom-amd64.tar.gz");
-        final SoftwareUrl nextAtomUrl = nextExistingUpdateService.getNextUrl(initialAtomUrl);
-        Assert.assertNotEquals(nextAtomUrl.getUrl(), initialAtomUrl.getUrl());
-        Assert.assertEquals("https://github.com/atom/atom/releases/download/v1.33.0/atom-amd64.tar.gz", nextAtomUrl.getUrl());
-        Assert.assertEquals(SoftwareDefinition.ATOM, nextAtomUrl.getSoftware());
-        Assert.assertEquals("1.33.0", nextAtomUrl.getVersion().toString());
     }
 
     @Test
@@ -231,7 +204,7 @@ public class SoftwareUpdateServiceTest
                 Assert.fail(software + " is not updatable: " + e.getMessage());
             }
         }
-        Assert.assertEquals("Bad number of updatable software", 55, count);
+        Assert.assertEquals("Bad number of updatable software", 50, count);
     }
 
     private static SoftwareUpdateService getNextUpdateService()
