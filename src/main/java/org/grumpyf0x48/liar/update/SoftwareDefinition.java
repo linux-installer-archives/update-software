@@ -58,7 +58,6 @@ public enum SoftwareDefinition
     QUARKUS(WEEKLY),
     // ROBO3T Cannot parse because of the presence of SHA in URL
     RUBYMINE(DAILY),
-    SBT(WEEKLY),
     SHELLCHECK(MONTHLY),
     SPRING(WEEKLY, new String[]{"repo.maven.apache.org/maven2"}),
     // SUBLIMEMERGE, Cannot parse because of the presence of build number in URL
