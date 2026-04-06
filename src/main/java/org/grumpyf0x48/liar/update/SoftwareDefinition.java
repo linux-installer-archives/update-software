@@ -52,6 +52,7 @@ public enum SoftwareDefinition
     MCS(WEEKLY),
     MICRONAUT(WEEKLY),
     MONGODB(MONTHLY,new String[] { "x86_64", "debian10" }),
+    MVND(MONTHLY),
     // NODE,
     // POSTMAN, Cannot parse because always the same URL
     PYCHARM(WEEKLY),
