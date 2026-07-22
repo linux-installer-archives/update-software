@@ -37,7 +37,6 @@ public enum SoftwareDefinition
     HADOLINT(MONTHLY),
     HUGO(WEEKLY),
     HYPERFINE(MONTHLY),
-    ICECAT(MONTHLY),
     IDEA(DAILY),
     JBANG(DAILY),
     // JDK*, Cannot parse because of the presence of SHA or build numbers in URLs

@@ -26,7 +26,7 @@
 declare -a last_updates
 declare -a software_list
 
-last_updates=(act bat cheat clion cloc datagrip dbeaver delta easy_rsa eza fzf firefox gh gitlab_cli go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine icecat idea jbang jd_cli jmeter jq jreleaser kotlin lazygit marp_cli maven mcs micronaut mongodb mvnd pycharm quarkus rubymine shellcheck spring torbrowser vscodium webstorm yq)
+last_updates=(act bat cheat clion cloc datagrip dbeaver delta easy_rsa eza fzf firefox gh gitlab_cli go goland graalvm17 graalvm20 gradle grails groovy grpcui grpcurl hadolint hugo hyperfine idea jbang jd_cli jmeter jq jreleaser kotlin lazygit marp_cli maven mcs micronaut mongodb mvnd pycharm quarkus rubymine shellcheck spring torbrowser vscodium webstorm yq)
 
 software_list=(
 act
@@ -57,7 +57,6 @@ hadolint
 helidon
 hugo
 hyperfine
-icecat
 idea
 jbang
 jd_cli
@@ -134,7 +133,6 @@ hadolint=https://github.com/hadolint/hadolint/releases/download/v1.18.3/hadolint
 helidon=https://helidon.io/cli/latest/linux/helidon
 hugo=https://github.com/gohugoio/hugo/releases/download/v0.76.6/hugo_0.76.6_Linux-64bit.tar.gz
 hyperfine=https://github.com/sharkdp/hyperfine/releases/download/v1.10.1/hyperfine-v1.10.1-x86_64-unknown-linux-gnu.tar.gz
-icecat=https://ftp.gnu.org/gnu/gnuzilla/60.7.1/icecat-60.7.1.en-US.gnulinux-x86_64.tar.bz2
 idea=https://download.jetbrains.com/idea/ideaIU-2020.2.4.tar.gz
 jbang=https://github.com/jbangdev/jbang/releases/download/v0.52.1/jbang-0.52.1.zip
 jd_cli=https://github.com/intoolswetrust/jd-cli/releases/download/jd-cli-1.3.1-beta-1/jd-cli-1.3.1-beta-1-dist.zip
