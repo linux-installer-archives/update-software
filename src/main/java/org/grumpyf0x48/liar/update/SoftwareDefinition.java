@@ -24,7 +24,7 @@ public enum SoftwareDefinition
     FZF(MONTHLY),
     FIREFOX(DAILY),
     GH(MONTHLY),
-    GLAB(MONTHLY,new String[]{ "pre2" }),
+    GITLAB_CI(MONTHLY,new String[]{ "pre2" }),
     GO(DAILY),
     GOLAND(DAILY),
     GRAALVM17(WEEKLY),
