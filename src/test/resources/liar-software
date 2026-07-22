@@ -43,7 +43,7 @@ eza
 firefox
 fzf
 gh
-gitlab_ci
+gitlab_cli
 go
 goland
 graalvm17
@@ -120,7 +120,7 @@ eza=https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0
 firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/82.0/linux-x86_64/fr/firefox-82.0.tar.bz2
 fzf=https://github.com/junegunn/fzf/releases/download/0.33.0/fzf-0.33.0-linux_arm64.tar.gz
 gh=https://github.com/cli/cli/releases/download/v1.1.0/gh_1.1.0_linux_amd64.tar.gz
-gitlab_ci=https://github.com/profclems/glab/releases/download/v1.11.0-pre2/glab_1.11.0-pre2_Linux_x86_64.tar.gz
+gitlab_cli=https://github.com/profclems/glab/releases/download/v1.11.0-pre2/glab_1.11.0-pre2_Linux_x86_64.tar.gz
 go=https://dl.google.com/go/go1.15.3.linux-amd64.tar.gz
 goland=https://download.jetbrains.com/go/goland-2020.2.3.tar.gz
 graalvm17=https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.7/graalvm-community-jdk-17.0.7_linux-x64_bin.tar.gz
